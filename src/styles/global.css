@@ -1675,7 +1675,7 @@
 
 /* Process Strip */
 .process-strip {
-  background: var(--off-white); padding: 80px;
+  background: var(--darker); padding: 80px 48px;
   text-align: center;
 }
 .process-strip-label {
@@ -1685,23 +1685,25 @@
 }
 .process-strip h3 {
   font-family: var(--font-heading); font-size: clamp(24px, 2.5vw, 36px);
-  font-weight: 700; color: var(--darker); letter-spacing: -0.02em; margin-bottom: 48px;
+  font-weight: 700; color: var(--white); letter-spacing: -0.02em; margin-bottom: 48px;
 }
-.process-steps { display: flex; justify-content: center; gap: 0; max-width: 900px; margin: 0 auto; }
+.process-steps { display: flex; justify-content: center; gap: 0; flex-wrap: wrap; }
 .process-step {
-  flex: 1; padding: 32px 24px; position: relative;
-  border-right: 1px solid var(--light-gray);
+  flex: 1; min-width: 160px; max-width: 220px; padding: 0 24px; position: relative; text-align: center;
 }
-.process-step:last-child { border-right: none; }
+.process-step + .process-step::before {
+  content: '\2192'; position: absolute; left: -6px; top: 16px;
+  color: rgba(0,200,202,0.4); font-size: 20px;
+}
 .process-step-num {
-  font-family: var(--font-heading); font-size: 48px; font-weight: 700;
-  color: var(--light-gray); letter-spacing: -0.04em; line-height: 1; margin-bottom: 12px;
+  font-family: var(--font-heading); font-size: 40px; font-weight: 700;
+  color: rgba(0,200,202,0.2); line-height: 1; margin-bottom: 8px;
 }
 .process-step-name {
-  font-family: var(--font-heading); font-weight: 700; font-size: 16px;
-  color: var(--darker); margin-bottom: 8px;
+  font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.7); margin-bottom: 6px;
 }
-.process-step-desc { font-size: 13px; color: var(--mid-gray); line-height: 1.5; }
+.process-step-desc { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.5; }
 
 /* Diagnostic Banner */
 .diagnostic-banner {
@@ -2460,7 +2462,8 @@
 .section-header {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 80px 80px 0;
+  padding: 100px 48px 0;
+  text-align: center;
 }
 .section-header .section-tag { margin-bottom: 16px; }
 .section-header .section-heading {
@@ -2478,6 +2481,8 @@
   max-width: 540px;
   line-height: 1.6;
   margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* â”€â”€ CAT-PROMPTS checkmarks (recursos-gratis) â”€â”€ */
