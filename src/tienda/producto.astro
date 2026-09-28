@@ -1,0 +1,546 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Producto — Kreativo Studio" description="Recursos digitales de marketing.">
+<div class="nav-mobile" id="navMobile">
+  <a href="#">Servicios</a><a href="#">Tienda</a><a href="#">Academia</a><a href="#">Blog</a>
+  <a href="https://wa.me/52XXXXXXXXXX" class="nav-mobile-cta">Agendar diagnóstico gratuito</a>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="kreativo-mockup.html">Inicio</a><span>/</span>
+  <a href="kreativo-tienda.html">Tienda</a><span>/</span>
+  <span id="breadcrumbName">—</span>
+</div>
+
+<!-- PDP -->
+<div class="pdp-wrap">
+  <!-- LEFT -->
+  <div class="pdp-left">
+    <div class="product-hero-visual" id="heroVisual">
+      <span class="phv-badge new" id="heroBadge">NUEVO</span>
+      <div class="phv-inner">
+        <div class="phv-icon-box" id="heroIconBox">
+          <svg id="heroIcon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="phv-title" id="heroLabel">RECURSO</div>
+      </div>
+    </div>
+
+    <span class="product-cat-tag" id="productCat">Estrategia</span>
+    <h1 class="product-title" id="productTitle">Nombre del producto</h1>
+    <p class="product-intro" id="productIntro">Descripción introductoria del producto.</p>
+
+    <!-- WHAT'S INCLUDED -->
+    <div class="pdp-section">
+      <div class="pdp-section-title">QUE INCLUYE</div>
+      <ul class="includes-list" id="includesList"></ul>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="pdp-section" id="previewSection">
+      <div class="pdp-section-title">MUESTRA DEL CONTENIDO</div>
+      <div class="preview-grid" id="previewGrid"></div>
+    </div>
+
+    <!-- FOR WHOM -->
+    <div class="pdp-section">
+      <div class="pdp-section-title">PARA QUIEN ES</div>
+      <div class="for-whom-grid">
+        <div class="for-whom-yes">
+          <span class="fw-label">TE VA A SERVIR SI</span>
+          <ul class="fw-list" id="forYesList"></ul>
+        </div>
+        <div class="for-whom-no">
+          <span class="fw-label">NO ES PARA TI SI</span>
+          <ul class="fw-list" id="forNoList"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: BUY BOX -->
+  <div>
+    <div class="buy-box">
+      <div class="buy-box-price" id="boxPrice">$297 <small>MXN</small></div>
+      <div class="buy-box-note">Descarga digital · Acceso inmediato</div>
+      <a href="#" class="btn-buy-main">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Comprar ahora
+      </a>
+      <a href="https://wa.me/52XXXXXXXXXX" class="btn-wa-box">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Preguntar por WhatsApp
+      </a>
+      <div class="buy-box-divider"></div>
+      <div class="buy-box-features">
+        <div class="bbf"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Descarga inmediata en PDF / Excel</div>
+        <div class="bbf"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Listo para usar desde el primer día</div>
+        <div class="bbf"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Pago seguro con Shopify Payments</div>
+        <div class="bbf"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Acceso de por vida al archivo</div>
+      </div>
+      <div class="buy-box-tags" id="boxTags"></div>
+      <div class="buy-box-guarantee">
+        <div class="guarantee-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="guarantee-text"><strong>Satisfacción garantizada</strong>Si el producto no cumple lo que describe, te devolvemos el dinero sin preguntas.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RELATED PRODUCTS -->
+<section class="related-section">
+  <div class="related-inner">
+    <div class="section-tag">También te puede interesar</div>
+    <div class="related-heading">Más recursos de la tienda</div>
+    <div class="related-grid" id="relatedGrid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<script is:inline>
+const PRODUCTS = [
+  {
+    id: 0, slug: 'kit-reportes',
+    name: 'Kit de Reportes de Marketing Digital',
+    cat: 'Estrategia', badge: 'best', badgeText: 'MAS VENDIDO',
+    price: '$297', tags: ['Google Sheets','Data Studio','KPIs','Reportes'],
+    gradient: 'linear-gradient(135deg, #1D1D1F 0%, #2d2d30 100%)',
+    iconDark: false, iconLabel: 'REPORTES',
+    icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+    intro: '10 dashboards listos en Google Sheets y Looker Studio para reportar todos tus canales digitales de forma profesional. Deja de armar reportes desde cero cada mes.',
+    includes: [
+      'Dashboard de Paid Media (Meta Ads + Google Ads)',
+      'Dashboard de SEO con métricas de posicionamiento',
+      'Dashboard de Redes Sociales (IG, TikTok, LinkedIn)',
+      'Dashboard de E-commerce con revenue y conversión',
+      'Dashboard de Email Marketing',
+      'Tablero ejecutivo consolidado (todos los canales)',
+      'Guía de conexión con fuentes de datos',
+      'Glosario de métricas por canal',
+      'Instrucciones de personalización con tu branding',
+      'Actualizaciones incluidas de por vida'
+    ],
+    preview: [
+      {num:'01', txt:'Dashboard consolidado con vista de todos los canales en una sola pantalla'},
+      {num:'02', txt:'Sección de paid media con ROAS, CPA, CTR y gasto por campaña'},
+      {num:'03', txt:'Tracker semanal para comparar semana a semana y mes a mes'},
+      {num:'04', txt:'Semáforo de KPIs: verde, amarillo y rojo según objetivos'},
+      {num:'05', txt:'Gráfica de tendencia de revenue con proyección mensual'},
+      {num:'06', txt:'Slide de resumen ejecutivo listo para presentar al cliente o al CEO'}
+    ],
+    forYes: ['Llevas campañas de varios canales y necesitas un reporte profesional','Trabajas en una agencia y reportas a clientes mensualmente','Eres director de marketing y necesitas visibilidad consolidada de todos los canales'],
+    forNo: ['Solo manejas un canal y no necesitas vista consolidada','Tienes un sistema de reportes propio que ya funciona bien']
+  },
+  {
+    id: 1, slug: 'meta-ads-mexico',
+    name: 'Meta Ads desde Cero en México',
+    cat: 'Paid Media', badge: 'best', badgeText: 'POPULAR',
+    price: '$497', tags: ['Meta Ads','Facebook','Instagram','LATAM'],
+    gradient: 'linear-gradient(135deg, #1877F2 0%, #0d5bbd 100%)',
+    iconDark: false, iconLabel: 'META ADS',
+    icon: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+    intro: 'Guía paso a paso para lanzar, estructurar y optimizar campañas en Meta Ads adaptada al mercado mexicano. Con segmentaciones, presupuestos, creatividades y errores comunes documentados.',
+    includes: [
+      'Guía de configuración de Business Manager y pixel',
+      'Estructura recomendada de campañas por objetivo',
+      'Segmentaciones probadas para el mercado mexicano',
+      'Calculadora de presupuesto mínimo viable por industria',
+      'Checklist de lanzamiento de campaña (30 puntos)',
+      'Framework de creatividades: qué funciona en México',
+      'Guía de interpretación de métricas de Meta Ads',
+      'Errores más comunes y cómo evitarlos',
+      'Template de reporte mensual de Meta Ads',
+      'Glosario completo de términos de la plataforma'
+    ],
+    preview: [
+      {num:'01', txt:'Estructura de cuenta: campañas, conjuntos y anuncios explicados con ejemplos reales'},
+      {num:'02', txt:'Tabla de segmentaciones por industria con intereses y comportamientos probados'},
+      {num:'03', txt:'Calculadora de presupuesto: cuánto invertir según tu objetivo y mercado'},
+      {num:'04', txt:'Framework de creatividades: formatos, textos y llamadas a la acción que convierten'},
+      {num:'05', txt:'Guía de optimización semana a semana: qué revisar y cuándo hacer cambios'},
+      {num:'06', txt:'Diagnóstico de campaña: cómo leer los números y tomar decisiones'}
+    ],
+    forYes: ['Estás empezando con Meta Ads y no quieres cometer errores costosos','Llevas tiempo corriendo anuncios pero sin estructura clara','Eres dueño de negocio y quieres entender qué hace tu agencia'],
+    forNo: ['Ya tienes experiencia sólida en Meta Ads y buscas tácticas avanzadas','Manejas presupuestos enterprise que requieren consultoría personalizada']
+  },
+  {
+    id: 2, slug: 'plan-90-dias',
+    name: 'Plan de Marketing Digital 90 Días',
+    cat: 'Estrategia', badge: 'new', badgeText: 'NUEVO',
+    price: '$397', tags: ['Planificación','Roadmap','KPIs','Estrategia'],
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    iconDark: false, iconLabel: 'PLAN 90D',
+    icon: '<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+    intro: 'Plantilla completa para construir tu plan trimestral de marketing: objetivos SMART, canales por semana, presupuesto por canal, calendario de acciones y cuadro de seguimiento semanal de KPIs.',
+    includes: [
+      'Plantilla de definición de objetivos SMART con pesos por canal',
+      'Mapa de canales digitales por etapa del embudo',
+      'Calendario editorial de 90 días con slots por plataforma',
+      'Calculadora de distribución de presupuesto por canal',
+      'Tracker semanal de KPIs con semáforo automático',
+      'Plantilla de briefing para equipo o agencia',
+      'Framework de priorización de iniciativas por impacto y esfuerzo',
+      'Guía de revisión mensual: preguntas clave a responder',
+      'Template de presentación ejecutiva del plan',
+      'Ejemplos reales de planes para 3 industrias distintas'
+    ],
+    preview: [
+      {num:'01', txt:'Portada ejecutiva: objetivos, presupuesto total y canales del trimestre'},
+      {num:'02', txt:'Calendario semana a semana con acciones específicas por canal'},
+      {num:'03', txt:'Tabla de distribución de presupuesto con % recomendado por canal'},
+      {num:'04', txt:'Cuadro de KPIs con metas semanales y semáforo de cumplimiento'},
+      {num:'05', txt:'Sección de riesgos y contingencias por canal'},
+      {num:'06', txt:'Resumen mensual para revisión con dirección o cliente'}
+    ],
+    forYes: ['Necesitas organizar el trabajo de marketing de los próximos 3 meses','Tienes equipo o agencia y quieres alinear a todos en un mismo plan','Eres director de marketing y necesitas presentar el plan a la dirección'],
+    forNo: ['Buscas una estrategia anual con análisis profundo de mercado','Ya tienes un sistema de planificación que funciona bien']
+  },
+  {
+    id: 3, slug: 'claude-marketers',
+    name: 'Claude para Marketers',
+    cat: 'IA & Herramientas', badge: 'new', badgeText: 'NUEVO',
+    price: '$197', tags: ['Claude','IA','ChatGPT','Productividad'],
+    gradient: 'linear-gradient(135deg, #010101 0%, #1a1a1a 100%)',
+    iconDark: false, iconLabel: 'CLAUDE + IA',
+    icon: '<path d="M12 2a10 10 0 110 20A10 10 0 0112 2zm0 4a1 1 0 00-1 1v5a1 1 0 001 1h4a1 1 0 100-2h-3V7a1 1 0 00-1-1z"/>',
+    intro: 'Guía práctica para integrar Claude en tu flujo diario de trabajo como marketer. Prompts optimizados para las tareas que más tiempo te consumen: copy, análisis, estrategia y producción de contenido.',
+    includes: [
+      '40 prompts optimizados para tareas de marketing digital',
+      'Flujos de trabajo por tipo de tarea con prompts en secuencia',
+      'Prompts para copy de anuncios en Meta y Google',
+      'Prompts para análisis de competencia y benchmark',
+      'Prompts para generar briefs creativos en minutos',
+      'Prompts para estrategia de contenido y calendarios',
+      'Guía de prompt engineering básico para no técnicos',
+      'Cómo usar Projects de Claude para mantener contexto de marca',
+      'Comparación de Claude vs. ChatGPT para tareas de marketing',
+      'Actualizaciones trimestrales de prompts incluidas'
+    ],
+    preview: [
+      {num:'01', txt:'Prompt para generar 10 variaciones de copy de anuncio desde un brief'},
+      {num:'02', txt:'Flujo completo de análisis de competencia en menos de 20 minutos'},
+      {num:'03', txt:'Prompt para crear un calendario de contenido de 30 días desde cero'},
+      {num:'04', txt:'Cómo dar contexto de marca a Claude para que siempre suene a ti'},
+      {num:'05', txt:'Prompt para redactar reportes ejecutivos a partir de datos crudos'},
+      {num:'06', txt:'Flujo de ideación de campañas con Claude como copiloto creativo'}
+    ],
+    forYes: ['Usas IA pero sientes que no la aprovechas al máximo','Produces mucho contenido y quieres hacerlo más rápido sin perder calidad','Eres director de marketing con poco tiempo y necesitas tomar decisiones rápido'],
+    forNo: ['Buscas automatización avanzada con APIs o código','No usas ni quieres usar herramientas de IA en tu trabajo']
+  },
+  {
+    id: 4, slug: 'auditoria-meta-ads',
+    name: 'Kit de Auditoría de Meta Ads',
+    cat: 'Paid Media', badge: 'new', badgeText: 'NUEVO',
+    price: '$347', tags: ['Meta Ads','Auditoría','Optimización','ROAS'],
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    iconDark: false, iconLabel: 'AUDITORIA',
+    icon: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>',
+    intro: 'Framework con 80 puntos de revisión para auditar cualquier cuenta de Meta Ads en menos de 2 horas. Detecta problemas de estructura, segmentación, creatividades, pixel y eficiencia de presupuesto.',
+    includes: [
+      '80 puntos de revisión organizados por módulo',
+      'Módulo 1: Configuración y estructura de cuenta',
+      'Módulo 2: Segmentaciones y audiencias',
+      'Módulo 3: Creatividades y formatos',
+      'Módulo 4: Pixel, eventos y atribución',
+      'Módulo 5: Eficiencia de presupuesto y puja',
+      'Módulo 6: Análisis de métricas y resultados',
+      'Plantilla de reporte de hallazgos para cliente',
+      'Priorización de mejoras por impacto potencial',
+      'Comparativo antes/después para medir avance'
+    ],
+    preview: [
+      {num:'01', txt:'Checklist de estructura: campañas, conjuntos y anuncios bien organizados'},
+      {num:'02', txt:'Revisión de audiencias: solapamiento, saturación y potencial de escala'},
+      {num:'03', txt:'Análisis de creatividades: frecuencia, CTR y señales de fatiga'},
+      {num:'04', txt:'Diagnóstico de pixel: eventos disparados correctamente y deduplicación'},
+      {num:'05', txt:'Eficiencia de presupuesto: distribución por campaña y ROAS real vs. reportado'},
+      {num:'06', txt:'Reporte de hallazgos con semáforo y recomendaciones priorizadas'}
+    ],
+    forYes: ['Llevas cuentas de Meta Ads y quieres un proceso sistemático de revisión','Recibes cuentas de nuevos clientes y necesitas auditar rápido','Sientes que tus campañas no están rindiendo todo su potencial'],
+    forNo: ['Nunca has usado Meta Ads y no conoces los conceptos básicos','Buscas que alguien audite la cuenta por ti (ese es nuestro servicio)']
+  },
+  {
+    id: 5, slug: 'google-ecommerce',
+    name: 'Estructura de Campañas Google para E-commerce',
+    cat: 'Paid Media', badge: 'new', badgeText: 'NUEVO',
+    price: '$447', tags: ['Google Ads','Shopping','Performance Max','E-commerce'],
+    gradient: 'linear-gradient(135deg, #4285F4 0%, #0F9D58 100%)',
+    iconDark: false, iconLabel: 'GOOGLE ADS',
+    icon: '<path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/>',
+    intro: 'Plantilla con la arquitectura completa de Google Ads para tiendas en línea: Shopping, Search y Performance Max con estructura de grupos de anuncios, estrategias de puja y segmentación de productos.',
+    includes: [
+      'Arquitectura recomendada de cuenta para e-commerce',
+      'Estructura de campañas Shopping por categoría y margen',
+      'Configuración de Performance Max: assets, señales y exclusiones',
+      'Campañas de Search: keywords, grupos y match types',
+      'Guía de estrategias de puja por etapa del negocio',
+      'Estructura de listas de remarketing y audiencias',
+      'Configuración de conversiones y valor de conversión',
+      'Template de etiquetado de productos para el feed',
+      'Guía de exclusiones de palabras clave negativas',
+      'Dashboard de seguimiento de campañas en Google Sheets'
+    ],
+    preview: [
+      {num:'01', txt:'Mapa de arquitectura de cuenta: campañas, grupos y su lógica de organización'},
+      {num:'02', txt:'Estructura de Shopping segmentada por rentabilidad de producto'},
+      {num:'03', txt:'Configuración de Performance Max con señales de audiencia correctas'},
+      {num:'04', txt:'Lista de 200 palabras clave negativas para e-commerce en español'},
+      {num:'05', txt:'Estrategia de remarketing por etapa del embudo y días post-visita'},
+      {num:'06', txt:'Dashboard de KPIs de Google Ads: ROAS, CPA y cuota de impresión'}
+    ],
+    forYes: ['Tienes una tienda en Shopify, Tienda Nube o VTEX y quieres correr Google Ads','Manejas cuentas de e-commerce y quieres una estructura probada','Sientes que tus campañas de Google no están bien organizadas'],
+    forNo: ['Tu negocio no vende productos físicos (este recurso es específico para e-commerce)','Nunca has usado Google Ads y necesitas empezar desde los conceptos básicos']
+  },
+  {
+    id: 6, slug: 'dashboard-kpis',
+    name: 'Dashboard de KPIs de Marketing Digital',
+    cat: 'Estrategia', badge: 'new', badgeText: 'NUEVO',
+    price: '$297', tags: ['Google Sheets','Dashboard','KPIs','Ejecutivo'],
+    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    iconDark: true, iconLabel: 'DASHBOARD',
+    icon: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+    intro: 'Dashboard ejecutivo en Google Sheets para tener todos los indicadores clave de marketing en una sola vista. Ideal para directores que necesitan visibilidad sin revisar plataforma por plataforma.',
+    includes: [
+      'Vista ejecutiva consolidada de todos los canales',
+      'Sección de paid media: ROAS, CPA, gasto y conversiones',
+      'Sección de organic: sesiones, posiciones y leads',
+      'Sección de redes sociales: alcance, engagement y seguidores',
+      'Sección de email: aperturas, clics y conversiones',
+      'Sección de e-commerce: revenue, conversión y ticket promedio',
+      'Comparativo mes vs. mes y vs. objetivo',
+      'Semáforo automático de cumplimiento de KPIs',
+      'Instrucciones de actualización mensual',
+      'Versión para presentar a dirección o inversores'
+    ],
+    preview: [
+      {num:'01', txt:'Vista ejecutiva: todos los canales en una página con semáforo de estado'},
+      {num:'02', txt:'Tarjetas de KPI con número actual, objetivo y delta vs. mes anterior'},
+      {num:'03', txt:'Gráfica de tendencia de los últimos 6 meses por canal'},
+      {num:'04', txt:'Tabla de eficiencia: costo por lead y costo por venta por canal'},
+      {num:'05', txt:'Sección de logros y riesgos del mes para la presentación ejecutiva'},
+      {num:'06', txt:'Vista de forecast: proyección del cierre del mes según ritmo actual'}
+    ],
+    forYes: ['Eres director de marketing y necesitas una vista rápida de todos tus canales','Reportas a dirección mensualmente y quieres hacerlo de forma profesional','Manejas equipo o agencias y quieres tener visibilidad centralizada'],
+    forNo: ['Buscas conexión automática con APIs (este dashboard es de actualización manual)','Ya tienes Looker Studio o Power BI con todo conectado']
+  },
+  {
+    id: 7, slug: 'brief-agencia',
+    name: 'Plantilla de Brief para Contratar Agencia',
+    cat: 'E-commerce', badge: 'new', badgeText: 'NUEVO',
+    price: '$147', tags: ['Brief','Agencias','Evaluación','RFP'],
+    gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    iconDark: true, iconLabel: 'BRIEF',
+    icon: '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>',
+    intro: 'El documento que toda empresa debería tener antes de buscar una agencia. Define claramente tus objetivos, presupuesto y expectativas para recibir propuestas comparables y tomar la mejor decisión.',
+    includes: [
+      'Sección 1: Descripción del negocio y contexto',
+      'Sección 2: Objetivos de marketing (SMART)',
+      'Sección 3: Audiencia objetivo y buyer persona',
+      'Sección 4: Canales y servicios requeridos',
+      'Sección 5: Presupuesto disponible y estructura de pago',
+      'Sección 6: Entregables y reportes esperados',
+      'Sección 7: Criterios de evaluación de propuestas',
+      'Sección 8: Preguntas clave para hacerle a la agencia',
+      'Rúbrica de evaluación comparativa de propuestas',
+      'Guía de red flags al contratar una agencia digital'
+    ],
+    preview: [
+      {num:'01', txt:'Portada con datos de la empresa y persona de contacto para propuestas'},
+      {num:'02', txt:'Sección de contexto: historia, situación actual y por qué estás buscando agencia'},
+      {num:'03', txt:'Tabla de objetivos con métricas de éxito y plazos por canal'},
+      {num:'04', txt:'Lista de 20 preguntas que debes hacerle a cualquier agencia en el proceso'},
+      {num:'05', txt:'Rúbrica de evaluación: cómo comparar propuestas de distintas agencias'},
+      {num:'06', txt:'Guía de red flags: señales de que una agencia no es la correcta para ti'}
+    ],
+    forYes: ['Estás buscando una agencia de marketing y quieres hacer el proceso bien','Quieres recibir propuestas comparables de varias agencias','Nunca has contratado una agencia y no sabes por dónde empezar'],
+    forNo: ['Ya tienes una agencia y no estás pensando en cambiar','Buscas asesoría personalizada para el proceso de selección (ese es nuestro servicio)']
+  },
+  {
+    id: 8, slug: 'checklist-shopify',
+    name: 'Checklist de Lanzamiento de Shopify',
+    cat: 'E-commerce', badge: 'new', badgeText: 'NUEVO',
+    price: '$197', tags: ['Shopify','Lanzamiento','E-commerce','Go-live'],
+    gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    iconDark: true, iconLabel: 'SHOPIFY',
+    icon: '<polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>',
+    intro: '120 puntos de verificación organizados por módulo para lanzar tu tienda de Shopify sin dejar cabos sueltos. Desde la configuración técnica hasta los píxeles, pagos y experiencia de compra.',
+    includes: [
+      'Módulo 1: Configuración general y dominio (18 puntos)',
+      'Módulo 2: Catálogo de productos y colecciones (22 puntos)',
+      'Módulo 3: Medios de pago y checkout (16 puntos)',
+      'Módulo 4: Logística y envíos (14 puntos)',
+      'Módulo 5: SEO y metadatos (16 puntos)',
+      'Módulo 6: Píxeles y analítica (14 puntos)',
+      'Módulo 7: Experiencia de compra y UX (12 puntos)',
+      'Módulo 8: Emails transaccionales (8 puntos)',
+      'Guía de prueba de compra antes del lanzamiento',
+      'Lista de verificación post-lanzamiento (primeras 48 horas)'
+    ],
+    preview: [
+      {num:'01', txt:'Checklist de configuración de dominio, SSL y páginas legales obligatorias'},
+      {num:'02', txt:'Verificación de checkout: métodos de pago, impuestos y confirmación de orden'},
+      {num:'03', txt:'Prueba de compra completa: flujo del carrito al correo de confirmación'},
+      {num:'04', txt:'Validación de píxeles: Meta, Google Tag Manager y Analytics 4 disparando correctamente'},
+      {num:'05', txt:'Revisión de SEO: metadatos, URLs, imágenes con alt text y sitemap'},
+      {num:'06', txt:'Lista de tareas de las primeras 48 horas post-lanzamiento'}
+    ],
+    forYes: ['Vas a lanzar tu tienda de Shopify y quieres hacerlo sin errores','Tu desarrollador acaba de entregar la tienda y quieres validarla antes de publicar','Ya lanzaste pero sientes que algo no está bien configurado'],
+    forNo: ['Tu tienda ya está operando correctamente y solo buscas optimizaciones','Usas Tienda Nube o WooCommerce (este checklist es específico para Shopify)']
+  },
+  {
+    id: 9, slug: '30-prompts-ia',
+    name: '30 Prompts de IA para Marketing Digital',
+    cat: 'IA & Herramientas', badge: 'new', badgeText: 'NUEVO',
+    price: '$97', tags: ['Prompts','ChatGPT','Claude','Copy'],
+    gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
+    iconDark: true, iconLabel: 'PROMPTS IA',
+    icon: '<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>',
+    intro: 'Los 30 prompts que más usamos internamente para producir resultados de marketing con IA. Listos para copiar, pegar y adaptar en ChatGPT, Claude o cualquier modelo de lenguaje.',
+    includes: [
+      '5 prompts para copy de anuncios en Meta Ads',
+      '5 prompts para análisis de competencia y benchmark',
+      '5 prompts para estrategia de contenido y calendarios',
+      '5 prompts para email marketing y secuencias',
+      '5 prompts para SEO y descripción de productos',
+      '5 prompts para briefs creativos y presentaciones',
+      'Guía de uso: cómo adaptar cada prompt a tu marca',
+      'Variables de personalización por prompt',
+      'Ejemplos de output real con cada prompt',
+      'Actualizaciones trimestrales incluidas'
+    ],
+    preview: [
+      {num:'01', txt:'"Actúa como copywriter experto en e-commerce mexicano y crea 5 variaciones de anuncio para..."'},
+      {num:'02', txt:'"Analiza las últimas 3 campañas que te voy a compartir e identifica el patrón de lo que funcionó"'},
+      {num:'03', txt:'"Crea un calendario de contenido para Instagram de 30 días para una marca de [industria]"'},
+      {num:'04', txt:'"Escribe una secuencia de 5 emails de bienvenida para nuevos suscriptores de [marca]"'},
+      {num:'05', txt:'"Redacta la descripción de producto para [nombre] usando la fórmula PAS con beneficios emocionales"'},
+      {num:'06', txt:'"Crea un brief creativo completo para una campaña de lanzamiento de [producto] con presupuesto de [X]"'}
+    ],
+    forYes: ['Usas ChatGPT o Claude pero no sabes exactamente cómo pedir lo que necesitas','Produces mucho contenido de marketing y quieres hacerlo más rápido','Tienes equipo y quieres estandarizar cómo usan la IA'],
+    forNo: ['Nunca has usado herramientas de IA y no quieres empezar','Buscas automatización avanzada con código o APIs']
+  },
+  {
+    id: 10, slug: 'checklist-cro',
+    name: 'Checklist de CRO para Tiendas en Línea',
+    cat: 'E-commerce', badge: 'new', badgeText: 'NUEVO',
+    price: '$197', tags: ['CRO','Conversión','UX','Checkout'],
+    gradient: 'linear-gradient(135deg, #00C8CA 0%, #0089A6 100%)',
+    iconDark: false, iconLabel: 'CRO',
+    icon: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+    intro: '90 puntos de optimización de conversión para tiendas en línea, organizados por página. Con priorización por impacto y esfuerzo para que empieces por lo que más rápido mueve la aguja.',
+    includes: [
+      'Módulo Home: 15 puntos de optimización',
+      'Módulo PLP (listado de productos): 14 puntos',
+      'Módulo PDP (página de producto): 18 puntos',
+      'Módulo Carrito: 16 puntos de fricción a eliminar',
+      'Módulo Checkout: 14 puntos críticos de conversión',
+      'Módulo Post-compra: 13 puntos de retención',
+      'Matriz de priorización: impacto vs. esfuerzo',
+      'Guía de quick wins: los 10 cambios con mayor impacto',
+      'Template de bitácora de experimentos A/B',
+      'Glosario de términos de CRO'
+    ],
+    preview: [
+      {num:'01', txt:'Checklist de home: propuesta de valor visible, velocidad y CTA principal'},
+      {num:'02', txt:'Revisión de PDP: fotos, copy, prueba social, precio y botón de compra'},
+      {num:'03', txt:'Análisis del carrito: mini cart, upsells y señales de confianza'},
+      {num:'04', txt:'Checklist de checkout: pasos, campos, medios de pago y garantías'},
+      {num:'05', txt:'Matriz de priorización con puntuación de impacto y esfuerzo de implementación'},
+      {num:'06', txt:'Top 10 quick wins: los cambios que más mueven la aguja y que puedes hacer hoy'}
+    ],
+    forYes: ['Tienes una tienda con tráfico pero baja conversión y no sabes por qué','Quieres mejorar resultados sin aumentar el presupuesto de publicidad','Eres responsable del e-commerce y buscas un proceso sistemático de mejora'],
+    forNo: ['Tu tienda no tiene tráfico suficiente para hacer pruebas (necesitas al menos 1,000 sesiones/mes)','Buscas que alguien haga el CRO por ti (ese es nuestro servicio de Diseño Web)']
+  },
+  {
+    id: 11, slug: 'guia-geo',
+    name: 'Guía de GEO: Cómo aparecer en las respuestas de IA',
+    cat: 'IA & Herramientas', badge: 'new', badgeText: 'NUEVO',
+    price: '$247', tags: ['GEO','IA','SEO','ChatGPT'],
+    gradient: 'linear-gradient(135deg, #fccb90 0%, #d57eeb 100%)',
+    iconDark: true, iconLabel: 'GEO',
+    icon: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>',
+    intro: 'GEO (Generative Engine Optimization) es el nuevo SEO: optimizar para que los modelos de IA como ChatGPT, Perplexity, Gemini y Google AI te mencionen cuando alguien pregunta algo relevante para tu negocio.',
+    includes: [
+      'Qué es GEO y por qué importa más que el SEO tradicional',
+      'Cómo funcionan los motores de IA al elegir qué citar',
+      'Los 7 factores que hacen que un sitio sea citado por IA',
+      'Checklist de auditoría GEO para tu sitio web',
+      'Cómo escribir contenido en formato respuesta para ser citado',
+      'Implementación de schema markup para GEO',
+      'Estrategia de FAQs orientadas a preguntas de IA',
+      'Cómo medir si la IA te está mencionando',
+      'Casos reales de marcas optimizadas para GEO en México',
+      'Hoja de ruta de implementación en 30, 60 y 90 días'
+    ],
+    preview: [
+      {num:'01', txt:'Explicación de GEO en términos simples: qué es, cómo funciona y por qué importa ahora'},
+      {num:'02', txt:'Los 7 factores de ranking en modelos de IA: autoridad, claridad, estructura y más'},
+      {num:'03', txt:'Checklist de auditoría: revisa si tu sitio está preparado para ser citado por ChatGPT'},
+      {num:'04', txt:'Guía de contenido en formato respuesta: cómo escribir para que la IA te cite'},
+      {num:'05', txt:'Implementación de FAQ schema y structured data para GEO'},
+      {num:'06', txt:'Hoja de ruta de 90 días con acciones semanales para posicionarte en IA'}
+    ],
+    forYes: ['Inviertes en SEO y quieres entender qué viene después','Quieres que tu marca aparezca cuando alguien le pregunta a ChatGPT sobre tu industria','Eres director de marketing y necesitas adelantarte a los cambios en búsqueda digital'],
+    forNo: ['Todavía no tienes sitio web ni contenido publicado (empieza por el SEO básico primero)','Buscas que alguien implemente GEO por ti (ese es nuestro servicio de Estrategia Digital)']
+  }
+];
+
+// Gradients / colors for related cards
+const GRADIENTS = ['linear-gradient(135deg,#1D1D1F,#2d2d30)','linear-gradient(135deg,#1877F2,#0d5bbd)','linear-gradient(135deg,#667eea,#764ba2)','linear-gradient(135deg,#010101,#1a1a1a)','linear-gradient(135deg,#f093fb,#f5576c)','linear-gradient(135deg,#4285F4,#0F9D58)','linear-gradient(135deg,#4facfe,#00f2fe)','linear-gradient(135deg,#fa709a,#fee140)','linear-gradient(135deg,#43e97b,#38f9d7)','linear-gradient(135deg,#a18cd1,#fbc2eb)','linear-gradient(135deg,#00C8CA,#0089A6)','linear-gradient(135deg,#fccb90,#d57eeb)'];
+
+function loadProduct(idx) {
+  const p = PRODUCTS[parseInt(idx)];
+  document.getElementById('pageTitle').textContent = p.name + ' | Kreativo Studio';
+  document.getElementById('breadcrumbName').textContent = p.name;
+  document.getElementById('heroVisual').style.background = p.gradient;
+  const badge = document.getElementById('heroBadge');
+  badge.textContent = p.badgeText;
+  badge.className = 'phv-badge ' + p.badge;
+  const iconBox = document.getElementById('heroIconBox');
+  iconBox.className = 'phv-icon-box' + (p.iconDark ? ' dark-icon' : '');
+  document.getElementById('heroIcon').innerHTML = p.icon;
+  const lbl = document.getElementById('heroLabel');
+  lbl.textContent = p.iconLabel;
+  lbl.className = 'phv-title' + (p.iconDark ? ' dark-txt' : '');
+  document.getElementById('productCat').textContent = p.cat;
+  document.getElementById('productTitle').textContent = p.name;
+  document.getElementById('productIntro').textContent = p.intro;
+  document.getElementById('boxPrice').innerHTML = p.price + ' <small>MXN</small>';
+  // includes
+  document.getElementById('includesList').innerHTML = p.includes.map(i => `<li>${i}</li>`).join('');
+  // preview
+  document.getElementById('previewGrid').innerHTML = p.preview.map(pr => `<div class="preview-item"><div class="preview-item-num">${pr.num}</div>${pr.txt}</div>`).join('');
+  // for whom
+  document.getElementById('forYesList').innerHTML = p.forYes.map(i => `<li>${i}</li>`).join('');
+  document.getElementById('forNoList').innerHTML = p.forNo.map(i => `<li>${i}</li>`).join('');
+  // tags
+  document.getElementById('boxTags').innerHTML = p.tags.map(t => `<span class="bb-tag">${t}</span>`).join('');
+  // related: 3 random other products
+  const others = PRODUCTS.filter(x => x.id !== p.id).sort(() => 0.5 - Math.random()).slice(0, 3);
+  document.getElementById('relatedGrid').innerHTML = others.map(r => `
+    <div class="related-card" onclick="document.getElementById('productSelector').value=${r.id};loadProduct(${r.id});window.scrollTo(0,0)">
+      <div class="rc-visual" style="background:${GRADIENTS[r.id]}">
+        <svg viewBox="0 0 24 24">${r.icon}</svg>
+      </div>
+      <div class="rc-body">
+        <div class="rc-cat">${r.cat}</div>
+        <div class="rc-name">${r.name}</div>
+      </div>
+      <div class="rc-footer">
+        <span class="rc-price">${r.price} <small style="font-size:10px;color:var(--mid-gray);font-weight:400">MXN</small></span>
+        <span class="rc-btn">Ver producto →</span>
+      </div>
+    </div>`).join('');
+  window.scrollTo(0,0);
+}
+
+function toggleMenu() { document.getElementById('navMobile').classList.toggle('open'); }
+
+// Init
+loadProduct(0);
+</script>
+
+</Base>
