@@ -80,6 +80,8 @@
     align-items: center;
     gap: 36px;
     list-style: none;
+    flex: 1;
+    justify-content: center;
   }
 
   .nav-links a {
@@ -89,10 +91,10 @@
     color: var(--dark);
     text-decoration: none;
     opacity: 0.75;
-    transition: opacity 0.2s;
+    transition: color 0.2s, opacity 0.2s;
   }
 
-  .nav-links a:hover { opacity: 1; }
+  .nav-links a:hover { opacity: 1; color: var(--cyan); }
 
   .nav-cta {
     background: var(--dark);
