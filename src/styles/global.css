@@ -2570,3 +2570,40 @@
   margin-top: 12px;
   line-height: 1.5;
 }
+
+/* Lead form dark variant (recursos-gratis hero) */
+.lead-form-dark {
+  background: #1a1a1a !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+.lead-form-dark .form-title {
+  color: white !important;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.lead-form-dark .form-subtitle {
+  color: rgba(255,255,255,0.5) !important;
+  font-size: 13px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.lead-form-dark .form-field label {
+  color: rgba(255,255,255,0.4) !important;
+}
+.lead-form-dark .form-field input {
+  background: rgba(255,255,255,0.07) !important;
+  color: white !important;
+  border: 1.5px solid rgba(255,255,255,0.1) !important;
+}
+.lead-form-dark .form-field input::placeholder {
+  color: rgba(255,255,255,0.25) !important;
+}
+.lead-form-dark .form-privacy {
+  color: rgba(255,255,255,0.3) !important;
+  font-size: 11px;
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.5;
+}
