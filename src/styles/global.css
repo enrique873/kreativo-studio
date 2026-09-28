@@ -1442,6 +1442,7 @@
 .nav-mobile-menu li a:hover { color: var(--cyan); }
 .mobile-nav-cta { color: var(--cyan) !important; border-bottom: none !important; margin-top: 16px; }
 
-@media (max-width: 640px) {
-  .nav-hamburger { display: flex; }
+@media (max-width: 768px) {
+  .nav-hamburger { display: flex !important; }
+  .nav-links { display: none !important; }
 }
