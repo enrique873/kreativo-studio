@@ -1729,21 +1729,24 @@
 
 /* Diagnostic Banner */
 .diagnostic-banner {
-  background: var(--darker); border-radius: var(--radius);
-  padding: 64px; max-width: 1120px; margin: 0 auto;
-  display: flex; gap: 80px; align-items: center;
+  background: var(--off-white); border-radius: var(--radius);
+  margin: 0 48px; padding: 72px 80px;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 48px;
 }
 .diagnostic-banner h2 {
-  font-family: var(--font-heading); font-size: clamp(24px, 2.5vw, 36px);
-  font-weight: 700; color: white; letter-spacing: -0.02em; margin-bottom: 16px; margin-top: 12px;
+  font-family: var(--font-heading); font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700; color: var(--darker); letter-spacing: -0.02em;
+  line-height: 1.15; margin-bottom: 16px;
 }
-.diagnostic-banner p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+.diagnostic-banner p { font-size: 15px; color: var(--mid-gray); line-height: 1.65; max-width: 480px; }
 .diagnostic-tag {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--cyan);
-  text-transform: uppercase;
+  font-family: var(--font-heading); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; color: var(--cyan); text-transform: uppercase;
+  display: block; margin-bottom: 16px;
 }
-.diagnostic-actions { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
-.diagnostic-note { font-size: 12px; color: rgba(255,255,255,0.35); text-align: center; }
+.diagnostic-actions { display: flex; flex-direction: column; gap: 12px; align-items: center; white-space: nowrap; }
+.diagnostic-note { font-size: 12px; color: var(--mid-gray); text-align: center; }
 
 /* â”€â”€ NOSOTROS PAGE â”€â”€ */
 .hero-lead-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; max-width: 1120px; margin: 0 auto; }
