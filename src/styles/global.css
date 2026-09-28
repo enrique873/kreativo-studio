@@ -1490,6 +1490,10 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  max-width: none;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 .services-hero::before {
   content: '';
