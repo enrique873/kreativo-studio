@@ -1,74 +1,46 @@
 <!-- HERO SPLIT -->
 <section class="hero">
-  <!-- LEFT: copy + form -->
+  <!-- LEFT: copy + bullets -->
   <div class="hero-left">
     <div class="hero-eyebrow">
       <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
       DESCARGA GRATUITA
     </div>
-    <h1 class="hero-h1">30 Prompts de IA<br>para <span>Marketing Digital</span></h1>
-    <p class="hero-lead">Los prompts exactos que usamos internamente para producir copy, analizar campañas, crear estrategias y automatizar tareas de marketing. Listos para copiar y pegar en ChatGPT o Claude.</p>
+    <h1 class="hero-h1">Los 30 prompts de IA que uso para gestionar estrategias de <span>millones.</span></h1>
+    <p class="hero-lead">Anos de experiencia destilados en prompts listos para usar en Claude y ChatGPT. Sin teoria, sin relleno. Lo que realmente funciona en campanas de alto presupuesto.</p>
+    <ul class="hero-bullets">
+      <li>Prompts para estructurar una campana de Meta Ads desde cero</li>
+      <li>Como usar IA para analizar a tu competencia en minutos</li>
+      <li>Los prompts que uso para escribir copy que convierte</li>
+      <li>Automatiza tus reportes semanales con IA</li>
+      <li>Como briefear a Claude para que piense como tu estratega</li>
+    </ul>
+  </div>
 
+  <!-- RIGHT: form card -->
+  <div class="hero-right">
     <div class="lead-form" id="mainForm">
-      <div class="form-title">Recibe el PDF ahora mismo</div>
-      <div class="form-subtitle">Sin spam. Solo el recurso y actualizaciones de Kreativo.</div>
+      <div class="form-title">Quiero los prompts gratis</div>
+      <div class="form-subtitle">Te los mandamos directo a tu WhatsApp. Sin spam, solo lo que vale la pena.</div>
       <div class="form-field">
         <label>NOMBRE</label>
         <input type="text" placeholder="Tu nombre" id="nameInput1">
       </div>
       <div class="form-field">
-        <label>CORREO ELECTRONICO</label>
-        <input type="email" placeholder="tu@correo.com" id="emailInput1">
+        <label>CORREO ELECTR&Oacute;NICO</label>
+        <input type="email" placeholder="tu@empresa.com" id="emailInput1">
       </div>
       <div class="form-field">
         <label>WHATSAPP</label>
-        <input type="tel" placeholder="+52 55 1234 5678" id="waInput1">
+        <input type="tel" placeholder="+52 55 0000 0000" id="waInput1">
       </div>
-      <button class="btn-download" onclick="submitForm('mainForm','mainSuccess')">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Quiero mis 30 prompts gratis
-      </button>
-      <p class="form-privacy">Al suscribirte aceptas recibir correos de Kreativo Studio. Puedes darte de baja cuando quieras.</p>
+      <button class="btn-download" onclick="submitForm('mainForm','mainSuccess')">Quiero los 30 prompts &rarr;</button>
+      <p class="form-privacy">Al enviar aceptas recibir contenido de Kreativo Studio. Puedes darte de baja cuando quieras.</p>
     </div>
-
     <div class="form-success" id="mainSuccess">
       <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <div class="success-title">Listo, revisa tu correo</div>
-      <div class="success-desc">El PDF con los 30 prompts ya está en camino. Si no lo ves en 5 minutos, revisa spam.<br><br>Mientras tanto puedes explorar <a href="kreativo-tienda.html">más recursos en la tienda</a> o <a href="kreativo-academia.html">ver el curso completo</a>.</div>
-    </div>
-
-    <div class="hero-trust">
-      <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Sin spam, sin compromisos</div>
-      <div class="trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Llega en menos de 5 minutos</div>
-      <div class="trust-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Actualizaciones incluidas</div>
-    </div>
-  </div>
-
-  <!-- RIGHT: prompt cards visual -->
-  <div class="hero-right">
-    <div class="hero-grid-bg"></div>
-    <div class="prompts-visual">
-      <div class="prompt-card">
-        <div class="pc-num">PROMPT 01 · COPY DE ANUNCIOS</div>
-        <div class="pc-text">"Actúa como copywriter experto en e-commerce mexicano. Crea <strong>5 variaciones</strong> de anuncio para [producto] usando el framework PAS, con un tono [informal/formal]..."</div>
-        <span class="pc-tag">META ADS</span>
-      </div>
-      <div class="prompt-card">
-        <div class="pc-num">PROMPT 08 · ESTRATEGIA DE CONTENIDO</div>
-        <div class="pc-text">"Crea un <strong>calendario de contenido</strong> de 30 días para Instagram de una marca de [industria] con objetivo de [objetivo]. Incluye formato, tema y CTA para cada publicación..."</div>
-        <span class="pc-tag">REDES SOCIALES</span>
-      </div>
-      <div class="prompt-card">
-        <div class="pc-num">PROMPT 17 · ANALISIS DE CAMPANA</div>
-        <div class="pc-text">"Analiza estos resultados de campaña: [datos]. Identifica los <strong>3 principales problemas</strong> y propón ajustes específicos para mejorar el ROAS la próxima semana..."</div>
-        <span class="pc-tag">PAID MEDIA</span>
-      </div>
-      <div class="prompt-card">
-        <div class="pc-num">PROMPT 24 · REPORTE EJECUTIVO</div>
-        <div class="pc-text">"Con estos datos de marketing del mes: [datos]. Redacta un <strong>reporte ejecutivo</strong> de máximo 300 palabras para presentar al CEO con contexto, resultados y próximos pasos..."</div>
-        <span class="pc-tag">REPORTES</span>
-      </div>
-      <div class="prompts-count">Mostrando 4 de <span>30 prompts</span> incluidos</div>
+      <div class="success-title">Listo, revisa tu WhatsApp</div>
+      <div class="success-desc">Los 30 prompts ya estan en camino. Si no llegan en 5 minutos, escribenos directo.</div>
     </div>
   </div>
 </section>
