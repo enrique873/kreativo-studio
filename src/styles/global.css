@@ -2332,13 +2332,20 @@
   flex-shrink: 0;
 }
 
-/* Lead form inside hero */
+/* Lead form inside hero (light) */
 .lead-form {
   background: var(--off-white);
   border: 1px solid var(--light-gray);
   border-radius: var(--radius);
   padding: 28px;
   margin-top: 0;
+}
+/* Lead form inside lead-magnet (dark section) — override the light default */
+.lead-magnet .lead-form {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: var(--radius) !important;
+  padding: 40px !important;
 }
 .form-success {
   background: rgba(0,200,202,0.05);
