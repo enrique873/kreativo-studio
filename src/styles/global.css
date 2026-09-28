@@ -1925,6 +1925,53 @@
 .in-num-val span { color: var(--cyan); font-size: 24px; }
 .in-num-label { font-size: 12px; color: var(--mid-gray); margin-top: 4px; line-height: 1.4; }
 
+/* ── ACADEMIA — TESTIMONIOS ── */
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.testi-card { background: var(--off-white); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 24px; }
+.testi-stars { display: flex; gap: 2px; margin-bottom: 14px; }
+.star { width: 12px; height: 12px; fill: #F5A623; flex-shrink: 0; }
+.testi-quote { font-size: 14px; color: var(--dark); line-height: 1.7; margin-bottom: 20px; font-weight: 300; }
+.testi-author { display: flex; align-items: center; gap: 10px; }
+.testi-avatar { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 12px; font-weight: 700; color: var(--white); flex: 0 0 34px; }
+.testi-name { font-size: 13px; font-weight: 500; color: var(--darker); }
+.testi-role { font-size: 11px; color: var(--mid-gray); }
+
+/* ── ACADEMIA — FAQ ── */
+.faq-section { background: var(--off-white); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; align-items: start; }
+.faq-btn { width: 100%; text-align: left; padding: 20px 0; background: none; border: none; border-bottom: 1px solid var(--light-gray); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.faq-question { font-family: var(--font-heading); font-size: 14px; font-weight: 600; color: var(--darker); line-height: 1.4; }
+.faq-icon { width: 20px; height: 20px; flex: 0 0 20px; border: 1.5px solid var(--light-gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; }
+.faq-icon svg { width: 10px; height: 10px; stroke: var(--mid-gray); fill: none; stroke-width: 2.5; transition: transform 0.3s; }
+.faq-item.open .faq-icon { background: var(--cyan); border-color: var(--cyan); }
+.faq-item.open .faq-icon svg { stroke: var(--darker); transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.faq-answer-inner { font-size: 14px; color: var(--mid-gray); line-height: 1.75; padding-bottom: 20px; font-weight: 300; }
+.faq-item.open .faq-answer { max-height: 400px; }
+
+/* ── ACADEMIA — CTA FINAL ── */
+.cta-section { background: var(--darker); padding: 80px 48px; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(0,200,202,0.08) 0%, transparent 70%); pointer-events: none; }
+.cta-inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
+.cta-eyebrow { display: inline-block; font-family: var(--font-heading); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--cyan); border: 1px solid rgba(0,200,202,0.3); padding: 5px 14px; border-radius: 100px; margin-bottom: 24px; }
+.cta-heading { font-family: var(--font-heading); font-weight: 700; font-size: clamp(28px, 3vw, 44px); color: var(--white); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px; }
+.cta-sub { font-size: 15px; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.7; margin-bottom: 36px; }
+.cta-btn-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.cta-btn-main { display: inline-flex; align-items: center; gap: 10px; background: var(--cyan); color: var(--darker); font-family: var(--font-body); font-size: 16px; font-weight: 500; padding: 18px 40px; border-radius: 100px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+.cta-btn-main:hover { opacity: 0.88; transform: translateY(-1px); }
+.cta-btn-main svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+.cta-note { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+@media (max-width: 1023px) {
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .faq-grid { grid-template-columns: 1fr; gap: 0; }
+  .cta-section { padding: 60px 24px; }
+}
+@media (max-width: 767px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 48px 20px; }
+}
+
 /* ── TIENDA (STORE) PAGE ── */
 .tienda-page section { max-width: none; margin-left: 0; margin-right: 0; width: 100%; }
 
