@@ -25,7 +25,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAVIGATION ── */
+  /* â”€â”€ NAVIGATION â”€â”€ */
   nav {
     position: sticky;
     top: 0;
@@ -107,7 +107,7 @@
 
   .nav-cta:hover { background: #333 !important; }
 
-  /* ── HERO ── */
+  /* â”€â”€ HERO â”€â”€ */
   .hero {
     min-height: 92vh;
     display: flex;
@@ -259,7 +259,7 @@
     line-height: 1.4;
   }
 
-  /* ── SECTION SHARED ── */
+  /* â”€â”€ SECTION SHARED â”€â”€ */
   section {
     padding: 100px 48px;
     max-width: 1280px;
@@ -307,7 +307,7 @@
     margin-bottom: 56px;
   }
 
-  /* ── SERVICES ── */
+  /* â”€â”€ SERVICES â”€â”€ */
   .services-bg {
     background: var(--off-white);
     padding: 100px 0;
@@ -390,7 +390,7 @@
     flex-shrink: 0;
   }
 
-  /* ── ABOUT / FOUNDER ── */
+  /* â”€â”€ ABOUT / FOUNDER â”€â”€ */
   .about-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -495,7 +495,7 @@
     line-height: 1.4;
   }
 
-  /* ── APPROACH / HOW WE WORK ── */
+  /* â”€â”€ APPROACH / HOW WE WORK â”€â”€ */
   .approach-bg {
     background: var(--darker);
     padding: 100px 0;
@@ -555,7 +555,7 @@
     margin-bottom: 20px;
   }
 
-  /* ── PRODUCTS ── */
+  /* â”€â”€ PRODUCTS â”€â”€ */
   .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -682,7 +682,7 @@
 
   .product-btn:hover { background: #333; }
 
-  /* ── LEAD MAGNET ── */
+  /* â”€â”€ LEAD MAGNET â”€â”€ */
   .lead-magnet {
     background: var(--darker);
     padding: 100px 0;
@@ -745,7 +745,7 @@
     line-height: 1.5;
   }
   .lead-magnet-list li::before {
-    content: '✓';
+    content: 'âœ“';
     color: var(--cyan);
     font-weight: 700;
     font-size: 13px;
@@ -823,7 +823,7 @@
     line-height: 1.5;
   }
 
-  /* ── CTA BANNER ── */
+  /* â”€â”€ CTA BANNER â”€â”€ */
   .cta-section {
     background: var(--darker);
     padding: 140px 48px;
@@ -876,7 +876,7 @@
     box-shadow: 0 12px 32px rgba(37,211,102,0.35);
   }
 
-  /* ── FOOTER ── */
+  /* â”€â”€ FOOTER â”€â”€ */
   footer {
     background: var(--darker);
     color: white;
@@ -1015,7 +1015,7 @@
 
   .footer-legal a:hover { color: rgba(255,255,255,0.6); }
 
-  /* ── MOCKUP LABEL ── */
+  /* â”€â”€ MOCKUP LABEL â”€â”€ */
   .mockup-banner {
     background: #1D1D1F;
     color: white;
@@ -1033,10 +1033,10 @@
 
   .mockup-banner span { color: var(--cyan); }
 
-  /* ── DIVIDER ── */
+  /* â”€â”€ DIVIDER â”€â”€ */
   .divider { height: 1px; background: var(--light-gray); margin: 0 48px; }
 
-  /* ── MARQUEE ── */
+  /* â”€â”€ MARQUEE â”€â”€ */
   .marquee-wrapper {
     background: var(--off-white);
     border-top: 1px solid var(--light-gray);
@@ -1085,7 +1085,7 @@
     100% { transform: translateX(-50%); }
   }
 
-  /* ── SERVICE METRIC CHIP ── */
+  /* â”€â”€ SERVICE METRIC CHIP â”€â”€ */
   .service-metric {
     display: inline-flex;
     align-items: center;
@@ -1102,7 +1102,7 @@
     font-family: var(--font-heading);
   }
 
-  /* ── PARTNER BADGE ── */
+  /* â”€â”€ PARTNER BADGE â”€â”€ */
   .partner-badges {
     display: flex;
     gap: 12px;
@@ -1132,7 +1132,7 @@
     text-transform: uppercase;
   }
 
-  /* ── STEP ANIMATION ── */
+  /* â”€â”€ STEP ANIMATION â”€â”€ */
   .approach-step {
     opacity: 0;
     transform: translateY(28px);
@@ -1143,7 +1143,7 @@
     transform: translateY(0);
   }
 
-  /* ── FAQ ── */
+  /* â”€â”€ FAQ â”€â”€ */
   .faq-section {
     max-width: 760px;
     margin: 0 auto;
@@ -1207,3 +1207,188 @@
     max-height: 300px;
     padding-bottom: 24px;
   }
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   RESPONSIVE â€” TABLET (â‰¤ 900px)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+@media (max-width: 900px) {
+  .approach-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+  .about-photo {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   RESPONSIVE â€” MOBILE (â‰¤ 640px)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+@media (max-width: 640px) {
+
+  /* NAV */
+  nav {
+    padding: 0 20px;
+    height: 56px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-wordmark {
+    font-size: 13px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 20px 48px;
+    min-height: auto;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 10vw, 52px);
+    line-height: 1.08;
+  }
+  .hero-sub {
+    font-size: 15px;
+    max-width: 100%;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .hero-stats {
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 24px 20px;
+  }
+  .hero-stat-number {
+    font-size: 32px;
+  }
+
+  /* MARQUEE */
+  .marquee-section,
+  .marquee-section * {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* SERVICES */
+  .services-bg {
+    padding: 64px 20px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .service-card {
+    padding: 28px 24px;
+  }
+
+  /* LEAD MAGNET */
+  .lead-magnet {
+    padding: 0;
+  }
+  .lead-magnet-inner {
+    grid-template-columns: 1fr;
+    padding: 48px 20px;
+    gap: 40px;
+  }
+  .lead-magnet h2 {
+    font-size: 28px;
+  }
+
+  /* ABOUT */
+  .about-layout {
+    grid-template-columns: 1fr;
+    padding: 48px 20px;
+    gap: 40px;
+  }
+  .about-photo {
+    max-width: 100%;
+    aspect-ratio: 3/4;
+  }
+  .about-metrics {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .about-metric-number {
+    font-size: 28px;
+  }
+  .about-content h2 {
+    font-size: 28px;
+  }
+
+  /* APPROACH */
+  .approach-bg {
+    padding: 64px 20px;
+  }
+  .approach-steps {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .approach-step {
+    padding: 28px 24px;
+  }
+
+  /* PRODUCTS */
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  /* SECTION HEADINGS */
+  .section-heading {
+    font-size: clamp(26px, 8vw, 38px);
+  }
+  .faq-section {
+    padding: 64px 20px;
+  }
+  .faq-question-text {
+    font-size: 15px;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 80px 20px;
+  }
+  .cta-section h2 {
+    font-size: 32px;
+  }
+
+  /* FOOTER */
+  .footer-outer {
+    padding: 0 20px;
+  }
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 48px 0 32px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 24px 0;
+  }
+  .footer-legal {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* GENERIC PADDING */
+  [class*="-section"],
+  [class*="-bg"] {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
