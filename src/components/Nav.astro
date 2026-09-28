@@ -7,12 +7,12 @@
   </a>
   <ul class="nav-links">
     <li><a href="/servicios">Servicios</a></li>
-    <li><a href="/nosotros#metodologia">Metodología</a></li>
+    <li><a href="/nosotros#metodologia">Metodolog&iacute;a</a></li>
     <li><a href="/tienda">Recursos</a></li>
     <li><a href="/academia">Academia</a></li>
-    <li><a href="https://wa.me/52XXXXXXXXXX" class="nav-cta" target="_blank">Hablemos →</a></li>
+    <li><a href="https://wa.me/52XXXXXXXXXX" class="nav-cta" target="_blank">Hablemos &rarr;</a></li>
   </ul>
-  <button class="nav-hamburger" id="ks-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+  <button class="nav-hamburger" id="ks-menu-btn" aria-label="Abrir men&uacute;" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -20,67 +20,12 @@
 <div class="nav-mobile-menu" id="ks-mobile-menu">
   <ul>
     <li><a href="/servicios">Servicios</a></li>
-    <li><a href="/nosotros#metodologia">Metodología</a></li>
+    <li><a href="/nosotros#metodologia">Metodolog&iacute;a</a></li>
     <li><a href="/tienda">Recursos</a></li>
     <li><a href="/academia">Academia</a></li>
-    <li><a href="https://wa.me/52XXXXXXXXXX" class="mobile-nav-cta" target="_blank">Hablemos →</a></li>
+    <li><a href="https://wa.me/52XXXXXXXXXX" class="mobile-nav-cta" target="_blank">Hablemos &rarr;</a></li>
   </ul>
 </div>
-
-<style>
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    z-index: 1001;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: white;
-    border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.2s ease;
-    transform-origin: center;
-  }
-  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  .nav-mobile-menu {
-    display: none;
-    position: fixed;
-    inset: 56px 0 0 0;
-    background: #050505;
-    z-index: 999;
-    padding: 40px 24px;
-  }
-  .nav-mobile-menu.open { display: block; }
-  .nav-mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .nav-mobile-menu li a {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 28px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    transition: color 0.2s;
-  }
-  .nav-mobile-menu li a:hover { color: var(--cyan); }
-  .mobile-nav-cta { color: var(--cyan) !important; border-bottom: none !important; margin-top: 16px; }
-
-  @media (max-width: 640px) {
-    .nav-hamburger { display: flex; }
-    .nav-links { display: none !important; }
-  }
-</style>
 
 <script is:inline>
   var btn = document.getElementById('ks-menu-btn');
@@ -96,6 +41,7 @@
       a.addEventListener('click', function() {
         menu.classList.remove('open');
         btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
         document.body.style.overflow = '';
       });
     });
