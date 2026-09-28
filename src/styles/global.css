@@ -745,7 +745,7 @@
     line-height: 1.5;
   }
   .lead-magnet-list li::before {
-    content: 'âœ“';
+    content: '\2713';
     color: var(--cyan);
     font-weight: 700;
     font-size: 13px;
