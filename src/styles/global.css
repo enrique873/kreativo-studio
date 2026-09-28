@@ -2497,17 +2497,18 @@
 .hero-bullets li {
   font-size: 15px;
   color: rgba(255,255,255,0.75);
-  padding-left: 24px;
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   line-height: 1.5;
 }
-.hero-bullets li::before {
-  content: '\2713';
-  position: absolute;
-  left: 0;
+.hero-bullets li::before { content: none; }
+.hb-check {
   color: var(--cyan);
   font-weight: 700;
   font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 /* Lead-form en hero-right: tarjeta oscura */
