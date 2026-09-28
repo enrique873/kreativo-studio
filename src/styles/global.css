@@ -2463,9 +2463,9 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 100px 48px 0;
-  text-align: center;
+  text-align: center !important;
 }
-.section-header .section-tag { margin-bottom: 16px; }
+.section-header .section-tag { margin-bottom: 16px; text-align: center !important; }
 .section-header .section-heading {
   font-family: var(--font-heading);
   font-size: clamp(32px, 4vw, 56px);
@@ -2474,6 +2474,7 @@
   letter-spacing: -0.03em;
   line-height: 1.05;
   margin-bottom: 16px;
+  text-align: center !important;
 }
 .section-header .section-sub {
   font-size: 17px;
@@ -2483,6 +2484,7 @@
   margin-top: 16px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center !important;
 }
 
 /* â”€â”€ CAT-PROMPTS checkmarks (recursos-gratis) â”€â”€ */
