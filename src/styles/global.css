@@ -2932,3 +2932,280 @@
   .ideal-grid { gap: 16px; }
   .pdp-page h2.section-heading { font-size: 26px; }
 }
+
+/* ════════════════════════════════════════
+   PDP DISENO-WEB — light hero & unique components
+════════════════════════════════════════ */
+
+/* ── Light hero override ── */
+.pdp-page .pdp-hero.pdp-hero-light {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--light-gray);
+}
+.pdp-page .pdp-hero.pdp-hero-light::before {
+  top: auto;
+  bottom: -60px;
+  left: -60px;
+  right: auto;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,200,202,0.06) 0%, transparent 65%);
+}
+.pdp-page .pdp-hero.pdp-hero-light h1 {
+  color: var(--darker);
+}
+.pdp-page .pdp-hero.pdp-hero-light .pdp-hero-inner > div:first-child > p,
+.pdp-page .pdp-hero.pdp-hero-light > div > div:first-child > p {
+  color: var(--mid-gray);
+}
+.pdp-page .pdp-hero.pdp-hero-light .pdp-hero-breadcrumb { color: var(--mid-gray); }
+.pdp-page .pdp-hero.pdp-hero-light .pdp-hero-breadcrumb a { color: var(--mid-gray); }
+.pdp-page .pdp-hero.pdp-hero-light .btn-ghost { color: var(--mid-gray); }
+.pdp-page .pdp-hero.pdp-hero-light .btn-ghost:hover { color: var(--darker); }
+
+/* ── Hero device mockup ── */
+.hero-device { position: relative; }
+.device-desktop {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.12);
+  border: 1px solid var(--light-gray);
+  overflow: hidden;
+}
+.device-bar {
+  background: #F0F0F3;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--light-gray);
+}
+.device-dot { width: 10px; height: 10px; border-radius: 50%; }
+.device-dot.r { background: #FF5F57; }
+.device-dot.y { background: #FFBD2E; }
+.device-dot.g { background: #28C840; }
+.device-url {
+  flex: 1;
+  background: var(--white);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 10px;
+  color: var(--mid-gray);
+  margin-left: 8px;
+}
+.device-screen { padding: 0; }
+.screen-hero {
+  height: 110px;
+  background: var(--darker);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 24px;
+}
+.screen-hero-accent {
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 140px; height: 140px;
+  background: rgba(0,200,202,0.15);
+  border-radius: 50%;
+}
+.screen-hero-text { position: relative; }
+.screen-hero-tag {
+  font-size: 8px;
+  font-family: var(--font-heading);
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  margin-bottom: 4px;
+}
+.screen-hero-h {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+.screen-body { padding: 16px; }
+.screen-row { display: flex; gap: 10px; margin-bottom: 10px; }
+.screen-card { flex: 1; border-radius: 8px; background: var(--off-white); padding: 10px; }
+.screen-card-img { width: 100%; height: 50px; background: var(--light-gray); border-radius: 5px; margin-bottom: 6px; }
+.screen-card-title { height: 7px; background: var(--light-gray); border-radius: 3px; width: 80%; margin-bottom: 4px; }
+.screen-card-price { height: 7px; background: rgba(0,200,202,0.3); border-radius: 3px; width: 40%; }
+.screen-metrics {
+  display: flex;
+  background: var(--darker);
+  padding: 12px 16px;
+  gap: 0;
+}
+.screen-metric {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.screen-metric:last-child { border-right: none; }
+.screen-metric-val {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+}
+.screen-metric-val em { color: var(--cyan); font-style: normal; }
+.screen-metric-lab { font-size: 9px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+/* ── Mobile mockup ── */
+.device-mobile {
+  position: absolute;
+  bottom: -20px; right: -30px;
+  width: 100px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  border: 1px solid var(--light-gray);
+  overflow: hidden;
+}
+.mob-notch { height: 8px; background: var(--darker); }
+.mob-screen { padding: 8px; }
+.mob-hero {
+  height: 40px;
+  background: var(--darker);
+  border-radius: 5px;
+  margin-bottom: 6px;
+  position: relative;
+  overflow: hidden;
+}
+.mob-hero::after {
+  content: '';
+  position: absolute;
+  top: -10px; right: -10px;
+  width: 40px; height: 40px;
+  background: rgba(0,200,202,0.2);
+  border-radius: 50%;
+}
+.mob-card { height: 32px; background: var(--off-white); border-radius: 5px; margin-bottom: 5px; }
+.mob-cta { height: 16px; background: var(--darker); border-radius: 8px; }
+.mob-score {
+  position: absolute;
+  top: -12px; right: -12px;
+  width: 44px; height: 44px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.mob-score-val {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  color: #4ade80;
+  line-height: 1;
+}
+.mob-score-lab { font-size: 6px; color: var(--mid-gray); }
+
+/* ── Platforms grid (diseno-web) ── */
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--light-gray);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 48px;
+}
+.platforms-grid .platform-card {
+  background: var(--white);
+  padding: 40px 32px;
+  border-radius: 0;
+  border: none;
+  display: block;
+  transition: background 0.2s;
+}
+.platforms-grid .platform-card:hover { background: #FAFAFA; }
+.platform-logo {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.platform-logo.shopify { color: #96BF48; }
+.platform-logo.tiendanube { color: #1B2FE0; }
+.platform-logo.vtex { color: #F71963; }
+.platform-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+.platform-badge.partner {
+  background: rgba(0,200,202,0.08);
+  color: var(--cyan);
+  border: 1px solid rgba(0,200,202,0.2);
+}
+.platform-desc { font-size: 13px; color: var(--mid-gray); line-height: 1.65; margin-bottom: 16px; }
+.platform-best { font-size: 11px; font-weight: 500; color: var(--dark); }
+.platform-best span { color: var(--cyan); }
+
+/* ── Services detail — diseno-web 2-col with .sdc cards ── */
+.pdp-diseno-web .services-detail {
+  grid-template-columns: repeat(2, 1fr);
+}
+.sdc {
+  background: var(--white);
+  padding: 36px 32px;
+  transition: background 0.2s;
+}
+.sdc:hover { background: #FAFAFA; }
+.sdc-list { font-size: 12px; color: var(--dark); line-height: 1.6; list-style: none; }
+.sdc-list li { margin-bottom: 4px; padding-left: 12px; position: relative; }
+.sdc-list li::before { content: '\00B7'; position: absolute; left: 0; color: var(--cyan); font-weight: 700; }
+
+/* ── Process grid — diseno-web 6 columns ── */
+.pdp-diseno-web .process-grid {
+  grid-template-columns: repeat(6, 1fr);
+}
+.pdp-diseno-web .process-grid::before {
+  left: 4%;
+  right: 4%;
+}
+.pdp-diseno-web .process-section .process-step { padding: 0 8px; }
+
+/* ── Primary button (dark, for light-bg sections) ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--darker);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 15px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+/* ── Includes col border (shared improvement) ── */
+.includes-col h3 {
+  border-bottom: 1px solid var(--light-gray);
+  padding-bottom: 12px;
+}
+
+/* ── Diseno-web responsive ── */
+@media (max-width: 1023px) {
+  .platforms-grid { grid-template-columns: 1fr; }
+  .pdp-diseno-web .services-detail { grid-template-columns: 1fr 1fr; }
+  .pdp-diseno-web .process-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 767px) {
+  .device-mobile { display: none; }
+  .pdp-diseno-web .services-detail { grid-template-columns: 1fr; }
+  .pdp-diseno-web .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
