@@ -4243,3 +4243,71 @@
   line-height: 1.4;
   margin-top: 0;
 }
+
+/* ══════════════════════════════════════════════════
+   ACADEMIA — FAQ SECTION + SECTION-TAG PILL OVERRIDES
+   ══════════════════════════════════════════════════ */
+
+/* section-tag: pill (not uppercase text) */
+.academia-page .section-tag {
+  display: inline-block;
+  background: rgba(0,200,202,0.08);
+  border: 1px solid rgba(0,200,202,0.2);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.14em;
+  color: var(--cyan);
+  text-transform: none;
+  margin-bottom: 16px;
+}
+
+/* FAQ heading: restore larger size (section-heading wrapper override is too small) */
+.academia-page .faq-section .section-heading {
+  font-size: clamp(28px, 3.5vw, 44px);
+  max-width: 420px;
+}
+
+/* FAQ items: no white card background (beats PDP .faq-list .faq-item specificity 0-1-1) */
+.academia-page .faq-item {
+  background: none;
+  border-radius: 0;
+  overflow: visible;
+  border-bottom: 1px solid var(--light-gray);
+  padding: 0;
+}
+.academia-page .faq-item:first-child { border-radius: 0; }
+.academia-page .faq-item:last-child { border-radius: 0; border-bottom: none; }
+
+/* FAQ button: no extra border (border is on .faq-item) */
+.academia-page .faq-btn {
+  border-bottom: none;
+  padding: 20px 0;
+}
+
+/* FAQ icon: force SVG display, hide any text char */
+.academia-page .faq-icon {
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  border: 1.5px solid var(--light-gray);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.academia-page .faq-icon svg {
+  width: 10px;
+  height: 10px;
+  stroke: var(--mid-gray);
+  fill: none;
+  stroke-width: 2.5;
+}
+.academia-page .faq-item.open .faq-icon {
+  background: var(--cyan);
+  border-color: var(--cyan);
+}
+.academia-page .faq-item.open .faq-icon svg { stroke: var(--darker); transform: rotate(45deg); }
