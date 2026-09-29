@@ -4132,3 +4132,114 @@
   opacity: 1;
 }
 .academia-page .btn-secondary:hover { border-color: var(--dark); opacity: 1; }
+
+/* ══════════════════════════════════════════════════
+   ACADEMIA — INSTRUCTOR SECTION OVERRIDES
+   ══════════════════════════════════════════════════ */
+
+.academia-page .instructor-section {
+  background: var(--darker);
+  padding: 80px 48px;
+}
+.academia-page .instructor-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+/* Glass card (not solid dark) */
+.academia-page .instructor-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 32px;
+  color: var(--white);
+}
+/* Avatar: gradient, white text, 72px */
+.academia-page .instructor-avatar {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--cyan), #667eea);
+  color: var(--white);
+  font-size: 24px;
+}
+/* Role: cyan */
+.academia-page .instructor-role {
+  color: var(--cyan);
+  margin-bottom: 16px;
+}
+/* Bio: muted */
+.academia-page .instructor-bio-short {
+  color: rgba(255,255,255,0.45);
+  font-size: 13px;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+/* Creds: flex with cyan dot (not dash) */
+.academia-page .instructor-creds {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.academia-page .cred {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  padding-left: 0;
+  position: static;
+  line-height: 1.4;
+}
+.academia-page .cred::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--cyan);
+  border-radius: 50%;
+  flex: 0 0 4px;
+  position: static;
+  left: auto;
+  color: transparent;
+}
+/* Right column: text on dark */
+.academia-page .instructor-heading {
+  font-size: clamp(24px, 2.5vw, 38px);
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.academia-page .instructor-heading span { color: var(--cyan); }
+.academia-page .instructor-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+/* Numbers: white text, 28px, muted labels */
+.academia-page .instructor-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.academia-page .in-num-val {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  display: block;
+}
+.academia-page .in-num-val span { color: var(--cyan); font-size: inherit; }
+.academia-page .in-num-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.4;
+  margin-top: 0;
+}
