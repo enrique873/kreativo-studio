@@ -4311,3 +4311,25 @@
   border-color: var(--cyan);
 }
 .academia-page .faq-item.open .faq-icon svg { stroke: var(--darker); transform: rotate(45deg); }
+
+/* ── ACADEMIA FAQ: fix excess item spacing ── */
+/* Global .faq-question = button; in academia .faq-question = text span inside btn */
+.academia-page .faq-question {
+  padding: 0;
+  background: none;
+  border: none;
+  width: auto;
+  display: inline;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--darker);
+  line-height: 1.4;
+  text-align: left;
+  cursor: default;
+}
+/* Remove PDP faq-list margin-top */
+.academia-page .faq-list {
+  margin-top: 0;
+  gap: 0;
+}
