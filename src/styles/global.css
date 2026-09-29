@@ -3692,3 +3692,233 @@
   .pdp-gestion-rrss .services-detail { grid-template-columns: 1fr; }
   .pdp-gestion-rrss .process-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ══════════════════════════════════════════════════
+   ACADEMIA — HERO OVERRIDES (always last, highest priority)
+   ══════════════════════════════════════════════════ */
+
+/* Hero section padding & flex */
+.academia-page .hero {
+  padding: 80px 48px 0;
+  overflow: hidden;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+}
+
+/* Hero inner: 2 equal columns, tighter gap */
+.academia-page .hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding-bottom: 80px;
+}
+
+/* Hero eyebrow: pill badge (not plain text) */
+.academia-page .hero-inner .hero-left .hero-eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cyan);
+  background: rgba(0,200,202,0.1);
+  border: 1px solid rgba(0,200,202,0.2);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+/* Hero pills: translucent white (not cyan) */
+.academia-page .hero-pill {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Hero right: centered */
+.academia-page .hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* Course card mockup: glass card */
+.academia-page .course-card-mockup {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+/* Card banner: purple→violet→cyan gradient, 160px tall, centered */
+.academia-page .ccm-banner {
+  height: 160px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #00C8CA 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0;
+}
+.academia-page .ccm-banner-logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.8);
+}
+.academia-page .ccm-banner-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 10px;
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+  color: var(--white);
+}
+
+/* Card meta: left-aligned flex row */
+.academia-page .ccm-meta {
+  display: flex;
+  gap: 16px;
+  border-top: none;
+  padding-top: 0;
+  margin-bottom: 20px;
+}
+.academia-page .ccm-meta-item {
+  flex: unset;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.academia-page .ccm-meta-val {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  display: block;
+}
+.academia-page .ccm-meta-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-top: 0;
+}
+
+/* Card instructor: border separator */
+.academia-page .ccm-instructor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.academia-page .ccm-instructor-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--cyan), #667eea);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+}
+.academia-page .ccm-instructor-name strong {
+  display: block;
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+}
+
+/* ── ACADEMIA — CRED STRIP (dark, not light) ── */
+.academia-page .cred-strip {
+  background: #111111;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 48px;
+}
+.academia-page .cred-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.academia-page .cred-strip-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(0,200,202,0.1);
+  border: 1px solid rgba(0,200,202,0.2);
+  border-radius: 8px;
+}
+.academia-page .cred-strip-text {
+  color: rgba(255,255,255,0.5);
+}
+.academia-page .cred-strip-text strong {
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+}
+.academia-page .cred-strip-divider {
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── ACADEMIA — VALUE STRIP (light, not dark) ── */
+.academia-page .value-strip {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--light-gray);
+  border-top: none;
+  padding: 20px 48px;
+}
+.academia-page .value-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.academia-page .vs-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 24px;
+  border-right: 1px solid var(--light-gray);
+}
+.academia-page .vs-item:last-child { border-right: none; }
+.academia-page .vs-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  flex: 0 0 32px;
+}
+.academia-page .vs-text {
+  font-size: 13px;
+  color: var(--dark);
+  font-weight: 400;
+}
+.academia-page .vs-text strong {
+  display: block;
+  color: var(--darker);
+  font-size: inherit;
+  font-weight: 500;
+}
