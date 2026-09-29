@@ -1972,6 +1972,13 @@
   .cta-section { padding: 48px 20px; }
 }
 
+/* ── ACADEMIA WRAPPER OVERRIDES ── */
+.academia-page section { max-width: none; margin-left: 0; margin-right: 0; width: 100%; }
+.academia-page .section { padding: 80px 48px; }
+.academia-page .section-inner { max-width: 1120px; margin: 0 auto; }
+.academia-page .section-heading { font-size: clamp(22px, 2.5vw, 34px); max-width: none; }
+.academia-page .section-sub { max-width: 560px; }
+
 /* ── TIENDA (STORE) PAGE ── */
 .tienda-page section { max-width: none; margin-left: 0; margin-right: 0; width: 100%; }
 
