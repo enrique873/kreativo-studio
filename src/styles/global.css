@@ -3742,12 +3742,12 @@
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* Hero right: centered */
-.academia-page .hero-right {
+/* Hero right: centered in column */
+.academia-page .hero-inner > .hero-right {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: flex-start;
-  flex-direction: column;
 }
 
 /* Course card mockup: glass card */
