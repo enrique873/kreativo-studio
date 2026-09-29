@@ -3922,3 +3922,213 @@
   font-size: inherit;
   font-weight: 500;
 }
+
+/* ══════════════════════════════════════════════════
+   ACADEMIA — COURSE SECTION OVERRIDES
+   ══════════════════════════════════════════════════ */
+
+/* Course featured: no extra padding on inner container */
+.academia-page .course-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Visual: gradient background, fixed height */
+.academia-page .cf-visual {
+  height: 280px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #00C8CA 100%);
+  aspect-ratio: unset;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Play button: glass/translucent, not solid cyan */
+.academia-page .cf-visual-play {
+  width: 60px;
+  height: 60px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.academia-page .cf-visual-play svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--white);
+  margin-left: 3px;
+}
+
+/* Disponible ahora badge: pill shape, proper label style */
+.academia-page .cf-visual-label {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.7);
+}
+.academia-page .cf-visual-badge {
+  border-radius: 100px;
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  background: var(--cyan);
+  color: var(--darker);
+}
+
+/* Module list: cards with background, not plain rows */
+.academia-page .cf-modules {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.academia-page .cf-module {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px;
+  background: var(--off-white);
+  border-radius: 8px;
+  border: 1px solid var(--light-gray);
+}
+.academia-page .cf-module-num {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--cyan);
+  flex: 0 0 24px;
+  width: unset;
+  letter-spacing: 0.06em;
+  padding-top: 1px;
+}
+.academia-page .cf-module-name {
+  font-size: 13px;
+  color: var(--dark);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Stats: 3-col grid with bordered boxes */
+.academia-page .cf-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 0;
+  border-bottom: none;
+  flex: unset;
+}
+.academia-page .cf-stat {
+  background: var(--off-white);
+  border: 1px solid var(--light-gray);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.academia-page .cf-stat-val {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--darker);
+  margin-bottom: 2px;
+  display: block;
+}
+.academia-page .cf-stat-label {
+  font-size: 10px;
+  color: var(--mid-gray);
+  letter-spacing: 0.04em;
+  display: block;
+  margin-top: 0;
+}
+
+/* Includes: cyan filled dot bullets (not checkmarks) */
+.academia-page .cf-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.academia-page .cf-includes li {
+  font-size: 14px;
+  color: var(--dark);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding-left: 0;
+  position: static;
+}
+.academia-page .cf-includes li::before {
+  content: '';
+  flex: 0 0 6px;
+  height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  margin-top: 7px;
+  position: static;
+  left: auto;
+  color: transparent;
+  font-weight: normal;
+}
+
+/* Price: slightly smaller amount */
+.academia-page .cf-price-amount {
+  font-size: 36px;
+}
+
+/* Btn primary: cyan, full width */
+.academia-page .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--cyan);
+  color: var(--darker);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 16px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  width: 100%;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.academia-page .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.academia-page .btn-primary svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+/* Btn secondary */
+.academia-page .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--darker);
+  border: 1.5px solid var(--light-gray);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 14px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: border-color 0.2s;
+  margin-top: 12px;
+  width: 100%;
+  opacity: 1;
+}
+.academia-page .btn-secondary:hover { border-color: var(--dark); opacity: 1; }
