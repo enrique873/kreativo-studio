@@ -3,5 +3,5 @@ import Base from '../../layouts/Base.astro';
 import content from '../../content/blog.html?raw';
 ---
 <Base title="Blog — Kreativo Studio" description="Articulos sobre marketing digital.">
-  <Fragment set:html={content} />
+  <div class="blog-page" set:html={content} />
 </Base>
