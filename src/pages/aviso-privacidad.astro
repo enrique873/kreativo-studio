@@ -1,0 +1,7 @@
+---
+import Base from '../layouts/Base.astro';
+import content from '../content/aviso-privacidad.html?raw';
+---
+<Base title="Aviso de Privacidad — Kreativo Studio" description="Aviso de privacidad conforme a la LFPDPPP de Kreativo Studio.">
+  <div class="legal-page-wrapper" set:html={content} />
+</Base>
