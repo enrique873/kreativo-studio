@@ -4463,3 +4463,37 @@
   margin: 0 auto;
   padding: 52px 48px 80px;
 }
+
+/* ── BLOG: fix specificity vs .hero:has(>.hero-inner) rules (0-3-0) ── */
+.blog-page .hero .hero-eyebrow {
+  display: inline-block;
+  width: fit-content;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cyan);
+  background: rgba(0,200,202,0.08);
+  border: 1px solid rgba(0,200,202,0.2);
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  text-transform: none;
+}
+.blog-page .hero .hero-eyebrow::before,
+.blog-page .hero .hero-eyebrow::after { display: none; }
+.blog-page .hero .hero-h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(32px, 3.5vw, 52px);
+  color: var(--darker);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 16px;
+}
+.blog-page .hero .hero-lead {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--mid-gray);
+  line-height: 1.75;
+}
