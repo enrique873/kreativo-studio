@@ -4922,3 +4922,36 @@
   .academia-page .vs-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--light-gray); }
   .academia-page .vs-item:last-child { border-bottom: none; }
 }
+
+/* ══ BLOG: newsletter inline — apilar en móvil ══ */
+@media (max-width: 768px) {
+  .newsletter-inline {
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 24px;
+  }
+  .nl-form {
+    flex-direction: column;
+    width: 100%;
+  }
+  .nl-input { width: 100%; box-sizing: border-box; }
+  .nl-btn { width: 100%; }
+}
+
+/* ══ TIENDA: about-products — apilar en móvil ══ */
+@media (max-width: 768px) {
+  .about-products { padding: 64px 20px; }
+  .about-products-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ══ ACADEMIA: why-section — 2 columnas en tablet, 1 en móvil ══ */
+@media (max-width: 768px) {
+  .why-section { padding: 64px 20px; }
+  .why-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+@media (max-width: 480px) {
+  .why-grid { grid-template-columns: 1fr; }
+}
