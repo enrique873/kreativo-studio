@@ -4955,3 +4955,25 @@
 @media (max-width: 480px) {
   .why-grid { grid-template-columns: 1fr; }
 }
+
+/* ══ ACADEMIA HERO: override explícito — la regla .academia-page .hero-inner
+   aparece después del media-query general y lo sobreescribe. Este bloque
+   aparece al final del archivo para ganar con igual especificidad. ══ */
+@media (max-width: 900px) {
+  .academia-page .hero {
+    min-height: auto;
+    padding: 80px 24px 0;
+  }
+  .academia-page .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+  }
+  .academia-page .hero-inner > .hero-right {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .academia-page .hero { padding: 72px 20px 0; }
+  .academia-page .hero-inner { gap: 32px; padding-bottom: 40px; }
+}
