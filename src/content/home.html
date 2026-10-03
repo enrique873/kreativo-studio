@@ -161,21 +161,39 @@
       <div class="lead-form-title">Quiero los prompts gratis</div>
       <p class="lead-form-sub">Te los mandamos directo a tu WhatsApp. Sin spam, solo lo que vale la pena.</p>
 
-      <div class="lead-form-field">
-        <label>Nombre</label>
-        <input type="text" placeholder="Tu nombre">
-      </div>
-      <div class="lead-form-field">
-        <label>Correo electrónico</label>
-        <input type="email" placeholder="tu@empresa.com">
-      </div>
-      <div class="lead-form-field">
-        <label>WhatsApp</label>
-        <input type="tel" placeholder="+52 55 0000 0000">
-      </div>
+      <form id="prompts-form" novalidate>
+        <div class="lead-form-field">
+          <label for="lf-nombre">Nombre</label>
+          <input id="lf-nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+        </div>
+        <div class="lead-form-field">
+          <label for="lf-email">Correo electrónico</label>
+          <input id="lf-email" name="email" type="email" placeholder="tu@empresa.com" required>
+        </div>
+        <div class="lead-form-field">
+          <label for="lf-wa">WhatsApp</label>
+          <input id="lf-wa" name="whatsapp" type="tel" placeholder="+52 55 0000 0000" required>
+        </div>
 
-      <button class="lead-form-btn">Quiero los 30 prompts →</button>
-      <p class="lead-form-legal">Al enviar aceptas recibir contenido de Kreativo Studio. Puedes darte de baja cuando quieras.</p>
+        <button type="submit" class="lead-form-btn">Quiero los 30 prompts →</button>
+        <p class="lead-form-legal">Al enviar aceptas recibir contenido de Kreativo Studio. Puedes darte de baja cuando quieras.</p>
+      </form>
+
+      <script>
+        (function() {
+          var DOWNLOAD_URL = 'PENDIENTE_URL_DRIVE';
+          var form = document.getElementById('prompts-form');
+          if (!form) return;
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var nombre   = form.querySelector('[name="nombre"]').value.trim();
+            var email    = form.querySelector('[name="email"]').value.trim();
+            var whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
+            if (!nombre || !email || !whatsapp) return;
+            window.open(DOWNLOAD_URL, '_blank');
+          });
+        })();
+      </script>
     </div>
 
   </div>
