@@ -4977,3 +4977,21 @@
   .academia-page .hero { padding: 72px 20px 0; }
   .academia-page .hero-inner { gap: 32px; padding-bottom: 40px; }
 }
+
+/* ── Lead form: required & validation ─────────────────────────────────────── */
+.req { color: #FF4444; margin-left: 2px; }
+.lead-form-field input.field-invalid {
+  border-color: #FF4444 !important;
+  box-shadow: 0 0 0 3px rgba(255,68,68,0.15);
+}
+.lead-form-field input.field-valid {
+  border-color: #00C9A7 !important;
+}
+.field-error {
+  display: block;
+  color: #FF4444;
+  font-size: 11px;
+  margin-top: 4px;
+  min-height: 16px;
+  line-height: 1.4;
+}

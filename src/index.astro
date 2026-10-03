@@ -163,20 +163,23 @@ import Base from '../layouts/Base.astro';
 
     <div class="lead-form">
       <div class="lead-form-title">Quiero los prompts gratis</div>
-      <p class="lead-form-sub">Te los mandamos directo a tu WhatsApp. Sin spam, solo lo que vale la pena.</p>
+      <p class="lead-form-sub">Descarga inmediata y gratuita. Sin spam, solo lo que vale la pena.</p>
 
       <form id="prompts-form" novalidate>
         <div class="lead-form-field">
-          <label for="lf-nombre">Nombre</label>
+          <label for="lf-nombre">Nombre <span class="req">*</span></label>
           <input id="lf-nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+          <span class="field-error" id="err-nombre"></span>
         </div>
         <div class="lead-form-field">
-          <label for="lf-email">Correo electrónico</label>
+          <label for="lf-email">Correo electrónico <span class="req">*</span></label>
           <input id="lf-email" name="email" type="email" placeholder="tu@empresa.com" required>
+          <span class="field-error" id="err-email"></span>
         </div>
         <div class="lead-form-field">
-          <label for="lf-wa">WhatsApp</label>
+          <label for="lf-wa">WhatsApp <span class="req">*</span></label>
           <input id="lf-wa" name="whatsapp" type="tel" placeholder="+52 55 0000 0000" required>
+          <span class="field-error" id="err-wa"></span>
         </div>
 
         <button type="submit" class="lead-form-btn">Quiero los 30 prompts →</button>
@@ -186,15 +189,65 @@ import Base from '../layouts/Base.astro';
       <script is:inline>
         (function() {
           var DOWNLOAD_URL = 'https://drive.google.com/file/d/1bi-4TqRVssyw1h0yuKNd-I891hFu3dOM/view?usp=sharing';
+
+          function isValidEmail(email) {
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return false;
+            var parts = email.toLowerCase().split('@');
+            var local = parts[0], domain = parts[1];
+            var fakes = ['test','asdf','fake','prueba','ejemplo','example','aaa','bbb','xxx','qwerty','correo','email','mail'];
+            for (var i = 0; i < fakes.length; i++) {
+              if (local === fakes[i] || domain === fakes[i] + '.' + domain.split('.').pop()) return false;
+            }
+            if (/^(.)\1+$/.test(local)) return false; // aaaa@, bbbb@
+            return true;
+          }
+
+          function isValidPhone(phone) {
+            var digits = phone.replace(/\D/g, '');
+            if (digits.length < 10) return false;
+            if (/^(\d)\1{7,}$/.test(digits)) return false; // 5555555555
+            var seq = '0123456789012345678901234567890';
+            var rseq = '9876543210987654321098765432109';
+            if (seq.indexOf(digits.slice(0,10)) !== -1 || rseq.indexOf(digits.slice(0,10)) !== -1) return false;
+            return true;
+          }
+
+          function setField(input, errEl, isOk, msg) {
+            input.classList.toggle('field-invalid', !isOk);
+            input.classList.toggle('field-valid', isOk);
+            errEl.textContent = isOk ? '' : msg;
+          }
+
           var form = document.getElementById('prompts-form');
           if (!form) return;
+
+          // Validate on blur
+          var inNombre  = form.querySelector('[name="nombre"]');
+          var inEmail   = form.querySelector('[name="email"]');
+          var inWa      = form.querySelector('[name="whatsapp"]');
+          var errNombre = document.getElementById('err-nombre');
+          var errEmail  = document.getElementById('err-email');
+          var errWa     = document.getElementById('err-wa');
+
+          inNombre.addEventListener('blur', function() {
+            setField(inNombre, errNombre, inNombre.value.trim().length >= 2, 'Ingresa tu nombre.');
+          });
+          inEmail.addEventListener('blur', function() {
+            setField(inEmail, errEmail, isValidEmail(inEmail.value.trim()), 'Ingresa un correo electrónico válido.');
+          });
+          inWa.addEventListener('blur', function() {
+            setField(inWa, errWa, isValidPhone(inWa.value), 'Ingresa un número de WhatsApp real (mín. 10 dígitos).');
+          });
+
           form.addEventListener('submit', function(e) {
             e.preventDefault();
-            var nombre   = form.querySelector('[name="nombre"]').value.trim();
-            var email    = form.querySelector('[name="email"]').value.trim();
-            var whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
-            if (!nombre || !email || !whatsapp) return;
-            // Abrir descarga en nueva pestaña
+            var ok1 = inNombre.value.trim().length >= 2;
+            var ok2 = isValidEmail(inEmail.value.trim());
+            var ok3 = isValidPhone(inWa.value);
+            setField(inNombre, errNombre, ok1, 'Ingresa tu nombre.');
+            setField(inEmail,  errEmail,  ok2, 'Ingresa un correo electrónico válido.');
+            setField(inWa,     errWa,     ok3, 'Ingresa un número de WhatsApp real (mín. 10 dígitos).');
+            if (!ok1 || !ok2 || !ok3) return;
             window.open(DOWNLOAD_URL, '_blank');
           });
         })();
