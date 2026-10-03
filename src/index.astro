@@ -253,7 +253,7 @@ import Base from '../layouts/Base.astro';
             btn.textContent = 'Preparando descarga…';
             btn.disabled = true;
 
-            fetch('/api/submit-lead', {
+            fetch('https://hook.us2.make.com/0e8hog6edaxnjyoebly7ueer85mjp8ua', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -263,14 +263,12 @@ import Base from '../layouts/Base.astro';
               }),
             })
             .then(function(r) {
-              return r.json().then(function(data) {
-                if (!r.ok) {
-                  console.error('Error API submit-lead:', r.status, JSON.stringify(data));
-                }
-              });
+              if (!r.ok) {
+                console.error('Error Make.com webhook:', r.status);
+              }
             })
             .catch(function(err) {
-              console.error('Error de red submit-lead:', err.message);
+              console.error('Error de red webhook:', err.message);
             })
             .finally(function() {
               window.open(DOWNLOAD_URL, '_blank');
