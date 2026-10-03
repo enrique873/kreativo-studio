@@ -4702,3 +4702,133 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE GLOBAL — añadido sin tocar estilos desktop
+   Breakpoints: 768px (tablet) · 640px (móvil)
+═══════════════════════════════════════════════════════ */
+
+/* ── NAV ── */
+@media (max-width: 768px) {
+  .nav-cta { display: none; }
+}
+
+/* ── BLOG PAGE ── */
+@media (max-width: 768px) {
+  .blog-page .hero {
+    padding: 64px 20px 48px;
+  }
+  .blog-page .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .blog-page .hero .hero-h1 { font-size: clamp(28px, 8vw, 40px); }
+  .blog-page .hero-stats { gap: 24px; }
+  .blog-page .hero-search { width: 100%; }
+  .blog-page section,
+  .blog-page .filter-bar { padding-left: 20px; padding-right: 20px; }
+}
+
+/* ── NOSOTROS PAGE ── */
+@media (max-width: 768px) {
+  .nosotros-page .hero {
+    padding: 64px 20px 56px;
+  }
+  .nosotros-page .hero .hero-h1 {
+    font-size: clamp(32px, 9vw, 56px);
+  }
+  .nosotros-page .hero .hero-lead-wrap {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 32px;
+    padding-top: 32px;
+  }
+  .nosotros-page .hero .hero-nums {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .nosotros-page .hero .hero-num-val { font-size: 26px; }
+  .nosotros-page section { padding-left: 20px; padding-right: 20px; }
+
+  /* Manifesto */
+  .manifesto { padding: 64px 20px; }
+
+  /* Story */
+  .story { padding: 64px 20px; max-width: none; }
+  .story-inner { grid-template-columns: 1fr; gap: 48px; }
+
+  /* Values */
+  .values { padding: 64px 20px; }
+  .values-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* Founder */
+  .founder { padding: 64px 20px; }
+  .founder-inner { grid-template-columns: 1fr; gap: 40px; }
+  .founder-nums { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  /* Partners */
+  .partners { padding: 64px 20px; }
+  .partners-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* CTA nosotros */
+  .nosotros-page .cta { padding: 64px 20px; }
+}
+
+/* ── ACADEMIA PAGE ── */
+@media (max-width: 768px) {
+  .academia-page .instructor-section {
+    padding: 64px 20px;
+  }
+  .academia-page .instructor-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .academia-page .instructor-numbers {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .academia-page section { padding-left: 20px; padding-right: 20px; }
+}
+
+/* ── PDP PAGES (suplemento al responsive existente) ── */
+@media (max-width: 768px) {
+  .pdp-page .pdp-hero { padding: 72px 20px 56px; }
+  .pdp-page .section-wrap { padding: 0 20px; }
+  .pdp-cta { padding: 64px 20px; }
+  .pdp-cta h2.section-heading { font-size: clamp(22px, 7vw, 34px); }
+  .pdp-cta-actions { flex-direction: column; align-items: stretch; }
+  .pdp-cta .btn-wa,
+  .pdp-cta .btn-ghost { width: 100%; text-align: center; justify-content: center; }
+  .process-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .results-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .includes-grid { grid-template-columns: 1fr; }
+  .services-detail { grid-template-columns: 1fr; }
+}
+
+/* ── TIENDA PAGE ── */
+@media (max-width: 768px) {
+  .store-hero { padding: 64px 20px 48px; }
+  .products-section { padding: 48px 20px; }
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
+/* ── FOOTER ── */
+@media (max-width: 768px) {
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; padding: 48px 20px 32px; }
+  .footer-bottom { padding: 20px; }
+}
+
+/* ── MÓVIL ESTRECHO (≤ 480px) ── */
+@media (max-width: 480px) {
+  .nosotros-page .hero .hero-nums { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .nosotros-page .hero .hero-num-val { font-size: 22px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .partners-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .founder-nums { grid-template-columns: repeat(3, 1fr); }
+  .footer-top { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; }
+  .results-grid { grid-template-columns: 1fr 1fr; }
+  .academia-page .instructor-numbers { grid-template-columns: repeat(3, 1fr); }
+}
+
