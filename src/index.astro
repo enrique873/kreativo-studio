@@ -248,7 +248,26 @@ import Base from '../layouts/Base.astro';
             setField(inEmail,  errEmail,  ok2, 'Ingresa un correo electrónico válido.');
             setField(inWa,     errWa,     ok3, 'Ingresa un número de WhatsApp real (mín. 10 dígitos).');
             if (!ok1 || !ok2 || !ok3) return;
-            window.open(DOWNLOAD_URL, '_blank');
+
+            var btn = form.querySelector('button[type="submit"]');
+            btn.textContent = 'Preparando descarga…';
+            btn.disabled = true;
+
+            fetch('/api/submit-lead', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                nombre:   inNombre.value.trim(),
+                email:    inEmail.value.trim(),
+                whatsapp: inWa.value.trim(),
+              }),
+            })
+            .catch(function() { /* silencioso si falla Notion */ })
+            .finally(function() {
+              window.open(DOWNLOAD_URL, '_blank');
+              btn.textContent = '¡Listo! Revisa tu nueva pestaña →';
+              btn.disabled = false;
+            });
           });
         })();
       </script>
