@@ -56,16 +56,17 @@ export default async function handler(req, res) {
       }),
     });
 
+    const body = await response.json();
+
     if (!response.ok) {
-      const errBody = await response.text();
-      console.error('Notion error:', errBody);
-      return res.status(502).json({ error: 'Error al guardar en Notion.' });
+      console.error('Notion API error:', response.status, JSON.stringify(body));
+      return res.status(502).json({ error: 'Error al guardar en Notion.', detail: body });
     }
 
     return res.status(200).json({ ok: true });
 
   } catch (err) {
-    console.error('Error inesperado:', err);
-    return res.status(500).json({ error: 'Error interno.' });
+    console.error('Error inesperado:', err.message);
+    return res.status(500).json({ error: 'Error interno.', detail: err.message });
   }
 }

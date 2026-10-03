@@ -2,5 +2,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
-  "framework": "astro"
+  "framework": "astro",
+  "functions": {
+    "api/submit-lead.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
 }

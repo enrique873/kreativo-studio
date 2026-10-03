@@ -262,7 +262,16 @@ import Base from '../layouts/Base.astro';
                 whatsapp: inWa.value.trim(),
               }),
             })
-            .catch(function() { /* silencioso si falla Notion */ })
+            .then(function(r) {
+              return r.json().then(function(data) {
+                if (!r.ok) {
+                  console.error('Error API submit-lead:', r.status, JSON.stringify(data));
+                }
+              });
+            })
+            .catch(function(err) {
+              console.error('Error de red submit-lead:', err.message);
+            })
             .finally(function() {
               window.open(DOWNLOAD_URL, '_blank');
               btn.textContent = '¡Listo! Revisa tu nueva pestaña →';
