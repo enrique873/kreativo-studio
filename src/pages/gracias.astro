@@ -1,0 +1,170 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="¡Gracias! — Kreativo Studio" description="Ya tienes tus 30 prompts de IA. Revisa la pestaña que se acaba de abrir.">
+
+<style>
+  .gracias-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    text-align: center;
+  }
+  .gracias-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .gracias-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(0, 200, 202, 0.1);
+    border: 2px solid rgba(0, 200, 202, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+  }
+  .gracias-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke: var(--cyan);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .gracias-tag {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 20px;
+  }
+  .gracias-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .gracias-heading em {
+    font-style: italic;
+    color: var(--cyan);
+  }
+  .gracias-sub {
+    font-family: var(--font-body);
+    font-size: 17px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    margin-bottom: 40px;
+  }
+  .gracias-note {
+    background: rgba(0, 200, 202, 0.06);
+    border: 1px solid rgba(0, 200, 202, 0.18);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+  .gracias-note strong {
+    color: var(--cyan);
+    font-weight: 500;
+  }
+  .gracias-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  @media (min-width: 480px) {
+    .gracias-actions {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  .btn-gracias-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--cyan);
+    color: var(--dark);
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .btn-gracias-primary:hover { opacity: 0.88; }
+  .btn-gracias-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.15);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-gracias-secondary:hover {
+    border-color: rgba(255,255,255,0.35);
+    color: white;
+  }
+</style>
+
+<div class="gracias-page">
+  <div class="gracias-inner">
+
+    <div class="gracias-icon">
+      <svg viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+
+    <div class="gracias-tag">Descarga lista</div>
+
+    <h1 class="gracias-heading">Tus 30 prompts<br>ya están <em>contigo.</em></h1>
+
+    <p class="gracias-sub">
+      El PDF se abrió en una nueva pestaña. Si no lo ves, revisa que tu navegador no haya bloqueado la ventana emergente.
+    </p>
+
+    <div class="gracias-note">
+      <strong>¿No se abrió la descarga?</strong> A veces los bloqueadores de pop-ups intervienen.
+      <a href="https://drive.google.com/file/d/1bi-4TqRVssyw1h0yuKNd-I891hFu3dOM/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:var(--cyan);text-decoration:none;font-weight:500;">Haz clic aquí para descargar directamente →</a>
+    </div>
+
+    <div class="gracias-actions">
+      <a href="https://calendar.app.google/vFAJKg1ggNNqnhTC6" target="_blank" rel="noopener noreferrer" class="btn-gracias-primary">
+        Agendar diagnóstico gratuito
+      </a>
+      <a href="/" class="btn-gracias-secondary">
+        Volver al inicio
+      </a>
+    </div>
+
+  </div>
+</div>
+
+</Base>

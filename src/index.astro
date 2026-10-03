@@ -274,8 +274,7 @@ import Base from '../layouts/Base.astro';
             })
             .finally(function() {
               window.open(DOWNLOAD_URL, '_blank');
-              btn.textContent = '¡Listo! Revisa tu nueva pestaña →';
-              btn.disabled = false;
+              window.location.href = '/gracias';
             });
           });
         })();
