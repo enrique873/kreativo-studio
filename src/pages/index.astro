@@ -1,7 +1,59 @@
 ---
 import Base from '../layouts/Base.astro';
 import content from '../content/home.html?raw';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto presupuesto necesito para ver resultados reales en paid media?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del canal y la categoría, pero con menos de $15,000 MXN mensuales en pauta es difícil que los algoritmos de Meta o Google tengan suficientes datos para optimizar bien. Lo ideal para arrancar con fuerza está entre $20,000 y $50,000 MXN al mes. Esto lo definimos con precisión en el diagnóstico gratuito según tus objetivos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En cuánto tiempo puedo esperar ver resultados?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los primeros 30 días son de diagnóstico y aprendizaje: lanzamos, medimos y ajustamos. Entre el mes 2 y 3 ya hay datos sólidos para optimizar con criterio. Desconfía de cualquier agencia que promete resultados espectaculares en las primeras dos semanas: o miente o no entiende cómo funcionan los algoritmos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Trabajan solo con e-commerce o también con servicios y B2B?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con ambos. Hacemos performance para tiendas en línea, pero también para empresas de servicios, captación de leads B2B y estrategias de registro de usuarios. La metodología cambia según el funnel, los objetivos y el ciclo de venta de tu negocio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo me reportan los resultados y con qué frecuencia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada lunes tienes un reporte semanal con las métricas que importan: ROAS, CPA, conversiones, gasto ejecutado y las acciones tomadas esa semana. Nada de PDFs de 40 páginas llenos de vanity metrics. Además tienes acceso a un dashboard en tiempo real para que puedas revisar tus números cuando quieras."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si mi cuenta de Meta o Google ya tiene historial malo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es más común de lo que crees. Hacemos auditorías y rescates de cuentas con historial negativo, restricciones o bajo rendimiento crónico. El primer paso siempre es una auditoría profunda para saber qué se puede recuperar y qué conviene reestructurar desde cero."
+      }
+    }
+  ]
+};
 ---
-<Base title="Kreativo Studio — Agencia de Marketing de Performance en Mexico" description="Agencia boutique de marketing de performance para marcas que quieren crecer en serio.">
+<Base
+  title="Kreativo Studio — Agencia de Marketing de Performance en Mexico"
+  description="Agencia boutique de marketing de performance para marcas que quieren crecer en serio. Paid media, SEO y estrategia digital para marcas en Mexico y LATAM."
+  canonical="https://www.kreativostudio.com/"
+  schema={faqSchema}
+>
   <Fragment set:html={content} />
 </Base>

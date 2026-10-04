@@ -2,7 +2,35 @@
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-const { title = 'Kreativo Studio', description = 'Agencia boutique de marketing de performance para marcas que quieren crecer en serio.' } = Astro.props;
+
+const {
+  title       = 'Kreativo Studio — Agencia de Marketing de Performance en Mexico',
+  description = 'Agencia boutique de marketing de performance para marcas que quieren crecer en serio.',
+  ogImage     = 'https://www.kreativostudio.com/og-image.jpg',
+  canonical   = Astro.url.href,
+  schema      = null,
+} = Astro.props;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kreativo Studio",
+  "url": "https://www.kreativostudio.com",
+  "logo": "https://www.kreativostudio.com/favicon.svg",
+  "foundingDate": "2014",
+  "description": "Agencia boutique de marketing de performance para marcas en Mexico y LATAM.",
+  "areaServed": "MX",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hola@kreativostudio.com",
+    "contactType": "customer service",
+    "availableLanguage": "Spanish"
+  },
+  "sameAs": [
+    "https://www.instagram.com/kreativostudio",
+    "https://www.linkedin.com/company/kreativostudio"
+  ]
+};
 ---
 <!DOCTYPE html>
 <html lang="es">
@@ -11,10 +39,36 @@ const { title = 'Kreativo Studio', description = 'Agencia boutique de marketing 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
   <title>{title}</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url"         content={canonical} />
+  <meta property="og:image"       content={ogImage} />
+  <meta property="og:site_name"   content="Kreativo Studio" />
+  <meta property="og:locale"      content="es_MX" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image"       content={ogImage} />
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Schema.org: Organization (todas las páginas) -->
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+
+  <!-- Schema.org: adicional por página (FAQPage, Article, etc.) -->
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
   <!-- Google Tag Manager -->
   <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KGJXWJNH');</script>
   <!-- End Google Tag Manager -->

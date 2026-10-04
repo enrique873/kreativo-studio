@@ -2,6 +2,10 @@
 import Base from '../layouts/Base.astro';
 import content from '../content/nosotros.html?raw';
 ---
-<Base title="Nosotros — Kreativo Studio" description="Conoce al equipo detras de Kreativo Studio.">
+<Base
+  title="Nosotros — Kreativo Studio"
+  description="Kreativo Studio es una agencia boutique de marketing de performance fundada en 2014. Mas de 80 marcas en Mexico y LATAM confian en nuestro equipo para crecer con paid media, SEO y estrategia digital."
+  canonical="https://www.kreativostudio.com/nosotros"
+>
   <div class="nosotros-page" set:html={content} />
 </Base>
