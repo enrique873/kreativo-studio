@@ -4995,3 +4995,60 @@
   min-height: 16px;
   line-height: 1.4;
 }
+
+/* ══ SERVICIOS PLP: responsive ══ */
+
+/* Tablet: reducir padding del visual */
+@media (max-width: 1023px) {
+  .service-section {
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+  }
+  .service-content { padding: 56px 40px; }
+  .service-visual { padding: 40px; }
+}
+
+/* Móvil: colapsar a 1 columna, visual arriba, contenido abajo */
+@media (max-width: 768px) {
+  .services-wrapper { padding: 0; }
+
+  .service-section,
+  .service-section.reverse {
+    display: flex;
+    flex-direction: column;
+    direction: ltr;   /* anula el rtl del .reverse */
+    min-height: auto;
+  }
+  .service-section.reverse > * { direction: ltr; }
+
+  .service-visual {
+    width: 100%;
+    min-height: 220px;
+    padding: 32px 24px;
+    order: 0;   /* visual siempre primero */
+  }
+
+  .service-content {
+    width: 100%;
+    padding: 40px 20px 48px;
+    order: 1;   /* contenido siempre debajo */
+  }
+
+  /* Ocultar visuals muy complejos en móvil (evitan overflow) */
+  .visual-roas,
+  .visual-web,
+  .visual-strategy,
+  .visual-social { transform: scale(0.82); transform-origin: center top; }
+
+  .service-num { font-size: 11px; }
+  .service-includes { padding-left: 0; }
+  .service-includes li { font-size: 14px; }
+  .service-tags { gap: 6px; }
+  .service-actions { flex-direction: column; gap: 10px; }
+  .service-actions .btn-primary,
+  .service-actions .btn-secondary { width: 100%; text-align: center; }
+
+  /* Hero de servicios */
+  .services-hero { padding: 80px 20px 48px; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
