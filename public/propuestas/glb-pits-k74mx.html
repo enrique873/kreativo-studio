@@ -1,0 +1,842 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Propuesta GLB Pits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap">
+<style>
+/* Layout: documento de propuesta tipo landing Kreativo, secciones alternas blanco / off-white / oscuro, columna de lectura de 1080px */
+:root {
+  --bg: #FFFFFF;
+  --bg-alt: #F5F5F7;
+  --bg-inv: #0A0A0A;
+  --card: #FFFFFF;
+  --fg: #1D1D1F;
+  --fg-muted: #86868B;
+  --fg-inv: #FFFFFF;
+  --fg-inv-muted: rgba(255,255,255,0.62);
+  --line: #E8E8ED;
+  --line-inv: rgba(255,255,255,0.12);
+  --cyan: #00C8CA;
+  --cyan-soft: rgba(0,200,202,0.08);
+  --cyan-glow: rgba(0,200,202,0.11);
+  --btn-bg: #1D1D1F;
+  --btn-fg: #FFFFFF;
+  --nav-bg: rgba(255,255,255,0.88);
+  --bar-a: #1D1D1F;
+  --bar-b: #86868B;
+  --bar-c: #E8E8ED;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --font-heading: 'Josefin Sans', 'Futura', 'Century Gothic', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A0A0A; --bg-alt: #141416; --bg-inv: #1D1D1F; --card: #1D1D1F;
+    --fg: #F5F5F7; --fg-muted: #98989D; --fg-inv: #F5F5F7; --fg-inv-muted: rgba(245,245,247,0.62);
+    --line: #2A2A2E; --line-inv: rgba(255,255,255,0.12);
+    --cyan-soft: rgba(0,200,202,0.12); --cyan-glow: rgba(0,200,202,0.14);
+    --btn-bg: #F5F5F7; --btn-fg: #0A0A0A; --nav-bg: rgba(10,10,10,0.82);
+    --bar-a: #F5F5F7; --bar-b: #98989D; --bar-c: #3A3A3E;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A0A0A; --bg-alt: #141416; --bg-inv: #1D1D1F; --card: #1D1D1F;
+  --fg: #F5F5F7; --fg-muted: #98989D; --fg-inv: #F5F5F7; --fg-inv-muted: rgba(245,245,247,0.62);
+  --line: #2A2A2E; --line-inv: rgba(255,255,255,0.12);
+  --cyan-soft: rgba(0,200,202,0.12); --cyan-glow: rgba(0,200,202,0.14);
+  --btn-bg: #F5F5F7; --btn-fg: #0A0A0A; --nav-bg: rgba(10,10,10,0.82);
+  --bar-a: #F5F5F7; --bar-b: #98989D; --bar-c: #3A3A3E;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0;
+  text-wrap: balance;
+}
+p { margin: 0; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 4px; }
+
+/* NAV */
+nav.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1180px; margin: 0 auto; height: 64px;
+  padding-inline: 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-mark {
+  width: 34px; height: 34px; border-radius: var(--radius-sm);
+  background: #1D1D1F; display: grid; place-items: center;
+  font-family: var(--font-heading); font-weight: 700; font-size: 13px; color: var(--cyan);
+}
+.logo-word { font-family: var(--font-heading); font-weight: 600; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+.nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.nav-links a { font-size: 14px; text-decoration: none; opacity: 0.72; transition: opacity .2s, color .2s; }
+.nav-links a:hover { opacity: 1; color: var(--cyan); }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--btn-bg); color: var(--btn-fg);
+  font-family: var(--font-body); font-weight: 500; font-size: 14px;
+  padding: 11px 22px; border-radius: 100px; text-decoration: none; white-space: nowrap;
+  transition: opacity .2s;
+}
+.btn:hover { opacity: 0.86; }
+.link-arrow { font-family: var(--font-heading); font-weight: 700; font-size: 14px; text-decoration: none; display: inline-flex; gap: 6px; }
+.link-arrow:hover { color: var(--cyan); }
+
+/* SECTIONS */
+section { padding-block: 104px; padding-inline: 24px; }
+.wrap { max-width: 1080px; margin: 0 auto; }
+.s-white { background: var(--bg); }
+.s-alt { background: var(--bg-alt); }
+.s-dark { background: var(--bg-inv); color: var(--fg-inv); }
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading); font-weight: 700; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cyan);
+  border: 1px solid rgba(0,200,202,0.32);
+  padding: 5px 14px; border-radius: 100px;
+  margin-bottom: 22px;
+}
+.h2 { font-size: clamp(30px, 4vw, 48px); margin-bottom: 18px; }
+.lead { font-size: 18px; font-weight: 300; color: var(--fg-muted); max-width: 680px; }
+.s-dark .lead { color: var(--fg-inv-muted); }
+.sec-head { margin-bottom: 56px; }
+
+/* HERO */
+.hero { position: relative; overflow: hidden; padding-block: 120px 96px; text-align: center; }
+.hero::before {
+  content: ''; position: absolute; top: -260px; left: 50%; transform: translateX(-50%);
+  width: 960px; height: 960px; max-width: 200vw;
+  background: radial-gradient(circle, var(--cyan-glow) 0%, rgba(0,200,202,0.04) 45%, transparent 70%);
+  pointer-events: none;
+}
+.hero .wrap { position: relative; }
+.hero h1 { font-size: clamp(40px, 6.4vw, 78px); margin: 0 auto 24px; max-width: 900px; }
+.hero .lead { margin: 0 auto 40px; text-align: center; }
+.hero-meta {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+}
+.chip {
+  font-size: 13px; padding: 7px 16px; border-radius: 100px;
+  border: 1px solid var(--line); background: var(--card);
+}
+.chip b { font-weight: 500; }
+
+/* DIAGNÓSTICO */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; }
+.stat-val { font-family: var(--font-heading); font-weight: 700; font-size: 44px; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat-lbl { font-size: 14px; color: var(--fg-muted); margin-top: 12px; }
+.find-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.find h3 { font-size: 18px; margin-bottom: 10px; display: flex; gap: 10px; align-items: baseline; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); flex: 0 0 8px; transform: translateY(-2px); }
+.find p { color: var(--fg-muted); font-size: 15px; }
+
+/* EMBUDO */
+.funnel { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border: 1px solid var(--line-inv); border-radius: var(--radius); overflow: hidden; }
+.f-step { padding: 26px 20px; border-right: 1px solid var(--line-inv); min-width: 0; }
+.f-step:last-child { border-right: 0; }
+.f-num { font-family: var(--font-heading); font-weight: 700; font-size: 12px; color: var(--cyan); letter-spacing: 0.08em; margin-bottom: 14px; }
+.f-title { font-family: var(--font-heading); font-weight: 700; font-size: 17px; margin-bottom: 8px; }
+.f-desc { font-size: 13.5px; color: var(--fg-inv-muted); line-height: 1.5; }
+.f-owner { margin-top: 14px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-family: var(--font-heading); font-weight: 700; color: var(--fg-inv-muted); }
+.f-owner.k { color: var(--cyan); }
+.offer {
+  margin-top: 40px; padding: 32px; border-radius: var(--radius);
+  border: 1px solid rgba(0,200,202,0.35); background: rgba(0,200,202,0.06);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+}
+.offer-k { font-family: var(--font-heading); font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
+.offer-v { font-family: var(--font-heading); font-weight: 700; font-size: 22px; line-height: 1.25; }
+
+/* SCOPE */
+.pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pillar { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 36px; min-width: 0; }
+.pillar-tag { font-family: var(--font-heading); font-weight: 700; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 10px; }
+.pillar h3 { font-size: 26px; margin-bottom: 8px; }
+.pillar .who { font-size: 14px; color: var(--fg-muted); margin-bottom: 26px; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.list li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; font-size: 15px; line-height: 1.5; }
+.list li::before { content: '✓'; color: var(--cyan); font-weight: 500; }
+.list.no li::before { content: '→'; color: var(--fg-muted); }
+.list.no li { color: var(--fg-muted); }
+.sub { font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin: 30px 0 14px; }
+.note { font-size: 13.5px; color: var(--fg-muted); margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+
+.split { display: grid; gap: 12px; margin-top: 4px; }
+.split-row { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.split-row:last-child { border-bottom: 0; }
+.split-name { font-weight: 500; font-size: 15px; }
+.split-name span { display: block; font-weight: 400; font-size: 13.5px; color: var(--fg-muted); margin-top: 2px; }
+.split-pct { font-family: var(--font-heading); font-weight: 700; font-size: 22px; font-variant-numeric: tabular-nums; }
+
+/* INVERSIÓN */
+.budget { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 40px; }
+.budget-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 28px; }
+.budget-total { font-family: var(--font-heading); font-weight: 700; font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.budget-total small { font-family: var(--font-body); font-weight: 300; font-size: 15px; color: var(--fg-muted); letter-spacing: 0; margin-left: 6px; }
+.bar { display: flex; height: 14px; border-radius: 100px; overflow: hidden; gap: 3px; margin-bottom: 32px; }
+.bar i { display: block; height: 100%; }
+.bar .a { background: var(--bar-a); flex: 50; }
+.bar .b { background: var(--cyan); flex: 25; }
+.bar .c { background: var(--bar-b); flex: 12.5; }
+.bar .d { background: var(--bar-c); flex: 12.5; }
+.legend { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.leg-block { min-width: 0; }
+.leg-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; flex: 0 0 12px; }
+.leg-title { font-family: var(--font-heading); font-weight: 700; font-size: 18px; }
+.leg-amt { font-family: var(--font-heading); font-weight: 700; font-size: 26px; font-variant-numeric: tabular-nums; margin: 4px 0 10px; }
+.leg-desc { font-size: 14.5px; color: var(--fg-muted); }
+.leg-rows { margin-top: 14px; display: grid; gap: 8px; }
+.leg-row { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.leg-row b { margin-left: auto; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.callouts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+.callout { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; background: var(--card); }
+.callout h4 { font-size: 16px; margin-bottom: 8px; }
+.callout p { font-size: 14.5px; color: var(--fg-muted); }
+.callout.accent { border-color: rgba(0,200,202,0.4); }
+.fx { font-size: 12.5px; color: var(--fg-muted); margin-top: 18px; }
+
+/* ATRIBUCIÓN */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.two > * { min-width: 0; }
+.prose p { color: var(--fg-inv-muted); font-size: 16px; margin-bottom: 16px; max-width: 62ch; }
+.prose p strong { color: var(--fg-inv); font-weight: 500; }
+.timeline { border: 1px solid var(--line-inv); border-radius: var(--radius); padding: 28px; }
+.tl-title { font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-inv-muted); margin-bottom: 22px; }
+.tl-track { position: relative; height: 10px; border-radius: 100px; background: var(--line-inv); margin: 8px 0 14px; }
+.tl-fill { position: absolute; inset: 0 auto 0 0; width: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--cyan), rgba(0,200,202,0.35)); }
+.tl-labels { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--fg-inv-muted); font-variant-numeric: tabular-nums; }
+.tl-events { margin-top: 26px; display: grid; gap: 14px; }
+.tl-ev { display: grid; grid-template-columns: 64px 1fr; gap: 14px; font-size: 14px; }
+.tl-day { font-family: var(--font-heading); font-weight: 700; color: var(--cyan); font-variant-numeric: tabular-nums; }
+.tl-ev span { color: var(--fg-inv-muted); }
+.why60 { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.why60 div { border-top: 1px solid var(--line-inv); padding-top: 20px; }
+.why60 h4 { font-size: 16px; margin-bottom: 8px; }
+.why60 p { font-size: 14.5px; color: var(--fg-inv-muted); }
+.how { margin-top: 56px; }
+.how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px; }
+.how-card { border: 1px solid var(--line-inv); border-radius: var(--radius); padding: 22px; min-width: 0; }
+.how-card h4 { font-size: 15px; margin-bottom: 6px; }
+.how-card p { font-size: 13.5px; color: var(--fg-inv-muted); }
+.code { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--cyan); background: rgba(0,200,202,0.1); padding: 2px 6px; border-radius: 4px; white-space: nowrap; }
+
+/* KPIs */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 14.5px; }
+th, td { text-align: left; padding: 16px 20px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--font-heading); font-weight: 700; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 500; }
+.pill { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 100px; border: 1px solid var(--line); white-space: nowrap; }
+.pill.ours { border-color: rgba(0,200,202,0.45); color: var(--fg); background: var(--cyan-soft); }
+
+/* PLAZO / ROADMAP */
+.phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.phase { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; min-width: 0; }
+.phase-when { font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
+.phase h3 { font-size: 20px; margin-bottom: 14px; }
+.phase .list li { font-size: 14px; }
+.reasons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 48px; margin-top: 56px; }
+.reason { display: grid; grid-template-columns: 22px 1fr; gap: 6px; }
+.reason::before { content: '→'; color: var(--cyan); font-weight: 500; }
+.reason h4 { font-size: 16px; margin-bottom: 4px; }
+.reason p { font-size: 14.5px; color: var(--fg-muted); }
+
+/* COMPROMISOS */
+.commit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+.commit { display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.commit-n { font-family: var(--font-heading); font-weight: 700; font-size: 14px; color: var(--fg-muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.commit h4 { font-size: 16px; margin-bottom: 4px; }
+.commit p { font-size: 14.5px; color: var(--fg-muted); }
+
+/* OPCIONAL */
+.optional { border: 1px dashed var(--fg-muted); border-radius: var(--radius); padding: 44px; background: var(--card); }
+.opt-badge { display: inline-block; font-family: var(--font-heading); font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; background: var(--bg-alt); color: var(--fg-muted); margin-bottom: 18px; }
+.opt-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 36px; }
+.opt-cols > * { min-width: 0; }
+.clauses { margin-top: 36px; border-top: 1px solid var(--line); }
+.clause { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.clause:last-child { border-bottom: 0; }
+.clause h4 { font-size: 15px; }
+.clause p { font-size: 14.5px; color: var(--fg-muted); }
+.clause p + p { margin-top: 8px; }
+
+/* PASOS */
+.steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.step { border-top: 2px solid var(--line-inv); padding-top: 18px; min-width: 0; }
+.step.now { border-top-color: var(--cyan); }
+.step-n { font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.1em; color: var(--fg-inv-muted); margin-bottom: 8px; }
+.step.now .step-n { color: var(--cyan); }
+.step h4 { font-size: 16px; margin-bottom: 6px; }
+.step p { font-size: 13.5px; color: var(--fg-inv-muted); }
+.close { margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--line-inv); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px; }
+.close q { font-family: var(--font-heading); font-weight: 700; font-size: clamp(22px, 2.6vw, 32px); quotes: none; letter-spacing: -0.02em; }
+.close .sig { font-size: 14px; color: var(--fg-inv-muted); margin-top: 8px; }
+.btn-light { background: var(--fg-inv); color: #0A0A0A; }
+.contact { font-size: 14px; color: var(--fg-inv-muted); margin-top: 10px; text-align: right; }
+.contact span { user-select: all; color: var(--fg-inv); }
+
+footer { padding-block: 28px; padding-inline: 24px; background: var(--bg-inv); color: var(--fg-inv-muted); border-top: 1px solid var(--line-inv); font-size: 13px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  section { padding-block: 80px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .find-grid, .why60, .callouts { grid-template-columns: 1fr; gap: 20px; }
+  .funnel { grid-template-columns: repeat(3, 1fr); }
+  .f-step { border-bottom: 1px solid var(--line-inv); }
+  .f-step:nth-child(3n) { border-right: 0; }
+  .f-step:nth-child(n+4) { border-bottom: 0; }
+  .pillars, .two, .opt-cols, .legend, .offer { grid-template-columns: 1fr; gap: 32px; }
+  .how-grid, .phases { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
+  .clause { grid-template-columns: 1fr; gap: 6px; }
+  .commit-grid, .reasons { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .nav-inner { height: 56px; padding-inline: 16px; }
+  .logo-word { display: none; }
+  section { padding-block: 64px; padding-inline: 16px; }
+  .hero { padding-block: 72px 64px; }
+  .stats, .how-grid, .phases, .steps { grid-template-columns: 1fr; }
+  .stat-val { font-size: 38px; }
+  .funnel { grid-template-columns: 1fr; }
+  .f-step { border-right: 0; border-bottom: 1px solid var(--line-inv); }
+  .f-step:nth-child(n+4) { border-bottom: 1px solid var(--line-inv); }
+  .f-step:last-child { border-bottom: 0; }
+  .pillar, .budget, .optional, .offer { padding: 26px 22px; }
+  .close { flex-direction: column; align-items: flex-start; }
+  .contact { text-align: left; }
+  footer { padding-inline: 16px; }
+}
+@media (max-width: 480px) {
+  section { padding-block: 56px; padding-inline: 16px; }
+  .hero { padding-block: 60px 48px; }
+  .sec-head { margin-bottom: 36px; }
+
+  /* Stats: 1 col */
+  .stats { grid-template-columns: 1fr; gap: 12px; }
+  .stat { padding: 22px 18px; }
+  .stat-val { font-size: 34px; }
+
+  /* Funnel: 1 col con padding reducido */
+  .f-step { padding: 20px 16px; }
+
+  /* Pillars / Cards */
+  .pillar { padding: 22px 18px; }
+  .pillar h3 { font-size: 22px; }
+
+  /* Budget */
+  .budget { padding: 22px 18px; }
+  .budget-total { font-size: 26px; }
+  .legend { gap: 24px; }
+  .leg-amt { font-size: 22px; }
+  .leg-row { flex-wrap: wrap; gap: 4px; }
+  .leg-row b { margin-left: 0; }
+
+  /* Callouts */
+  .callout { padding: 20px 18px; }
+
+  /* Offer */
+  .offer { padding: 22px 18px; gap: 24px; }
+  .offer-v { font-size: 18px; }
+
+  /* Timeline */
+  .tl-ev { grid-template-columns: 52px 1fr; gap: 10px; }
+
+  /* Steps */
+  .steps { grid-template-columns: 1fr; }
+  .step { padding-top: 14px; }
+
+  /* Close / CTA */
+  .close { gap: 24px; }
+  .close q { font-size: 20px; }
+  .btn { width: 100%; justify-content: center; padding: 13px 20px; }
+
+  /* Optional */
+  .optional { padding: 28px 18px; }
+
+  /* Commit */
+  .commit { grid-template-columns: 32px 1fr; gap: 10px; }
+
+  /* Phases */
+  .phase { padding: 22px 18px; }
+
+  /* Reasons */
+  .reasons { gap: 16px 0; margin-top: 36px; }
+
+  /* Why60 */
+  .why60 { gap: 16px; margin-top: 36px; }
+
+  /* Footer */
+  footer .wrap { flex-direction: column; gap: 6px; }
+  footer { font-size: 12px; }
+
+  /* Hero chips */
+  .hero-meta { gap: 6px; }
+  .chip { font-size: 12px; padding: 5px 12px; }
+}
+</style>
+
+<nav class="top" aria-label="Secciones">
+  <div class="nav-inner">
+    <a class="logo" href="#inicio"><span class="logo-mark">KS</span><span class="logo-word">Kreativo Studio</span></a>
+    <ul class="nav-links">
+      <li><a href="#diagnostico">Diagnóstico</a></li>
+      <li><a href="#estrategia">Estrategia</a></li>
+      <li><a href="#inversion">Inversión</a></li>
+      <li><a href="#atribucion">Atribución</a></li>
+      <li><a href="#plazo">Plazo</a></li>
+      <li><a href="#compromisos">Compromisos</a></li>
+    </ul>
+    <a class="btn" href="#pasos">Próximos pasos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero s-white" id="inicio">
+  <div class="wrap">
+    <span class="eyebrow">Propuesta comercial · Octubre 2026</span>
+    <h1>Más carros en la bahía de GLB Pits desde el primer mes.</h1>
+    <p class="lead">Una estrategia de contenido y pauta pensada para convertir a conductores de Bucaramanga en citas reales, con un presupuesto ajustado y una regla simple: Kreativo gana cuando GLB Pits vende.</p>
+    <div class="hero-meta">
+      <span class="chip">Para <b>Iván Carreño y socios</b></span>
+      <span class="chip">GLB Pits by SmartLube · Bucaramanga</span>
+      <span class="chip">Preparada por <b>Enrique Girón</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO -->
+<section class="s-alt" id="diagnostico">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Lo que vimos</span>
+      <h2 class="h2">El taller está listo. Falta que la ciudad lo sepa.</h2>
+      <p class="lead">Invirtieron en equipo de primer nivel, tienen una sala de espera que nadie más tiene y un software que manda el diagnóstico al WhatsApp del cliente. El reto no es el servicio. Es el alcance.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">109</div><div class="stat-lbl">seguidores en Instagram después de dos meses de operación</div></div>
+      <div class="stat"><div class="stat-val">11</div><div class="stat-lbl">publicaciones en total, ninguna con Iván como cara de la marca</div></div>
+      <div class="stat"><div class="stat-val">5</div><div class="stat-lbl">reseñas en Google Maps, todas de 5 estrellas</div></div>
+      <div class="stat"><div class="stat-val">316</div><div class="stat-lbl">reseñas del competidor que Google muestra al lado</div></div>
+    </div>
+    <div class="find-grid">
+      <div class="find">
+        <h3><span class="dot"></span>Los diferenciales no se ven</h3>
+        <p>Motul, el cambio cada 8,000 a 15,000 km y la revisión gratis de 20 puntos casi no aparecen en Instagram ni en el brochure. Son justo los argumentos que hacen que alguien elija GLB Pits.</p>
+      </div>
+      <div class="find">
+        <h3><span class="dot"></span>La oferta está dispersa</h3>
+        <p>Hoy conviven "revisión de 20 puntos gratis", "diagnóstico gratis" y "10% de descuento". Tres mensajes compitiendo confunden. Vamos a trabajar con una sola oferta de entrada.</p>
+      </div>
+      <div class="find">
+        <h3><span class="dot"></span>Google Maps está subutilizado</h3>
+        <p>La ficha está registrada como "Taller de automóviles", sin descripción, sin sitio y con pocas fotos. Es la vitrina gratuita más importante para quien busca "cambio de aceite cerca de mí".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTRATEGIA / EMBUDO -->
+<section class="s-dark" id="estrategia">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">La estrategia</span>
+      <h2 class="h2">Un camino corto entre el anuncio y la bahía.</h2>
+      <p class="lead">La revisión gratuita de 20 puntos es la puerta de entrada. El reporte por WhatsApp y el equipo de GLB Pits hacen el cierre. Kreativo se encarga de traer a las personas correctas hasta esa puerta.</p>
+    </div>
+    <div class="funnel" role="list">
+      <div class="f-step" role="listitem"><div class="f-num">01</div><div class="f-title">Anuncio</div><div class="f-desc">Meta Ads con radio de 4 a 6 km alrededor del taller.</div><div class="f-owner k">Kreativo</div></div>
+      <div class="f-step" role="listitem"><div class="f-num">02</div><div class="f-title">Contacto</div><div class="f-desc">WhatsApp con mensaje precargado o formulario de Meta.</div><div class="f-owner k">Kreativo</div></div>
+      <div class="f-step" role="listitem"><div class="f-num">03</div><div class="f-title">Cita</div><div class="f-desc">GLB Pits responde, confirma día y hora.</div><div class="f-owner">GLB Pits</div></div>
+      <div class="f-step" role="listitem"><div class="f-num">04</div><div class="f-title">Revisión</div><div class="f-desc">20 puntos gratis con reporte al WhatsApp del cliente.</div><div class="f-owner">GLB Pits</div></div>
+      <div class="f-step" role="listitem"><div class="f-num">05</div><div class="f-title">Venta</div><div class="f-desc">Cambio de aceite Motul y servicios que el reporte recomienda.</div><div class="f-owner">GLB Pits</div></div>
+      <div class="f-step" role="listitem"><div class="f-num">06</div><div class="f-title">Recompra</div><div class="f-desc">Historial en su software, reseña en Google y regreso.</div><div class="f-owner">Ambos</div></div>
+    </div>
+    <div class="offer">
+      <div>
+        <div class="offer-k">Oferta de entrada</div>
+        <div class="offer-v">Revisión de 20 puntos gratis y el reporte en tu WhatsApp en 30 minutos.</div>
+      </div>
+      <div>
+        <div class="offer-k">Mensaje de venta</div>
+        <div class="offer-v">Con Motul no necesitas cambiar el aceite cada 5,000 km. Te explicamos por qué.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALCANCE -->
+<section class="s-white" id="alcance">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Alcance</span>
+      <h2 class="h2">Dos frentes de trabajo, un mismo objetivo: citas.</h2>
+      <p class="lead">Todo lo que está aquí lo ejecuta el equipo de Kreativo de forma remota desde México. Los anuncios no dependen de que GLB Pits grabe contenido.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar">
+        <div class="pillar-tag">Frente 1</div>
+        <h3>Content Strategy</h3>
+        <p class="who">A cargo de Sayana, Content Strategist de Kreativo Studio</p>
+        <div class="sub">Incluye</div>
+        <ul class="list">
+          <li>Estrategia y calendario mensual de contenido para Instagram.</li>
+          <li>Diseño de posts, carruseles e historias gráficas con la plantilla de marca: 3 posts y de 3 a 4 historias por semana. El diseñador de GLB Pits puede apoyar en ejecuciones puntuales.</li>
+          <li>Guiones y briefs de grabación para que el equipo de GLB Pits grabe contenido orgánico. Es opcional: si no se graba, el plan sigue funcionando.</li>
+          <li>Community management: respuesta a comentarios y mensajes directos de Instagram, canalizando todo a WhatsApp para agendar.</li>
+          <li>Gestión de Google Business Profile: categorías, servicios, fotos, publicaciones y respuesta a reseñas.</li>
+          <li>Una llamada semanal de 60 minutos con Iván y un reporte mensual de resultados orgánicos.</li>
+        </ul>
+        <div class="sub">No incluye</div>
+        <ul class="list no">
+          <li>Grabación, fotografía o cualquier presencia física en el taller.</li>
+          <li>Atención de WhatsApp, agendamiento de citas o servicio al cliente.</li>
+          <li>Pauta publicitaria, que está en el frente 2.</li>
+          <li>Sitio web o landing page (ver adicional opcional).</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <div class="pillar-tag">Frente 2</div>
+        <h3>Pauta en Meta</h3>
+        <p class="who">A cargo de Enrique Girón, fundador de Kreativo Studio</p>
+        <div class="sub">Distribución del presupuesto de pauta</div>
+        <div class="split">
+          <div class="split-row"><div class="split-name">Mensajes a WhatsApp<span>Anuncios con mensaje precargado y código por anuncio. Objetivo: conversaciones.</span></div><div class="split-pct">50%</div></div>
+          <div class="split-row"><div class="split-name">Formularios instantáneos<span>El cliente deja nombre, celular y placa sin salir de Instagram. Objetivo: leads verificables.</span></div><div class="split-pct">25%</div></div>
+          <div class="split-row"><div class="split-name">Seguidores<span>Impulso de los posts que mejor funcionan, desde Ads Manager y no con el botón "Promocionar".</span></div><div class="split-pct">25%</div></div>
+        </div>
+        <div class="sub">Incluye</div>
+        <ul class="list">
+          <li>Creación y configuración del Business Manager de GLB Pits, con GLB Pits como dueño.</li>
+          <li>Creativos de pauta producidos por Kreativo con material del taller y recursos de stock.</li>
+          <li>Segmentación geográfica en Bucaramanga y área metropolitana.</li>
+          <li>Retargeting a quienes interactúan con los posts impulsados.</li>
+          <li>Optimización semanal y reporte cada lunes.</li>
+        </ul>
+        <p class="note">A las tres semanas movemos dinero hacia el formato que esté consiguiendo citas más baratas. Los porcentajes son el punto de partida, no una regla fija.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- INVERSIÓN -->
+<section class="s-alt" id="inversion">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Inversión</span>
+      <h2 class="h2">El mismo presupuesto, partido en dos.</h2>
+      <p class="lead">La mitad cubre el costo operativo del equipo. La otra mitad va completa a pauta y la paga GLB Pits directamente a Meta. La ganancia de Kreativo viene solo de la comisión sobre ventas.</p>
+    </div>
+    <div class="budget">
+      <div class="budget-top">
+        <div>
+          <div class="pillar-tag">Inversión mensual total</div>
+          <div class="budget-total">$13,400 a $15,000 <small>MXN al mes</small></div>
+        </div>
+      </div>
+      <div class="bar" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+      <div class="legend">
+        <div class="leg-block">
+          <div class="leg-head"><span class="sw" style="background:var(--bar-a)"></span><span class="leg-title">Content Strategy · 50%</span></div>
+          <div class="leg-amt">$6,700 a $7,500 MXN</div>
+          <p class="leg-desc">Costo operativo del equipo de Kreativo, facturado al costo. No incluye margen de agencia.</p>
+        </div>
+        <div class="leg-block">
+          <div class="leg-head"><span class="sw" style="background:var(--cyan)"></span><span class="leg-title">Pauta en Meta · 50%</span></div>
+          <div class="leg-amt">$6,700 a $7,500 MXN</div>
+          <p class="leg-desc">Se paga con la tarjeta de GLB Pits dentro de su propio Business Manager. No pasa por las cuentas de Kreativo.</p>
+          <div class="leg-rows">
+            <div class="leg-row"><span class="sw" style="background:var(--cyan)"></span>Mensajes a WhatsApp<b>$3,350 a $3,750</b></div>
+            <div class="leg-row"><span class="sw" style="background:var(--bar-b)"></span>Formularios instantáneos<b>$1,675 a $1,875</b></div>
+            <div class="leg-row"><span class="sw" style="background:var(--bar-c)"></span>Seguidores<b>$1,675 a $1,875</b></div>
+          </div>
+        </div>
+      </div>
+      <p class="fx">Montos en MXN. Tipo de cambio de referencia: 1 MXN ≈ 187 COP (agosto 2026). El monto final se fija en la moneda de facturación al firmar.</p>
+    </div>
+    <div class="callouts">
+      <div class="callout accent">
+        <h4>Comisión sobre ventas</h4>
+        <p>El porcentaje se define con ustedes antes de aceptar esta propuesta, según los márgenes reales de cada servicio. Solo ustedes los conocen, y así el número es justo para ambos.</p>
+      </div>
+      <div class="callout">
+        <h4>Por qué pagan la pauta directo</h4>
+        <p>El dinero llega completo a Meta, ustedes ven cada peso en su propia cuenta y la facturación queda limpia para ambas partes.</p>
+      </div>
+      <div class="callout">
+        <h4>Qué esperar del mes 1</h4>
+        <p>Con esta inversión el primer mes es de aprendizaje. La meta es encontrar el costo por cita y los anuncios que funcionan. La escala llega cuando suban la inversión con resultados en la mano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATRIBUCIÓN -->
+<section class="s-dark" id="atribucion">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <span class="eyebrow">Atribución</span>
+        <h2 class="h2">Cómo sabremos qué clientes trajo la campaña.</h2>
+        <div class="prose">
+          <p><strong>Atribución es la regla que define qué venta se debe a la campaña.</strong> Como la comisión de Kreativo depende de las ventas que generemos, necesitamos acordar desde el inicio cómo se identifica a esos clientes, para que nunca haya discusión al final del mes.</p>
+          <p>La regla que proponemos: <strong>un cliente cuenta como atribuido si su primer contacto con GLB Pits fue por un canal de la campaña y hace un servicio dentro de los 60 días siguientes.</strong> Clientes que ya estaban en su software antes del inicio no cuentan.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-title">Ventana de atribución</div>
+        <div class="tl-track"><div class="tl-fill"></div></div>
+        <div class="tl-labels"><span>Día 0</span><span>Día 30</span><span>Día 60</span></div>
+        <div class="tl-events">
+          <div class="tl-ev"><div class="tl-day">Día 0</div><div>Ve el anuncio y escribe por WhatsApp. <span>Le faltan 2,000 km para el cambio.</span></div></div>
+          <div class="tl-ev"><div class="tl-day">Día 12</div><div>Ve otro anuncio con Motul. <span>Todavía no le toca.</span></div></div>
+          <div class="tl-ev"><div class="tl-day">Día 41</div><div>Agenda y llega a la revisión. <span>Compra cambio de aceite y alineación.</span></div></div>
+          <div class="tl-ev"><div class="tl-day">✓</div><div>Venta atribuida a la campaña. <span>Con una ventana de 30 días se habría perdido.</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why60">
+      <div>
+        <h4>El cambio de aceite no es una compra impulsiva</h4>
+        <p>La gente cambia el aceite cuando le toca por kilometraje, no cuando ve el anuncio. Entre el primer contacto y la visita pueden pasar varias semanas.</p>
+      </div>
+      <div>
+        <h4>30 días se queda corto</h4>
+        <p>Dejaría fuera clientes reales que la campaña trajo y que llegaron a su ritmo, con la quincena o el pico de kilometraje.</p>
+      </div>
+      <div>
+        <h4>90 días sería demasiado</h4>
+        <p>Empieza a mezclar clientes que pudieron llegar por otros motivos. 60 días es un punto justo para ambas partes.</p>
+      </div>
+    </div>
+
+    <div class="how">
+      <div class="tl-title">Cómo se identifica cada cliente</div>
+      <div class="how-grid">
+        <div class="how-card"><h4>Código en WhatsApp</h4><p>Cada anuncio precarga un mensaje con su código, por ejemplo <span class="code">GLB-M01</span>.</p></div>
+        <div class="how-card"><h4>Formularios de Meta</h4><p>Nombre, celular y placa quedan en una lista que administra Kreativo.</p></div>
+        <div class="how-card"><h4>Etiquetas</h4><p>GLB Pits marca en WhatsApp Business los chats que llegan con código.</p></div>
+        <div class="how-card"><h4>Cruce mensual</h4><p>Comparamos por número de celular la lista de leads contra el reporte de servicios de su software.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KPIs -->
+<section class="s-white" id="medicion">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Medición</span>
+      <h2 class="h2">Lo que reportamos cada lunes.</h2>
+      <p class="lead">Separamos lo que Kreativo mide directamente de lo que depende del registro de GLB Pits, para que quede claro de dónde sale cada número.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Métrica</th><th>Qué nos dice</th><th>Fuente</th></tr></thead>
+        <tbody>
+          <tr><td>Conversaciones iniciadas y costo por conversación</td><td>Cuánto nos cuesta que alguien escriba por WhatsApp</td><td><span class="pill ours">Meta Ads · Kreativo</span></td></tr>
+          <tr><td>Leads de formulario y costo por lead</td><td>Cuánto nos cuesta un contacto con celular y placa</td><td><span class="pill ours">Meta Ads · Kreativo</span></td></tr>
+          <tr><td>Seguidores nuevos y alcance local</td><td>Si la marca se está volviendo conocida en Bucaramanga</td><td><span class="pill ours">Instagram · Kreativo</span></td></tr>
+          <tr><td>Llamadas, rutas y reseñas en Google</td><td>Si la ficha de Maps está trabajando</td><td><span class="pill ours">Google Business · Kreativo</span></td></tr>
+          <tr><td>Citas confirmadas</td><td>Cuántos contactos se vuelven visita agendada</td><td><span class="pill">WhatsApp · GLB Pits</span></td></tr>
+          <tr><td>Servicios realizados a clientes atribuidos</td><td>Ventas reales generadas, base de la comisión</td><td><span class="pill">Software · GLB Pits</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PLAZO -->
+<section class="s-alt" id="plazo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Plazo mínimo</span>
+      <h2 class="h2">Tres meses para que los datos hablen.</h2>
+      <p class="lead">Pedimos un compromiso inicial de 3 meses. Así se ve el trimestre de octubre a diciembre de 2026.</p>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-when">Semanas 1 y 2</div>
+        <h3>Arranque</h3>
+        <ul class="list">
+          <li>Business Manager, accesos y etiquetas</li>
+          <li>Google Business Profile optimizado</li>
+          <li>Calendario y creativos del mes 1</li>
+          <li>Campañas al aire</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="phase-when">Mes 1</div>
+        <h3>Aprender</h3>
+        <ul class="list">
+          <li>Prueba de varios creativos por campaña</li>
+          <li>Primer costo por conversación y por lead</li>
+          <li>Primer cruce de atribución</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="phase-when">Mes 2</div>
+        <h3>Optimizar</h3>
+        <ul class="list">
+          <li>Presupuesto al formato con citas más baratas</li>
+          <li>Retargeting a interesados</li>
+          <li>Más reseñas en Google</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="phase-when">Mes 3</div>
+        <h3>Escalar</h3>
+        <ul class="list">
+          <li>Campaña "Revisa tu carro antes de viajar" para diciembre</li>
+          <li>Decisión de inversión con datos reales</li>
+          <li>Evaluación del adicional de Google Ads</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reasons">
+      <div class="reason"><div><h4>Los algoritmos necesitan aprender</h4><p>Meta optimiza con base en resultados acumulados. Las primeras semanas de cualquier campaña son más caras y más inestables. Cortar ahí es pagar el aprendizaje sin cobrar sus frutos.</p></div></div>
+      <div class="reason"><div><h4>La atribución de 60 días lo exige</h4><p>Un cliente que escribe en el mes 1 puede llegar en el mes 2 o 3. Con menos de tres meses no se ve el efecto completo de la campaña.</p></div></div>
+      <div class="reason"><div><h4>Lo orgánico es acumulativo</h4><p>Seguidores, reseñas en Google y contenido publicado suman mes a mes. Su efecto real aparece a partir del segundo y tercer mes.</p></div></div>
+      <div class="reason"><div><h4>Diciembre es temporada alta</h4><p>Antes de vacaciones mucha gente revisa su carro. El plazo nos permite llegar a esa fecha con anuncios probados y audiencias calientes.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPROMISOS -->
+<section class="s-white" id="compromisos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Compromisos de GLB Pits</span>
+      <h2 class="h2">Kreativo trae el contacto. GLB Pits lo convierte.</h2>
+      <p class="lead">Estos compromisos forman parte del acuerdo. Sin ellos no podemos garantizar ni el ritmo de la campaña ni una atribución confiable.</p>
+    </div>
+    <div class="commit-grid">
+      <div class="commit"><div class="commit-n">01</div><div><h4>Pagar la pauta en su Business Manager</h4><p>Registrar su tarjeta en el Business Manager de GLB Pits y mantener activo el presupuesto mensual acordado, sin pausas no avisadas.</p></div></div>
+      <div class="commit"><div class="commit-n">02</div><div><h4>Dar accesos en la primera semana</h4><p>Administrador de Instagram, acceso de socio al Business Manager, gestor en Google Business Profile y acceso a la cuenta de WhatsApp Business para enlazarla con los anuncios.</p></div></div>
+      <div class="commit"><div class="commit-n">03</div><div><h4>Responder rápido</h4><p>Contestar cada contacto de WhatsApp en menos de 30 minutos dentro del horario de atención. Un contacto que espera horas se pierde.</p></div></div>
+      <div class="commit"><div class="commit-n">04</div><div><h4>Etiquetar los chats de la campaña</h4><p>Marcar en WhatsApp Business cada conversación que llegue con código de anuncio, con la etiqueta que acordemos.</p></div></div>
+      <div class="commit"><div class="commit-n">05</div><div><h4>Registrar el celular de cada cliente</h4><p>Capturar el número en su software en cada servicio. Es la llave del cruce de atribución.</p></div></div>
+      <div class="commit"><div class="commit-n">06</div><div><h4>Compartir el reporte mensual</h4><p>Enviar en los primeros 5 días hábiles de cada mes el reporte de servicios realizados con fecha, celular, servicio y monto.</p></div></div>
+      <div class="commit"><div class="commit-n">07</div><div><h4>Entregar el material inicial</h4><p>Una sola vez, en la primera semana: fotos y videos del taller, la sala y los equipos, archivos de marca, plantillas y lista de precios actualizada.</p></div></div>
+      <div class="commit"><div class="commit-n">08</div><div><h4>Aprobar a tiempo</h4><p>Revisar el calendario mensual en un máximo de 2 días hábiles y avisar con 5 días de anticipación cualquier promoción o cambio de precios.</p></div></div>
+      <div class="commit"><div class="commit-n">09</div><div><h4>Asistir a la llamada semanal</h4><p>60 minutos con Iván para revisar resultados, aprobar contenido y alinear prioridades.</p></div></div>
+      <div class="commit"><div class="commit-n">10</div><div><h4>Pagar el costo operativo por adelantado</h4><p>El Content Strategy se paga al inicio de cada mes de servicio.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADICIONAL OPCIONAL -->
+<section class="s-alt" id="opcional">
+  <div class="wrap">
+    <div class="optional">
+      <span class="opt-badge">Adicional opcional · No incluido en esta propuesta</span>
+      <h2 class="h2">Landing page para pauta en Google.</h2>
+      <p class="lead">Cuando la inversión permita sumar Google Ads sin quitarle presupuesto a Meta, podemos activar una landing page que sirva como destino de esos anuncios. No es necesaria para arrancar y no forma parte del precio de esta propuesta.</p>
+
+      <div class="opt-cols">
+        <div>
+          <div class="sub">Qué incluiría</div>
+          <ul class="list">
+            <li>Una página con la oferta de entrada, servicios, precios, ubicación y reseñas.</li>
+            <li>Formulario de agendamiento con aviso inmediato a GLB Pits.</li>
+            <li>Botón de WhatsApp con código por fuente.</li>
+            <li>Medición completa con Google Analytics, Pixel de Meta y conversiones de Google Ads.</li>
+            <li>Hosting y mantenimiento técnico mientras el acuerdo esté vigente.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="sub">Cuándo se activaría</div>
+          <ul class="list">
+            <li>Cuando ambas partes acuerden por escrito incluir Google Ads.</li>
+            <li>Con una cotización aparte del desarrollo, aprobada antes de empezar.</li>
+            <li>El mantenimiento queda incluido en el esquema de comisión, sin cuota mensual adicional.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="clauses">
+        <div class="clause"><h4>Dominio</h4><p>Se registra a nombre de GLB Pits y lo paga GLB Pits. Es suyo desde el primer día y lo conserva en cualquier escenario.</p></div>
+        <div class="clause"><h4>Contenido y marca</h4><p>Textos, fotos, logotipos y precios son siempre propiedad de GLB Pits.</p></div>
+        <div class="clause"><h4>Código e infraestructura</h4><p>El diseño, el código y el hosting se mantienen en la infraestructura de Kreativo Studio mientras la relación esté vigente. Esto nos permite hacer cambios rápido y garantizar que la medición funcione.</p></div>
+        <div class="clause"><h4>Datos de contactos</h4><p>Los contactos que lleguen por la landing se comparten con GLB Pits en tiempo real y se entregan completos en archivo al terminar la relación.</p></div>
+        <div class="clause"><h4>Si la relación termina</h4><p>Cualquiera de las partes avisa con 30 días de anticipación. GLB Pits elige una de dos opciones:</p><p>→ Transferencia: Kreativo transfiere el código a una cuenta de GLB Pits, previo pago del cargo de transferencia fijado en la cotización. Desde ese momento el hosting, los costos de plataforma y el mantenimiento quedan a cargo de GLB Pits.</p><p>→ Baja: Kreativo despublica el sitio y libera la configuración del dominio, que sigue siendo de GLB Pits, para que lo usen donde quieran.</p></div>
+        <div class="clause"><h4>Soporte posterior</h4><p>Después de la transferencia o la baja, Kreativo no presta soporte sobre la landing salvo que se contrate por separado.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRÓXIMOS PASOS -->
+<section class="s-dark" id="pasos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Próximos pasos</span>
+      <h2 class="h2">De la aprobación a la primera campaña en dos semanas.</h2>
+    </div>
+    <div class="steps">
+      <div class="step now"><div class="step-n">PASO 1</div><h4>Definir la comisión</h4><p>Acordamos el porcentaje por servicio y si aplica también a la recompra de clientes atribuidos.</p></div>
+      <div class="step"><div class="step-n">PASO 2</div><h4>Aceptar la propuesta</h4><p>Firma del acuerdo con plazo de 3 meses y pago del primer mes de Content Strategy.</p></div>
+      <div class="step"><div class="step-n">PASO 3</div><h4>Accesos y material</h4><p>Creamos el Business Manager y GLB Pits entrega accesos y material inicial.</p></div>
+      <div class="step"><div class="step-n">PASO 4</div><h4>Kickoff</h4><p>Primera llamada de 60 minutos con Sayana y Enrique para aprobar el calendario.</p></div>
+      <div class="step"><div class="step-n">PASO 5</div><h4>Campañas al aire</h4><p>Lanzamiento al cierre de la semana 2 y primer reporte el lunes siguiente.</p></div>
+    </div>
+    <div class="close">
+      <div>
+        <q>Visibilidad sin ventas es ruido.</q>
+        <div class="sig">Enrique Girón · Fundador y Director, Kreativo Studio</div>
+      </div>
+      <div>
+        <a class="btn btn-light" href="https://wa.me/525579606335?text=Hola%20Enrique,%20revisamos%20la%20propuesta%20para%20GLB%20Pits" target="_blank" rel="noopener">Hablar con Enrique →</a>
+        <div class="contact"><span>enrique@kreativostudio.com</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Kreativo Studio · Ciudad de México</span>
+    <span>Propuesta confidencial preparada para GLB Pits by SmartLube</span>
+  </div>
+</footer>
+
+</body></html>
