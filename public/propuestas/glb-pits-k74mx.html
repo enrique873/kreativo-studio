@@ -114,6 +114,60 @@ nav.top {
 .link-arrow { font-family: var(--font-heading); font-weight: 700; font-size: 14px; text-decoration: none; display: inline-flex; gap: 6px; }
 .link-arrow:hover { color: var(--cyan); }
 
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 4px;
+  border-radius: 8px; transition: background .2s;
+}
+.hamburger:hover { background: var(--cyan-soft); }
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--fg); border-radius: 2px;
+  transition: transform .25s, opacity .25s, width .25s;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* MOBILE MENU DRAWER */
+.mobile-menu {
+  display: none;
+  position: fixed; inset: 0; z-index: 49;
+  padding-top: 64px;
+}
+.mobile-menu.open { display: block; }
+.mobile-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(2px);
+}
+.mobile-drawer {
+  position: absolute; top: 64px; left: 0; right: 0;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0 16px;
+}
+.mobile-menu-links {
+  list-style: none; margin: 0; padding: 0;
+}
+.mobile-menu-links li a {
+  display: block; padding: 14px 24px;
+  font-size: 16px; text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: color .2s, background .2s;
+}
+.mobile-menu-links li:last-child a { border-bottom: none; }
+.mobile-menu-links li a:hover { color: var(--cyan); background: var(--cyan-soft); }
+.mobile-menu-cta {
+  padding: 16px 24px 0;
+}
+.mobile-menu-cta .btn { width: 100%; justify-content: center; }
+
 /* SECTIONS */
 section { padding-block: 104px; padding-inline: 24px; }
 .wrap { max-width: 1080px; margin: 0 auto; }
@@ -317,6 +371,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .nav-links { display: none; }
+  .nav-cta-desktop { display: none; }
+  .hamburger { display: flex; }
   section { padding-block: 80px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .find-grid, .why60, .callouts { grid-template-columns: 1fr; gap: 20px; }
@@ -426,9 +482,32 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <li><a href="#plazo">Plazo</a></li>
       <li><a href="#compromisos">Compromisos</a></li>
     </ul>
-    <a class="btn" href="#pasos">Próximos pasos</a>
+    <a class="btn nav-cta-desktop" href="#pasos">Próximos pasos</a>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú de navegación">
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-drawer">
+    <ul class="mobile-menu-links">
+      <li><a href="#diagnostico">Diagnóstico</a></li>
+      <li><a href="#estrategia">Estrategia</a></li>
+      <li><a href="#inversion">Inversión</a></li>
+      <li><a href="#atribucion">Atribución</a></li>
+      <li><a href="#plazo">Plazo</a></li>
+      <li><a href="#compromisos">Compromisos</a></li>
+      <li><a href="#medicion">Medición</a></li>
+      <li><a href="#opcional">Adicional opcional</a></li>
+    </ul>
+    <div class="mobile-menu-cta">
+      <a class="btn" href="#pasos">Próximos pasos →</a>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero s-white" id="inicio">
@@ -840,4 +919,28 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   </div>
 </footer>
 
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('mobileOverlay');
+
+  function openMenu() {
+    menu.classList.add('open');
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', () => menu.classList.contains('open') ? closeMenu() : openMenu());
+  overlay.addEventListener('click', closeMenu);
+
+  // Cerrar al tocar cualquier link del menú
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+</script>
 </body></html>
