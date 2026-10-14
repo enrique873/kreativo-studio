@@ -1,7 +1,556 @@
 ---
 import Base from '../layouts/Base.astro';
-import content from '../content/academia.html?raw';
 ---
-<Base title="Academia Kreativo — Aprende Marketing Digital" description="Cursos y recursos de marketing digital.">
-  <div class="academia-page" set:html={content} />
+<Base title="Academia Kreativo — Aprende Marketing Digital" description="Programas de formación en marketing digital de Kreativo Studio: curso grabado, seminario presencial y mentorías 1:1 con Enrique Girón.">
+
+<style>
+/* ── ACADEMIA PLP ── */
+
+/* Hero */
+.acad-hero {
+  background: var(--darker);
+  padding: 100px 48px 96px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.acad-hero::before {
+  content: '';
+  position: absolute;
+  top: -240px; left: 50%; transform: translateX(-50%);
+  width: 900px; height: 900px; max-width: 180vw;
+  background: radial-gradient(circle, rgba(0,200,202,0.10) 0%, rgba(0,200,202,0.04) 45%, transparent 70%);
+  pointer-events: none;
+}
+.acad-hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+.acad-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 700; color: #fff;
+  letter-spacing: -0.03em; line-height: 1.05;
+  margin: 20px 0 24px;
+}
+.acad-hero p {
+  font-size: 18px; font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7; max-width: 600px; margin: 0 auto 48px;
+}
+.acad-creds {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.acad-cred {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300;
+}
+.acad-cred-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); flex: 0 0 5px; }
+
+/* Products grid */
+.acad-products {
+  padding: 96px 48px;
+  background: var(--off-white);
+}
+.acad-products-inner { max-width: 1120px; margin: 0 auto; }
+.acad-products-head { margin-bottom: 56px; }
+.acad-products-head h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 700; color: var(--darker);
+  letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 14px;
+}
+.acad-products-head p { font-size: 17px; font-weight: 300; color: var(--mid-gray); line-height: 1.7; max-width: 560px; }
+
+.acad-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+
+.acad-card {
+  background: #fff;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.acad-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.acad-card.featured { border-color: rgba(0,200,202,0.5); box-shadow: 0 0 0 1px rgba(0,200,202,0.2); }
+
+.acad-card-visual {
+  background: var(--darker);
+  padding: 36px 32px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.acad-card-visual::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(0,200,202,0.14) 0%, transparent 70%);
+}
+.acad-card-visual.coming {
+  background: #111;
+}
+.acad-card-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 100px;
+  margin-bottom: 20px;
+}
+.badge-live { background: rgba(0,200,202,0.12); color: var(--cyan); border: 1px solid rgba(0,200,202,0.25); }
+.badge-featured { background: var(--cyan); color: var(--darker); }
+.badge-soon { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.1); }
+.badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+.acad-card-type {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 8px;
+}
+.acad-card-visual h3 {
+  font-family: var(--font-heading); font-size: 22px; font-weight: 700;
+  color: #fff; line-height: 1.2; letter-spacing: -0.01em;
+}
+.acad-card-visual .acad-card-tagline {
+  font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,0.45); margin-top: 8px; line-height: 1.5;
+}
+
+.acad-card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+
+.acad-card-includes {
+  list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;
+}
+.acad-card-includes li {
+  font-size: 13.5px; color: var(--dark);
+  padding-left: 20px; position: relative; line-height: 1.5;
+}
+.acad-card-includes li::before { content: '\2713'; color: var(--cyan); font-weight: 700; position: absolute; left: 0; }
+
+.acad-card-price { margin-bottom: 24px; }
+.acad-card-price-from { font-size: 11px; color: var(--mid-gray); margin-bottom: 2px; }
+.acad-card-price-amount {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 32px; letter-spacing: -0.03em; color: var(--darker); line-height: 1;
+}
+.acad-card-price-amount small { font-family: var(--font-body); font-weight: 300; font-size: 13px; color: var(--mid-gray); letter-spacing: 0; margin-left: 4px; }
+.acad-card-price-note { font-size: 12px; color: var(--mid-gray); margin-top: 4px; }
+
+.acad-card-cta { margin-top: auto; }
+.acad-card-cta a {
+  display: block; text-align: center; padding: 14px 20px;
+  border-radius: 100px; font-family: var(--font-heading);
+  font-weight: 700; font-size: 13px; letter-spacing: 0.04em;
+  text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+}
+.cta-primary-cyan { background: var(--cyan); color: var(--darker); }
+.cta-primary-cyan:hover { opacity: 0.88; }
+.cta-outline-dark { border: 1.5px solid var(--darker); color: var(--darker); }
+.cta-outline-dark:hover { background: var(--darker); color: #fff; }
+.cta-disabled { background: var(--off-white); color: var(--mid-gray); cursor: default; border: 1.5px solid var(--light-gray); }
+.acad-card-cta-note { font-size: 11px; color: var(--mid-gray); text-align: center; margin-top: 8px; }
+
+/* Coming soon overlay */
+.acad-coming-info {
+  background: var(--off-white); border-radius: var(--radius-sm);
+  padding: 16px; margin-bottom: 20px; text-align: center;
+}
+.acad-coming-info p { font-size: 13px; color: var(--mid-gray); line-height: 1.5; }
+.acad-coming-info strong { color: var(--darker); }
+
+/* Why section */
+.acad-why { padding: 96px 48px; background: #fff; }
+.acad-why-inner { max-width: 1120px; margin: 0 auto; }
+.acad-why-head { margin-bottom: 56px; }
+.acad-why-head h2 { font-family: var(--font-heading); font-size: clamp(26px, 3.2vw, 44px); font-weight: 700; color: var(--darker); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 14px; }
+.acad-why-head p { font-size: 17px; font-weight: 300; color: var(--mid-gray); line-height: 1.7; max-width: 560px; }
+.acad-why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.acad-why-card {
+  background: var(--off-white); border: 1px solid var(--light-gray);
+  border-radius: var(--radius); padding: 28px 24px;
+}
+.acad-why-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--darker); display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.acad-why-icon svg { width: 18px; height: 18px; stroke: var(--cyan); fill: none; stroke-width: 1.5; }
+.acad-why-card h4 { font-family: var(--font-heading); font-size: 16px; font-weight: 700; color: var(--darker); margin-bottom: 10px; }
+.acad-why-card p { font-size: 13.5px; color: var(--mid-gray); line-height: 1.65; font-weight: 300; }
+
+/* Instructor */
+.acad-instructor { padding: 96px 48px; background: var(--darker); }
+.acad-instructor-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.acad-inst-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius); padding: 36px;
+}
+.acad-inst-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--cyan); color: var(--darker);
+  font-family: var(--font-heading); font-weight: 700; font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.acad-inst-name { font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: #fff; }
+.acad-inst-role { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 4px; margin-bottom: 20px; }
+.acad-inst-creds { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.acad-inst-creds li { font-size: 13px; color: rgba(255,255,255,0.55); padding-left: 16px; position: relative; line-height: 1.5; }
+.acad-inst-creds li::before { content: '\2713'; color: var(--cyan); font-weight: 700; position: absolute; left: 0; }
+.acad-inst-right h2 { font-family: var(--font-heading); font-size: clamp(26px, 3vw, 40px); font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.1; margin: 16px 0 16px; }
+.acad-inst-right p { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 16px; }
+.acad-inst-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); }
+.acad-inst-num-val { font-family: var(--font-heading); font-size: 32px; font-weight: 700; color: #fff; letter-spacing: -0.03em; line-height: 1; }
+.acad-inst-num-val span { color: var(--cyan); }
+.acad-inst-num-label { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 6px; line-height: 1.4; }
+
+/* Testimonials */
+.acad-testi { padding: 96px 48px; background: var(--off-white); }
+.acad-testi-inner { max-width: 1120px; margin: 0 auto; }
+.acad-testi-head { margin-bottom: 48px; }
+.acad-testi-head h2 { font-family: var(--font-heading); font-size: clamp(26px, 3.2vw, 44px); font-weight: 700; color: var(--darker); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 14px; }
+.acad-testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.acad-testi-card {
+  background: #fff; border: 1px solid var(--light-gray);
+  border-radius: var(--radius); padding: 28px 24px;
+}
+.acad-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+.acad-star { width: 13px; height: 13px; fill: #F59E0B; }
+.acad-testi-card blockquote { font-size: 14px; font-weight: 300; color: var(--dark); line-height: 1.75; margin-bottom: 20px; quotes: none; }
+.acad-testi-author { display: flex; align-items: center; gap: 12px; }
+.acad-testi-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 700; font-size: 12px; color: #fff; flex: 0 0 36px; }
+.acad-testi-name { font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: var(--darker); }
+.acad-testi-role { font-size: 11px; color: var(--mid-gray); margin-top: 2px; }
+
+/* FAQ */
+.acad-faq { padding: 96px 48px; background: #fff; }
+.acad-faq-inner { max-width: 840px; margin: 0 auto; }
+.acad-faq-head { margin-bottom: 48px; }
+.acad-faq-head h2 { font-family: var(--font-heading); font-size: clamp(26px, 3.2vw, 44px); font-weight: 700; color: var(--darker); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 14px; }
+.acad-faq-list { border-top: 1px solid var(--light-gray); }
+.acad-faq-item { border-bottom: 1px solid var(--light-gray); }
+.acad-faq-btn { width: 100%; text-align: left; padding: 20px 0; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.acad-faq-q { font-family: var(--font-heading); font-size: 14px; font-weight: 600; color: var(--darker); line-height: 1.4; }
+.acad-faq-icon { width: 20px; height: 20px; flex: 0 0 20px; border: 1.5px solid var(--light-gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; }
+.acad-faq-icon svg { width: 10px; height: 10px; stroke: var(--mid-gray); fill: none; stroke-width: 2.5; transition: transform 0.3s; }
+.acad-faq-item.open .acad-faq-icon { background: var(--cyan); border-color: var(--cyan); }
+.acad-faq-item.open .acad-faq-icon svg { stroke: var(--darker); transform: rotate(45deg); }
+.acad-faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.acad-faq-answer-inner { font-size: 14px; color: var(--mid-gray); line-height: 1.75; padding-bottom: 20px; font-weight: 300; }
+.acad-faq-item.open .acad-faq-answer { max-height: 300px; }
+
+/* CTA */
+.acad-cta { background: var(--darker); padding: 96px 48px; text-align: center; position: relative; overflow: hidden; }
+.acad-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(0,200,202,0.08) 0%, transparent 70%); pointer-events: none; }
+.acad-cta-inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
+.acad-cta h2 { font-family: var(--font-heading); font-size: clamp(28px, 3.5vw, 46px); font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.1; margin: 16px 0 16px; }
+.acad-cta p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.5); margin-bottom: 36px; line-height: 1.7; }
+.acad-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .acad-hero, .acad-products, .acad-why, .acad-instructor, .acad-testi, .acad-faq, .acad-cta { padding-left: 32px; padding-right: 32px; }
+  .acad-instructor-inner { gap: 48px; }
+}
+@media (max-width: 768px) {
+  .acad-hero, .acad-products, .acad-why, .acad-instructor, .acad-testi, .acad-faq, .acad-cta { padding: 72px 20px; }
+  .acad-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+  .acad-why-grid { grid-template-columns: 1fr 1fr; }
+  .acad-instructor-inner { grid-template-columns: 1fr; gap: 40px; }
+  .acad-testi-grid { grid-template-columns: 1fr; }
+  .acad-inst-nums { grid-template-columns: repeat(3, 1fr); }
+  .acad-cta-btns { flex-direction: column; align-items: center; }
+}
+@media (max-width: 480px) {
+  .acad-why-grid { grid-template-columns: 1fr; }
+  .acad-creds { flex-direction: column; align-items: center; }
+}
+</style>
+
+<!-- HERO -->
+<div class="acad-hero">
+  <div class="acad-hero-inner">
+    <div class="section-tag" style="color:var(--cyan)">Academia Kreativo</div>
+    <h1>Aprende marketing de los que lo ejecutan.</h1>
+    <p>No enseñamos teoría de libro. Enseñamos lo que hacemos todos los días con clientes reales, presupuestos reales y resultados que se miden en pesos y en conversiones.</p>
+    <div class="acad-creds">
+      <div class="acad-cred"><span class="acad-cred-dot"></span>Diseñador del Diplomado de Marketing Digital · Anáhuac Online</div>
+      <div class="acad-cred"><span class="acad-cred-dot"></span>+1,000 alumnos formados</div>
+      <div class="acad-cred"><span class="acad-cred-dot"></span>12 años ejecutando campañas reales</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTOS -->
+<div class="acad-products">
+  <div class="acad-products-inner">
+    <div class="acad-products-head">
+      <span class="section-tag">Programas</span>
+      <h2>Elige cómo quieres aprender.</h2>
+      <p>Tres formatos diseñados para distintos momentos y objetivos. Todos con el mismo nivel de exigencia y los mismos casos reales.</p>
+    </div>
+    <div class="acad-grid">
+
+      <!-- Curso grabado -->
+      <div class="acad-card">
+        <div class="acad-card-visual">
+          <div class="acad-card-badge badge-live"><span class="badge-dot"></span>Disponible ahora</div>
+          <div class="acad-card-type">Curso grabado · Hotmart</div>
+          <h3>Marketing Digital que Funciona en México</h3>
+          <p class="acad-card-tagline">8 módulos, +40 lecciones, 12h de contenido aplicado.</p>
+        </div>
+        <div class="acad-card-body">
+          <ul class="acad-card-includes">
+            <li>Acceso de por vida + actualizaciones incluidas</li>
+            <li>Plantillas, checklists y recursos por módulo</li>
+            <li>Casos reales del mercado mexicano</li>
+            <li>Comunidad privada en Hotmart</li>
+            <li>Certificado digital de Kreativo Studio</li>
+          </ul>
+          <div class="acad-card-price">
+            <div class="acad-card-price-amount">$1,500<small>MXN</small></div>
+            <div class="acad-card-price-note">Pago único · Acceso inmediato · Garantía 7 días</div>
+          </div>
+          <div class="acad-card-cta">
+            <a href="https://go.hotmart.com/J107882493T?dp=1" target="_blank" rel="noopener" class="cta-outline-dark">Inscribirme en Hotmart →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mentorías 1:1 -->
+      <div class="acad-card featured">
+        <div class="acad-card-visual">
+          <div class="acad-card-badge badge-featured">Más personalizado</div>
+          <div class="acad-card-type">Sesiones en vivo · 1:1</div>
+          <h3>Mentorías 1:1 con Enrique Girón</h3>
+          <p class="acad-card-tagline">Temario a tu medida, sobre tu proyecto, con quien lo ejecuta.</p>
+        </div>
+        <div class="acad-card-body">
+          <ul class="acad-card-includes">
+            <li>Sesiones privadas en vivo de 60 o 90 min</li>
+            <li>Temario construido para tu objetivo</li>
+            <li>Acompañamiento por WhatsApp entre sesiones</li>
+            <li>Todo queda grabado para que lo repases</li>
+            <li>Llamada de diagnóstico sin costo</li>
+          </ul>
+          <div class="acad-card-price">
+            <div class="acad-card-price-from">Desde</div>
+            <div class="acad-card-price-amount">$2,500<small>MXN / hora</small></div>
+            <div class="acad-card-price-note">Programas intensivos desde $12,000 MXN</div>
+          </div>
+          <div class="acad-card-cta">
+            <a href="/academia/mentorias" class="cta-primary-cyan">Ver programa completo →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seminario presencial -->
+      <div class="acad-card">
+        <div class="acad-card-visual coming">
+          <div class="acad-card-badge badge-soon">Próximamente</div>
+          <div class="acad-card-type">Presencial · Trimestral</div>
+          <h3>Seminario Intensivo de Marketing Digital</h3>
+          <p class="acad-card-tagline">Dos días en CDMX con el equipo de Kreativo Studio.</p>
+        </div>
+        <div class="acad-card-body">
+          <div class="acad-coming-info">
+            <p>Estamos trabajando en la primera edición.<br><strong>Q1 2025 · Ciudad de México</strong></p>
+          </div>
+          <ul class="acad-card-includes">
+            <li>2 días intensivos en vivo y presencial</li>
+            <li>Grupos reducidos (máx. 20 personas)</li>
+            <li>Talleres prácticos con cuentas reales</li>
+            <li>Material impreso y digital incluido</li>
+            <li>Networking con profesionales de marketing</li>
+          </ul>
+          <div class="acad-card-cta">
+            <a href="https://wa.me/525579606335?text=Hola%20Enrique,%20me%20interesa%20el%20seminario%20presencial%20de%20Academia%20Kreativo" target="_blank" rel="noopener" class="cta-outline-dark">Avisar cuando esté disponible</a>
+            <div class="acad-card-cta-note">Te contactamos en cuanto abramos inscripciones</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- POR QUÉ ES DIFERENTE -->
+<div class="acad-why">
+  <div class="acad-why-inner">
+    <div class="acad-why-head">
+      <span class="section-tag">Por qué es diferente</span>
+      <h2>Lo que no vas a encontrar en otro curso.</h2>
+      <p>Hay miles de cursos de marketing en internet. Esto es lo que hace diferente aprender con quienes llevan 12 años ejecutando campañas.</p>
+    </div>
+    <div class="acad-why-grid">
+      <div class="acad-why-card">
+        <div class="acad-why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0014 2.46M4.93 4.93A10 10 0 002.46 14M4.93 19.07A10 10 0 0014 21.54M19.07 19.07A10 10 0 0021.54 10"/></svg></div>
+        <h4>Del mundo real, no del aula</h4>
+        <p>Todo el contenido viene de campañas activas con presupuestos reales. No hay ejemplos inventados ni casos de Silicon Valley que no aplican en México.</p>
+      </div>
+      <div class="acad-why-card">
+        <div class="acad-why-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h4>Enfocado en resultados medibles</h4>
+        <p>Cada módulo termina con acciones concretas y métricas específicas. Sabes exactamente qué hacer la semana siguiente y cómo medir si funcionó.</p>
+      </div>
+      <div class="acad-why-card">
+        <div class="acad-why-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h4>Adaptado al mercado mexicano</h4>
+        <p>Comportamiento del consumidor, plataformas, presupuestos típicos y casos de industrias con presencia real en México y LATAM.</p>
+      </div>
+      <div class="acad-why-card">
+        <div class="acad-why-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h4>Recursos que sigues usando</h4>
+        <p>Cada programa incluye plantillas, checklists y frameworks que vas a usar mucho más allá del curso. No solo aprendes, te llevas herramientas.</p>
+      </div>
+      <div class="acad-why-card">
+        <div class="acad-why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h4>Instructor que sigue ejecutando</h4>
+        <p>Enrique no dejó de hacer marketing para dedicarse a enseñar. Cuando habla de paid media, tiene la cuenta abierta. Cuando habla de métricas, son las de la semana pasada.</p>
+      </div>
+      <div class="acad-why-card">
+        <div class="acad-why-icon"><svg viewBox="0 0 24 24"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div>
+        <h4>Siempre actualizado</h4>
+        <p>El marketing digital cambia rápido. El contenido se actualiza cuando las plataformas o algoritmos cambian, y el acceso a esas actualizaciones es sin costo adicional.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTRUCTOR -->
+<div class="acad-instructor">
+  <div class="acad-instructor-inner">
+    <div class="acad-inst-card">
+      <div class="acad-inst-avatar">EG</div>
+      <div class="acad-inst-name">Enrique Girón</div>
+      <div class="acad-inst-role">Fundador de Kreativo Studio</div>
+      <ul class="acad-inst-creds">
+        <li>Diseñador del Diplomado de Marketing Digital · Anáhuac Online</li>
+        <li>Catedrático en los Martes de Marketing Digital · Anáhuac Online</li>
+        <li>+1,000 alumnos en programas universitarios y propios</li>
+        <li>Shopify Partner, Tienda Nube Partner y VTEX Partner</li>
+        <li>Certificado en Meta Ads, Google Ads y Analytics 4</li>
+      </ul>
+    </div>
+    <div class="acad-inst-right">
+      <span class="section-tag" style="color:var(--cyan)">Tu instructor</span>
+      <h2>+1,000 alumnos no se equivocan dos veces.</h2>
+      <p>Diseñé el Diplomado de Marketing Digital de Anáhuac Online y llevo varios años impartiendo los Martes de Marketing Digital en la universidad. No soy nuevo enseñando, y tampoco soy alguien que dejó de ejecutar para dedicarse solo a dar clases.</p>
+      <p>Cada lección viene de algo que hago actualmente con clientes reales. Cuando hablo de paid media, tengo la cuenta abierta. Cuando hablo de métricas, tenemos los números de las últimas campañas en pantalla.</p>
+      <div class="acad-inst-nums">
+        <div><div class="acad-inst-num-val">1K<span>+</span></div><div class="acad-inst-num-label">Alumnos formados</div></div>
+        <div><div class="acad-inst-num-val">12<span>+</span></div><div class="acad-inst-num-label">Años ejecutando campañas</div></div>
+        <div><div class="acad-inst-num-val">80<span>+</span></div><div class="acad-inst-num-label">Marcas en México y LATAM</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALES -->
+<div class="acad-testi">
+  <div class="acad-testi-inner">
+    <div class="acad-testi-head">
+      <span class="section-tag">Lo que dicen los alumnos</span>
+      <h2>Resultados reales de personas reales.</h2>
+    </div>
+    <div class="acad-testi-grid">
+      <div class="acad-testi-card">
+        <div class="acad-stars">
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Llevaba meses viendo cursos en Udemy y YouTube sin ver resultados. Con este curso en tres semanas ya tenía una estrategia clara y los primeros leads pagados. La diferencia es que el contenido viene de alguien que lo hace, no que lo explica."</blockquote>
+        <div class="acad-testi-author">
+          <div class="acad-testi-avatar" style="background:linear-gradient(135deg,#667eea,#764ba2)">MC</div>
+          <div><div class="acad-testi-name">Maria Campos</div><div class="acad-testi-role">Directora de Marketing · CDMX</div></div>
+        </div>
+      </div>
+      <div class="acad-testi-card">
+        <div class="acad-stars">
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Soy dueño de un e-commerce y contraté a una agencia durante dos años sin entender qué hacían. Tomé el curso para poder supervisarlos mejor y terminé manejando yo solo las campañas de Meta. El ROAS pasó de 1.8x a 3.4x."</blockquote>
+        <div class="acad-testi-author">
+          <div class="acad-testi-avatar" style="background:linear-gradient(135deg,#4facfe,#00f2fe);color:var(--darker)">RL</div>
+          <div><div class="acad-testi-name">Roberto Leal</div><div class="acad-testi-role">Fundador · E-commerce de moda · Monterrey</div></div>
+        </div>
+      </div>
+      <div class="acad-testi-card">
+        <div class="acad-stars">
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="acad-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Lo que más me gustó fue el módulo de métricas. Por fin entiendo qué números mirar y por qué. Ahora cuando entro a Google Analytics o a Meta no me pierdo, sé exactamente qué buscar y cómo interpretar los datos."</blockquote>
+        <div class="acad-testi-author">
+          <div class="acad-testi-avatar" style="background:linear-gradient(135deg,#f093fb,#f5576c)">AP</div>
+          <div><div class="acad-testi-name">Ana Pérez</div><div class="acad-testi-role">Community Manager · Guadalajara</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="acad-faq">
+  <div class="acad-faq-inner">
+    <div class="acad-faq-head">
+      <span class="section-tag">Preguntas frecuentes</span>
+      <h2>Lo que siempre nos preguntan antes de inscribirse.</h2>
+    </div>
+    <div class="acad-faq-list">
+      <div class="acad-faq-item">
+        <button class="acad-faq-btn" onclick="toggleAcadFaq(this)"><span class="acad-faq-q">¿Necesito experiencia previa en marketing digital?</span><div class="acad-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button>
+        <div class="acad-faq-answer"><div class="acad-faq-answer-inner">No. Todos los programas funcionan tanto si estás empezando desde cero como si ya tienes experiencia y quieres estructurar mejor lo que sabes. En la llamada de diagnóstico de las mentorías, o en el primer módulo del curso, vemos tu punto de partida.</div></div>
+      </div>
+      <div class="acad-faq-item">
+        <button class="acad-faq-btn" onclick="toggleAcadFaq(this)"><span class="acad-faq-q">¿Cuál programa me conviene más?</span><div class="acad-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button>
+        <div class="acad-faq-answer"><div class="acad-faq-answer-inner">El curso grabado es ideal si quieres aprender a tu ritmo con un presupuesto accesible. La mentoría es para quien tiene un proyecto concreto y quiere trabajarlo uno a uno con un experto. El seminario es para quienes aprenden mejor en entornos presenciales e intensivos. Si tienes duda, escríbenos por WhatsApp.</div></div>
+      </div>
+      <div class="acad-faq-item">
+        <button class="acad-faq-btn" onclick="toggleAcadFaq(this)"><span class="acad-faq-q">¿El contenido aplica para negocios fuera de México?</span><div class="acad-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button>
+        <div class="acad-faq-answer"><div class="acad-faq-answer-inner">La mayoría del contenido aplica en cualquier país de habla hispana. Los ejemplos y casos son de México, pero las estrategias, frameworks y herramientas funcionan igual en Colombia, Argentina, España o cualquier otro mercado.</div></div>
+      </div>
+      <div class="acad-faq-item">
+        <button class="acad-faq-btn" onclick="toggleAcadFaq(this)"><span class="acad-faq-q">¿Puedo comprar para mi equipo?</span><div class="acad-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button>
+        <div class="acad-faq-answer"><div class="acad-faq-answer-inner">Sí. Si quieres el curso para más de 3 personas, o una mentoría para equipos de marketing, escríbenos por WhatsApp y te damos un precio especial. Lo hemos hecho para equipos de hasta 15 personas.</div></div>
+      </div>
+      <div class="acad-faq-item">
+        <button class="acad-faq-btn" onclick="toggleAcadFaq(this)"><span class="acad-faq-q">¿El curso se actualiza o es contenido fijo?</span><div class="acad-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button>
+        <div class="acad-faq-answer"><div class="acad-faq-answer-inner">Cuando actualizamos el contenido, ya sea por cambios en plataformas, algoritmos o nuevas herramientas, los alumnos con acceso reciben la versión actualizada sin costo adicional.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="acad-cta">
+  <div class="acad-cta-inner">
+    <span class="section-tag" style="color:var(--cyan)">Empieza cuando quieras</span>
+    <h2>Elige tu programa y empieza hoy.</h2>
+    <p>Ya sea que quieras aprender a tu ritmo, trabajar uno a uno con un experto o vivir una experiencia presencial, hay un formato para ti.</p>
+    <div class="acad-cta-btns">
+      <a href="https://go.hotmart.com/J107882493T?dp=1" target="_blank" rel="noopener" class="btn-primary">Ver curso en Hotmart →</a>
+      <a href="/academia/mentorias" class="btn-primary" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15)">Conocer mentorías →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleAcadFaq(btn) {
+  const item = btn.closest('.acad-faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.acad-faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
 </Base>
