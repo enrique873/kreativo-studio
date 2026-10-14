@@ -1,28 +1,251 @@
 ---
 ---
+<style>
+/* ── DROPDOWN NAV ── */
+.nav-item { position: relative; }
+
+.nav-item > a {
+  display: flex; align-items: center; gap: 4px;
+}
+
+.nav-chevron {
+  width: 12px; height: 12px;
+  stroke: currentColor; fill: none; stroke-width: 2.5;
+  transition: transform 0.2s;
+  opacity: 0.5;
+}
+
+.nav-item:hover .nav-chevron { transform: rotate(180deg); opacity: 1; }
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  padding: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s, transform 0.18s;
+  transform: translateX(-50%) translateY(-4px);
+  z-index: 200;
+}
+
+.nav-item:hover .nav-dropdown,
+.nav-item:focus-within .nav-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Arrow pointer */
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -5px; left: 50%; transform: translateX(-50%);
+  width: 10px; height: 10px;
+  background: #fff;
+  border-left: 1px solid var(--light-gray);
+  border-top: 1px solid var(--light-gray);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.nav-drop-item {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 400;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.nav-drop-item:hover { background: var(--off-white); color: var(--darker); }
+
+.nav-drop-item .drop-label {
+  display: block;
+  font-weight: 500;
+  color: var(--darker);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+.nav-drop-item .drop-sub {
+  display: block;
+  font-size: 11px;
+  color: var(--mid-gray);
+  margin-top: 1px;
+  font-weight: 300;
+}
+
+.nav-drop-divider {
+  height: 1px;
+  background: var(--light-gray);
+  margin: 6px 8px;
+}
+
+.nav-drop-item.overview {
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: 4px;
+  padding-bottom: 12px;
+}
+.nav-drop-item.overview .drop-label { color: var(--cyan); }
+
+/* Mobile sub-items */
+.nav-mobile-sub {
+  list-style: none;
+  padding: 0 0 8px 16px;
+  display: none;
+  flex-direction: column;
+  gap: 0;
+}
+.nav-mobile-sub.open { display: flex; }
+.nav-mobile-sub li a {
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,0.55) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+  padding: 10px 0 !important;
+}
+.nav-mobile-sub li a:hover { color: var(--cyan) !important; }
+
+.mobile-toggle-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%;
+  background: none; border: none; cursor: pointer; padding: 0;
+}
+.mobile-toggle-btn > a {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex: 1;
+  text-align: left;
+  transition: color 0.2s;
+  display: block;
+}
+.mobile-toggle-btn > a:hover { color: var(--cyan); }
+.mobile-toggle-icon {
+  width: 24px; height: 24px;
+  stroke: rgba(255,255,255,0.4); fill: none; stroke-width: 2.5;
+  transition: transform 0.25s;
+  flex: 0 0 24px; margin-left: 8px; margin-bottom: 12px;
+}
+.mobile-toggle-btn.open .mobile-toggle-icon { transform: rotate(180deg); }
+</style>
+
 <nav id="ks-nav">
   <a href="/" class="nav-logo">
     <div class="nav-logo-mark"><span>KS</span></div>
     <span class="nav-wordmark">Kreativo Studio</span>
   </a>
+
   <ul class="nav-links">
-    <li><a href="/servicios">Servicios</a></li>
+
+    <!-- Servicios con dropdown -->
+    <li class="nav-item">
+      <a href="/servicios">
+        Servicios
+        <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="nav-dropdown">
+        <a href="/servicios" class="nav-drop-item overview">
+          <span class="drop-label">Todos los servicios</span>
+          <span class="drop-sub">Vista general de lo que hacemos</span>
+        </a>
+        <a href="/servicios/paid-media" class="nav-drop-item">
+          <span class="drop-label">Paid Media &amp; Performance</span>
+          <span class="drop-sub">Meta, Google y TikTok Ads</span>
+        </a>
+        <a href="/servicios/diseno-web" class="nav-drop-item">
+          <span class="drop-label">Diseño Web &amp; E-commerce</span>
+          <span class="drop-sub">Shopify, Tienda Nube y VTEX</span>
+        </a>
+        <a href="/servicios/estrategia-digital" class="nav-drop-item">
+          <span class="drop-label">Estrategia Digital &amp; Growth</span>
+          <span class="drop-sub">Planificación y KPIs</span>
+        </a>
+        <a href="/servicios/gestion-rrss" class="nav-drop-item">
+          <span class="drop-label">Gestión de Redes Sociales</span>
+          <span class="drop-sub">Contenido y comunidad</span>
+        </a>
+      </div>
+    </li>
+
     <li><a href="/tienda">Tienda</a></li>
-    <li><a href="/academia">Academia</a></li>
+
+    <!-- Academia con dropdown -->
+    <li class="nav-item">
+      <a href="/academia">
+        Academia
+        <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="nav-dropdown">
+        <a href="/academia" class="nav-drop-item overview">
+          <span class="drop-label">Academia Kreativo</span>
+          <span class="drop-sub">Todos los programas</span>
+        </a>
+        <a href="/academia/mentorias" class="nav-drop-item">
+          <span class="drop-label">Mentorías 1:1</span>
+          <span class="drop-sub">Sesiones privadas personalizadas</span>
+        </a>
+      </div>
+    </li>
+
     <li><a href="/blog">Blog</a></li>
     <li><a href="/nosotros">Nosotros</a></li>
+
   </ul>
+
   <a href="https://wa.me/525579606335?text=Hola,%20quiero%20agendar%20un%20diagnostico%20gratuito%20con%20Kreativo%20Studio" target="_blank" rel="noopener noreferrer" class="nav-cta">Agendar diagn&oacute;stico</a>
+
   <button class="nav-hamburger" id="ks-menu-btn" aria-label="Abrir men&uacute;" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
+<!-- MENÚ MÓVIL -->
 <div class="nav-mobile-menu" id="ks-mobile-menu">
   <ul>
-    <li><a href="/servicios">Servicios</a></li>
+
+    <!-- Servicios con sub-items -->
+    <li>
+      <div class="mobile-toggle-btn" id="mob-servicios-btn">
+        <a href="/servicios">Servicios</a>
+        <svg class="mobile-toggle-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <ul class="nav-mobile-sub" id="mob-servicios-sub">
+        <li><a href="/servicios/paid-media">Paid Media &amp; Performance</a></li>
+        <li><a href="/servicios/diseno-web">Diseño Web &amp; E-commerce</a></li>
+        <li><a href="/servicios/estrategia-digital">Estrategia Digital &amp; Growth</a></li>
+        <li><a href="/servicios/gestion-rrss">Gestión de Redes Sociales</a></li>
+      </ul>
+    </li>
+
     <li><a href="/tienda">Tienda</a></li>
-    <li><a href="/academia">Academia</a></li>
+
+    <!-- Academia con sub-items -->
+    <li>
+      <div class="mobile-toggle-btn" id="mob-academia-btn">
+        <a href="/academia">Academia</a>
+        <svg class="mobile-toggle-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <ul class="nav-mobile-sub" id="mob-academia-sub">
+        <li><a href="/academia/mentorias">Mentorías 1:1</a></li>
+      </ul>
+    </li>
+
     <li><a href="/blog">Blog</a></li>
     <li><a href="/nosotros">Nosotros</a></li>
     <li><a href="https://wa.me/525579606335?text=Hola,%20quiero%20agendar%20un%20diagnostico%20gratuito%20con%20Kreativo%20Studio" target="_blank" rel="noopener noreferrer" class="mobile-nav-cta">Agendar diagn&oacute;stico</a></li>
@@ -31,6 +254,7 @@
 </div>
 
 <script is:inline>
+  // ── Hamburguesa ──
   var btn = document.getElementById('ks-menu-btn');
   var menu = document.getElementById('ks-mobile-menu');
   if (btn && menu) {
@@ -49,4 +273,19 @@
       });
     });
   }
+
+  // ── Mobile sub-menus ──
+  function setupMobileSub(btnId, subId) {
+    var togBtn = document.getElementById(btnId);
+    var sub = document.getElementById(subId);
+    if (!togBtn || !sub) return;
+    togBtn.addEventListener('click', function(e) {
+      // Only toggle if clicking the chevron area (not the link itself)
+      if (e.target.tagName === 'A') return;
+      var open = sub.classList.toggle('open');
+      togBtn.classList.toggle('open', open);
+    });
+  }
+  setupMobileSub('mob-servicios-btn', 'mob-servicios-sub');
+  setupMobileSub('mob-academia-btn', 'mob-academia-sub');
 </script>
