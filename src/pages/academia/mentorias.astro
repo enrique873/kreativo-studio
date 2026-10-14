@@ -1,0 +1,637 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Mentorías 1:1 — Academia Kreativo" description="Mentoría privada de marketing digital con Enrique Girón. Sesiones 1:1 en paid media, e-commerce, estrategia digital, redes sociales, GEO e IA.">
+
+<style>
+/* ── MENTORIAS PAGE ── */
+.ment-page { width: 100%; }
+
+/* Breadcrumb */
+.ment-breadcrumb {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--light-gray);
+  padding: 12px 48px;
+}
+.ment-breadcrumb-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--mid-gray);
+}
+.ment-breadcrumb a { color: var(--mid-gray); text-decoration: none; }
+.ment-breadcrumb a:hover { color: var(--cyan); }
+.ment-breadcrumb-sep { opacity: 0.4; }
+.ment-breadcrumb-current { color: var(--dark); font-weight: 500; }
+
+/* Hero */
+.ment-hero {
+  background: var(--darker);
+  padding: 100px 48px 96px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.ment-hero::before {
+  content: '';
+  position: absolute;
+  top: -240px; left: 50%; transform: translateX(-50%);
+  width: 900px; height: 900px; max-width: 180vw;
+  background: radial-gradient(circle, rgba(0,200,202,0.11) 0%, rgba(0,200,202,0.04) 45%, transparent 70%);
+  pointer-events: none;
+}
+.ment-hero-inner { position: relative; max-width: 800px; margin: 0 auto; }
+.ment-hero-chips {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  margin-top: 36px;
+}
+.ment-chip {
+  font-size: 13px; padding: 7px 16px; border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.7);
+}
+.ment-chip b { font-weight: 500; color: rgba(255,255,255,0.9); }
+.ment-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 24px;
+}
+.ment-hero p {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Section wrapper */
+.ment-section { padding: 96px 48px; }
+.ment-section-inner { max-width: 1120px; margin: 0 auto; }
+.ment-section-dark { background: var(--darker); }
+.ment-section-alt { background: var(--off-white); }
+.ment-section-white { background: #fff; }
+.ment-sec-head { margin-bottom: 56px; }
+.ment-sec-head .section-tag { margin-bottom: 16px; display: block; }
+.ment-sec-head h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 3.2vw, 44px);
+  font-weight: 700;
+  color: var(--darker);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.ment-section-dark .ment-sec-head h2 { color: #fff; }
+.ment-sec-head p {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--mid-gray);
+  line-height: 1.7;
+  max-width: 620px;
+}
+.ment-section-dark .ment-sec-head p { color: rgba(255,255,255,0.5); }
+
+/* Para quién: find grid */
+.ment-find-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 56px; }
+.ment-find-item { display: flex; gap: 14px; align-items: flex-start; }
+.ment-find-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--cyan);
+  flex: 0 0 8px; margin-top: 9px;
+}
+.ment-find-item h3 {
+  font-family: var(--font-heading);
+  font-size: 17px; font-weight: 700;
+  color: var(--darker);
+  margin-bottom: 8px;
+}
+.ment-find-item p { font-size: 14px; color: var(--mid-gray); line-height: 1.65; }
+
+/* Instructor stats */
+.ment-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.ment-stat {
+  background: var(--off-white);
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+}
+.ment-stat-val {
+  font-family: var(--font-heading);
+  font-weight: 700; font-size: 40px;
+  letter-spacing: -0.03em; line-height: 1;
+  color: var(--darker);
+}
+.ment-stat-lbl { font-size: 13px; color: var(--mid-gray); margin-top: 10px; line-height: 1.4; }
+
+/* Cómo funciona: pasos */
+.ment-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.ment-step { border-top: 2px solid rgba(255,255,255,0.12); padding-top: 20px; }
+.ment-step.now { border-top-color: var(--cyan); }
+.ment-step-n {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 11px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3); margin-bottom: 10px;
+}
+.ment-step.now .ment-step-n { color: var(--cyan); }
+.ment-step h4 { font-family: var(--font-heading); font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.ment-step p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+/* How grid */
+.ment-how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+.ment-how-card {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 24px; background: rgba(255,255,255,0.04);
+}
+.ment-how-card h4 { font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.ment-how-card p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+/* Temas: módulos */
+.ment-mods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ment-mod {
+  background: var(--off-white);
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+}
+.ment-mod-n {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 12px;
+}
+.ment-mod h3 { font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: var(--darker); margin-bottom: 16px; }
+.ment-mod ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.ment-mod ul li { font-size: 14px; color: var(--mid-gray); padding-left: 18px; position: relative; line-height: 1.5; }
+.ment-mod ul li::before { content: '\2713'; color: var(--cyan); font-weight: 700; position: absolute; left: 0; }
+.ment-note { font-size: 13.5px; color: var(--mid-gray); margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--light-gray); line-height: 1.6; }
+
+/* Modalidades / precios */
+.ment-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+.ment-plan {
+  background: #fff;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  display: flex; flex-direction: column;
+}
+.ment-plan.feat { border-color: rgba(0,200,202,0.55); box-shadow: 0 0 0 1px rgba(0,200,202,0.2); }
+.ment-plan-tag {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mid-gray); margin-bottom: 10px;
+}
+.ment-plan.feat .ment-plan-tag { color: var(--cyan); }
+.ment-plan h3 { font-family: var(--font-heading); font-size: 22px; font-weight: 700; color: var(--darker); margin-bottom: 8px; }
+.ment-plan .who { font-size: 14px; color: var(--mid-gray); margin-bottom: 20px; line-height: 1.5; }
+.ment-plan-from { font-size: 12px; color: var(--mid-gray); margin-bottom: 4px; }
+.ment-plan-price {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 36px; letter-spacing: -0.03em;
+  color: var(--darker); margin-bottom: 24px;
+}
+.ment-plan-price small { font-family: var(--font-body); font-weight: 300; font-size: 14px; color: var(--mid-gray); letter-spacing: 0; margin-left: 4px; }
+.ment-plan ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.ment-plan ul li { font-size: 14px; color: var(--dark); padding-left: 18px; position: relative; line-height: 1.5; }
+.ment-plan ul li::before { content: '\2713'; color: var(--cyan); font-weight: 700; position: absolute; left: 0; }
+.ment-plan-foot { margin-top: auto; padding-top: 24px; }
+.ment-plan-foot a { display: block; text-align: center; }
+.ment-plan-foot .btn-secondary {
+  display: block; padding: 14px 20px;
+  border: 1.5px solid var(--light-gray);
+  border-radius: 100px;
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--darker); text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.ment-plan-foot .btn-secondary:hover { border-color: var(--cyan); background: var(--off-white); }
+
+/* FAQ — acordeón */
+.ment-faq-list { border-top: 1px solid var(--light-gray); }
+.ment-faq-item { border-bottom: 1px solid var(--light-gray); }
+.ment-faq-btn {
+  width: 100%; text-align: left; padding: 20px 0;
+  background: none; border: none; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.ment-faq-question {
+  font-family: var(--font-heading); font-size: 14px; font-weight: 600;
+  color: var(--darker); line-height: 1.4;
+}
+.ment-faq-icon {
+  width: 20px; height: 20px; flex: 0 0 20px;
+  border: 1.5px solid var(--light-gray); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.ment-faq-icon svg { width: 10px; height: 10px; stroke: var(--mid-gray); fill: none; stroke-width: 2.5; transition: transform 0.3s; }
+.ment-faq-item.open .ment-faq-icon { background: var(--cyan); border-color: var(--cyan); }
+.ment-faq-item.open .ment-faq-icon svg { stroke: var(--darker); transform: rotate(45deg); }
+.ment-faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+.ment-faq-answer-inner { font-size: 14px; color: var(--mid-gray); line-height: 1.75; padding-bottom: 20px; font-weight: 300; }
+.ment-faq-item.open .ment-faq-answer { max-height: 300px; }
+
+/* CTA final */
+.ment-cta {
+  background: var(--darker);
+  padding: 96px 48px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.ment-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(0,200,202,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ment-cta-inner { position: relative; z-index: 1; max-width: 520px; margin: 0 auto; }
+.ment-cta h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700; color: #fff;
+  letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 16px;
+}
+.ment-cta p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.5); margin-bottom: 36px; line-height: 1.7; }
+.ment-cta-note { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 14px; }
+.ment-sig { margin-top: 52px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+.ment-sig q { font-family: var(--font-heading); font-weight: 700; font-size: clamp(18px, 2.2vw, 26px); color: #fff; quotes: none; display: block; margin-bottom: 12px; letter-spacing: -0.02em; line-height: 1.3; }
+.ment-sig-who { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .ment-breadcrumb { padding: 12px 32px; }
+  .ment-hero { padding: 80px 32px 72px; }
+  .ment-section { padding: 80px 32px; }
+  .ment-stats { grid-template-columns: repeat(2, 1fr); }
+  .ment-how-grid { grid-template-columns: repeat(2, 1fr); }
+  .ment-steps { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .ment-breadcrumb { padding: 10px 20px; }
+  .ment-hero { padding: 72px 20px 64px; }
+  .ment-section { padding: 64px 20px; }
+  .ment-find-grid { grid-template-columns: 1fr; gap: 28px; }
+  .ment-stats { grid-template-columns: repeat(2, 1fr); }
+  .ment-steps { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .ment-how-grid { grid-template-columns: 1fr 1fr; }
+  .ment-mods { grid-template-columns: 1fr 1fr; }
+  .ment-plans { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+}
+@media (max-width: 480px) {
+  .ment-hero h1 { font-size: 36px; }
+  .ment-stats { grid-template-columns: 1fr; }
+  .ment-steps { grid-template-columns: 1fr; }
+  .ment-how-grid { grid-template-columns: 1fr; }
+  .ment-mods { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="ment-page">
+
+  <!-- BREADCRUMB -->
+  <div class="ment-breadcrumb">
+    <div class="ment-breadcrumb-inner">
+      <a href="/academia">Academia</a>
+      <span class="ment-breadcrumb-sep">/</span>
+      <span class="ment-breadcrumb-current">Mentorías 1:1</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="ment-hero">
+    <div class="ment-hero-inner">
+      <div class="section-tag" style="color:var(--cyan);margin-bottom:20px;display:block;">Academia Kreativo · Mentorías 1:1</div>
+      <h1>Una mentoría de marketing hecha a tu medida.</h1>
+      <p>Sesiones privadas en vivo para resolver un reto puntual de tu proyecto, con el equipo que lo ejecuta todos los días: paid media, e-commerce, estrategia digital y redes sociales.</p>
+      <div class="ment-hero-chips">
+        <span class="ment-chip">En vivo, <b>uno a uno</b></span>
+        <span class="ment-chip">Temario <b>personalizado</b></span>
+        <span class="ment-chip">Con <b>Enrique Girón</b></span>
+        <span class="ment-chip">Diagnóstico <b>sin costo</b></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARA QUIÉN -->
+  <div class="ment-section ment-section-white">
+    <div class="ment-section-inner">
+      <div class="ment-sec-head">
+        <span class="section-tag">Para quién es</span>
+        <h2>Para quien tiene un proyecto y necesita un experto al lado.</h2>
+        <p>La mentoría no es un curso. Es para cuando tienes una necesidad muy puntual en un proyecto real y quieres trabajarla uno a uno con quien ya la ha resuelto muchas veces.</p>
+      </div>
+      <div class="ment-find-grid">
+        <div class="ment-find-item">
+          <span class="ment-find-dot"></span>
+          <div>
+            <h3>Vas a lanzar o escalar campañas</h3>
+            <p>Ya inviertes, o vas a invertir, en Meta, Google o TikTok y quieres revisar estructura, creativos y resultados antes de seguir gastando.</p>
+          </div>
+        </div>
+        <div class="ment-find-item">
+          <span class="ment-find-dot"></span>
+          <div>
+            <h3>Estás construyendo tu tienda en línea</h3>
+            <p>Vas a abrir un e-commerce en Shopify, Tienda Nube o VTEX, o ya lo tienes y no está convirtiendo como esperabas.</p>
+          </div>
+        </div>
+        <div class="ment-find-item">
+          <span class="ment-find-dot"></span>
+          <div>
+            <h3>Necesitas un plan, no más tácticas sueltas</h3>
+            <p>Diriges un negocio o un área de marketing y quieres ordenar canales, presupuesto y KPIs con alguien que ya lo ha hecho a escala.</p>
+          </div>
+        </div>
+        <div class="ment-find-item">
+          <span class="ment-find-dot"></span>
+          <div>
+            <h3>Llevas las redes de una marca</h3>
+            <p>Quieres que el contenido tenga una estrategia detrás, medir lo que importa y empezar a aparecer en las respuestas de la IA.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTRUCTOR -->
+  <div class="ment-section ment-section-alt">
+    <div class="ment-section-inner">
+      <div class="ment-sec-head">
+        <span class="section-tag">Tu instructor</span>
+        <h2>Aprendes de alguien que lo ejecuta todos los días.</h2>
+        <p>Enrique Girón es fundador de Kreativo Studio. Diseñó el Diplomado de Marketing Digital de Anáhuac Online y ha dirigido áreas digitales durante más de una década.</p>
+      </div>
+      <div class="ment-stats">
+        <div class="ment-stat"><div class="ment-stat-val">12+</div><div class="ment-stat-lbl">años dirigiendo áreas y campañas digitales</div></div>
+        <div class="ment-stat"><div class="ment-stat-val">$200M</div><div class="ment-stat-lbl">USD en revenue gestionado en canales digitales</div></div>
+        <div class="ment-stat"><div class="ment-stat-val">1K+</div><div class="ment-stat-lbl">alumnos formados en Anáhuac y en programas propios</div></div>
+        <div class="ment-stat"><div class="ment-stat-val">1:1</div><div class="ment-stat-lbl">sesiones privadas en vivo, con temario a tu medida</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CÓMO FUNCIONA -->
+  <div class="ment-section ment-section-dark">
+    <div class="ment-section-inner">
+      <div class="ment-sec-head">
+        <span class="section-tag" style="color:var(--cyan)">Cómo funciona</span>
+        <h2>Primero escuchamos. Después proponemos.</h2>
+        <p>Cada mentoría empieza con una conversación. Con lo que nos cuentes armamos una propuesta con temario, número de sesiones e inversión pensados para ti.</p>
+      </div>
+      <div class="ment-steps">
+        <div class="ment-step now">
+          <div class="ment-step-n">PASO 01</div>
+          <h4>Llamada de diagnóstico</h4>
+          <p>20 minutos sin costo para conocer tu nivel, tu objetivo y tu tiempo disponible.</p>
+        </div>
+        <div class="ment-step">
+          <div class="ment-step-n">PASO 02</div>
+          <h4>Propuesta personalizada</h4>
+          <p>Recibes una página con tu temario, el número de sesiones y la inversión.</p>
+        </div>
+        <div class="ment-step">
+          <div class="ment-step-n">PASO 03</div>
+          <h4>Agenda fija</h4>
+          <p>Confirmas tu lugar y definimos un día y horario semanal.</p>
+        </div>
+        <div class="ment-step">
+          <div class="ment-step-n">PASO 04</div>
+          <h4>Sesiones en vivo</h4>
+          <p>Teoría aplicada, práctica con datos reales y tarea corta entre sesiones.</p>
+        </div>
+        <div class="ment-step">
+          <div class="ment-step-n">PASO 05</div>
+          <h4>Proyecto final</h4>
+          <p>Cierras con un entregable real: una auditoría, un reporte o un plan listo para usar.</p>
+        </div>
+      </div>
+      <div class="ment-how-grid">
+        <div class="ment-how-card"><h4>En vivo por videollamada</h4><p>Sesiones de 60 o 90 minutos, uno a uno, desde donde estés.</p></div>
+        <div class="ment-how-card"><h4>Todo queda grabado</h4><p>Cada sesión se graba para que la repases cuando lo necesites.</p></div>
+        <div class="ment-how-card"><h4>Práctica con datos reales</h4><p>Trabajamos con tus cuentas o con cuentas demo oficiales, nunca con ejemplos de libro.</p></div>
+        <div class="ment-how-card"><h4>Acompañamiento entre sesiones</h4><p>Dudas y revisión de tareas por WhatsApp en horario hábil.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMAS -->
+  <div class="ment-section ment-section-white">
+    <div class="ment-section-inner">
+      <div class="ment-sec-head">
+        <span class="section-tag">Temas</span>
+        <h2>Las mismas áreas en las que trabajamos con clientes.</h2>
+        <p>Cada mentoría se enfoca en una o varias de nuestras especialidades. Traes tu caso y lo resolvemos juntos con el método que usamos en Kreativo Studio.</p>
+      </div>
+      <div class="ment-mods">
+        <div class="ment-mod">
+          <div class="ment-mod-n">Servicio 01</div>
+          <h3>Paid Media &amp; Performance</h3>
+          <ul>
+            <li>Estructura de campañas en Meta, Google y TikTok</li>
+            <li>Auditoría de tu cuenta y plan de rescate</li>
+            <li>Pixel, conversiones y tracking de eventos</li>
+            <li>Cómo leer ROAS, CPA y tus reportes</li>
+          </ul>
+        </div>
+        <div class="ment-mod">
+          <div class="ment-mod-n">Servicio 02</div>
+          <h3>Diseño Web &amp; E-commerce</h3>
+          <ul>
+            <li>Elegir plataforma: Shopify, Tienda Nube o VTEX</li>
+            <li>Checklist de lanzamiento de tu tienda</li>
+            <li>Landing pages para campañas</li>
+            <li>CRO y reducción de abandono de carrito</li>
+          </ul>
+        </div>
+        <div class="ment-mod">
+          <div class="ment-mod-n">Servicio 03</div>
+          <h3>Estrategia Digital &amp; Growth</h3>
+          <ul>
+            <li>Diagnóstico digital de tu negocio</li>
+            <li>Arquitectura de canales y presupuesto</li>
+            <li>Plan de marketing a 90 días</li>
+            <li>Dashboard de KPIs para dirección</li>
+          </ul>
+        </div>
+        <div class="ment-mod">
+          <div class="ment-mod-n">Servicio 04</div>
+          <h3>Gestión de RRSS &amp; Contenido</h3>
+          <ul>
+            <li>Estrategia editorial con objetivo en el funnel</li>
+            <li>Contenido para Instagram y LinkedIn</li>
+            <li>Community management</li>
+            <li>Métricas de alcance, engagement y crecimiento</li>
+          </ul>
+        </div>
+        <div class="ment-mod">
+          <div class="ment-mod-n">Especialidad</div>
+          <h3>GEO y posicionamiento en IA</h3>
+          <ul>
+            <li>Cómo aparecer en respuestas de ChatGPT, Gemini y Claude</li>
+            <li>Contenido pensado para búsqueda e IA</li>
+            <li>Señales de autoridad para tu marca</li>
+            <li>Cómo medir tu presencia</li>
+          </ul>
+        </div>
+        <div class="ment-mod">
+          <div class="ment-mod-n">Especialidad</div>
+          <h3>IA aplicada al marketing</h3>
+          <ul>
+            <li>Claude y otras herramientas en el día a día</li>
+            <li>Prompts para campañas, contenido y reportes</li>
+            <li>Automatizar tareas repetitivas</li>
+            <li>Flujos de trabajo para equipos pequeños</li>
+          </ul>
+        </div>
+      </div>
+      <p class="ment-note">Como material de apoyo usamos las plantillas, checklists y guías de la tienda de Kreativo Studio, para que te quedes con herramientas listas para aplicar.</p>
+    </div>
+  </div>
+
+  <!-- MODALIDADES -->
+  <div class="ment-section ment-section-alt">
+    <div class="ment-section-inner">
+      <div class="ment-sec-head">
+        <span class="section-tag">Modalidades</span>
+        <h2>Tres formas de trabajar juntos.</h2>
+        <p>El precio final depende del temario y del número de sesiones. Lo definimos contigo después de la llamada de diagnóstico.</p>
+      </div>
+      <div class="ment-plans">
+        <div class="ment-plan">
+          <div class="ment-plan-tag">Puntual</div>
+          <h3>Sesión individual</h3>
+          <p class="who">Para resolver un tema concreto o revisar una cuenta.</p>
+          <div class="ment-plan-price">$2,500<small>MXN / hora</small></div>
+          <ul>
+            <li>Una sesión en vivo de 60 minutos</li>
+            <li>Grabación de la sesión</li>
+            <li>Resumen con siguientes pasos</li>
+          </ul>
+          <div class="ment-plan-foot">
+            <a class="btn-secondary" href="https://wa.me/525579606335?text=Hola%20Enrique,%20me%20interesa%20una%20sesi%C3%B3n%20individual%20de%20mentor%C3%ADa">Agendar</a>
+          </div>
+        </div>
+        <div class="ment-plan feat">
+          <div class="ment-plan-tag">Más elegido</div>
+          <h3>Programa intensivo</h3>
+          <p class="who">Para dominar un área completa en pocas semanas.</p>
+          <div class="ment-plan-from">Desde</div>
+          <div class="ment-plan-price">$12,000<small>MXN</small></div>
+          <ul>
+            <li>6 sesiones en vivo de 90 minutos</li>
+            <li>Temario personalizado</li>
+            <li>Plantillas y herramientas de trabajo</li>
+            <li>Acompañamiento por WhatsApp</li>
+            <li>Proyecto final revisado</li>
+            <li>Pago en parcialidades por bloque</li>
+          </ul>
+          <div class="ment-plan-foot">
+            <a class="btn-primary" href="https://wa.me/525579606335?text=Hola%20Enrique,%20me%20interesa%20el%20programa%20intensivo%20de%20mentor%C3%ADa">Agendar llamada</a>
+          </div>
+        </div>
+        <div class="ment-plan">
+          <div class="ment-plan-tag">Empresas</div>
+          <h3>Mentoría para equipos</h3>
+          <p class="who">Para equipos de marketing que necesitan subir de nivel juntos.</p>
+          <div class="ment-plan-price" style="font-size:26px">A la medida</div>
+          <ul>
+            <li>Sesiones para hasta 6 personas</li>
+            <li>Trabajo sobre las cuentas de la empresa</li>
+            <li>Temario alineado a objetivos del negocio</li>
+            <li>Factura disponible</li>
+          </ul>
+          <div class="ment-plan-foot">
+            <a class="btn-secondary" href="https://wa.me/525579606335?text=Hola%20Enrique,%20me%20interesa%20cotizar%20una%20mentor%C3%ADa%20para%20mi%20equipo">Cotizar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="ment-section ment-section-white">
+    <div class="ment-section-inner" style="max-width:840px">
+      <div class="ment-sec-head">
+        <span class="section-tag">Preguntas frecuentes</span>
+        <h2>Lo que nos preguntan antes de empezar.</h2>
+      </div>
+      <div class="ment-faq-list">
+        <div class="ment-faq-item">
+          <button class="ment-faq-btn" onclick="toggleMentFaq(this)">
+            <span class="ment-faq-question">¿Necesito experiencia previa?</span>
+            <div class="ment-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="ment-faq-answer"><div class="ment-faq-answer-inner">No. En la llamada de diagnóstico vemos tu punto de partida y ajustamos el nivel del temario. Funciona igual si empiezas desde cero o si ya trabajas en marketing.</div></div>
+        </div>
+        <div class="ment-faq-item">
+          <button class="ment-faq-btn" onclick="toggleMentFaq(this)">
+            <span class="ment-faq-question">¿En qué se diferencia del curso en línea?</span>
+            <div class="ment-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="ment-faq-answer"><div class="ment-faq-answer-inner">El curso de la Academia es grabado y avanzas a tu ritmo. La mentoría es en vivo, uno a uno y con un temario construido para tu objetivo, con revisión de tus ejercicios y tus cuentas.</div></div>
+        </div>
+        <div class="ment-faq-item">
+          <button class="ment-faq-btn" onclick="toggleMentFaq(this)">
+            <span class="ment-faq-question">¿Puedo pagar en parcialidades?</span>
+            <div class="ment-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="ment-faq-answer"><div class="ment-faq-answer-inner">Sí. En los programas pagas por bloques de sesiones, antes de cada bloque.</div></div>
+        </div>
+        <div class="ment-faq-item">
+          <button class="ment-faq-btn" onclick="toggleMentFaq(this)">
+            <span class="ment-faq-question">¿Tengo que pagar herramientas adicionales?</span>
+            <div class="ment-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="ment-faq-answer"><div class="ment-faq-answer-inner">No. Trabajamos con plataformas gratuitas o con planes sin costo, como Google Analytics 4, Looker Studio, Meta Ads Manager y HubSpot CRM.</div></div>
+        </div>
+        <div class="ment-faq-item">
+          <button class="ment-faq-btn" onclick="toggleMentFaq(this)">
+            <span class="ment-faq-question">¿Qué pasa si no puedo asistir a una sesión?</span>
+            <div class="ment-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="ment-faq-answer"><div class="ment-faq-answer-inner">Avísanos con 24 horas de anticipación y la reagendamos sin costo.</div></div>
+        </div>
+        <div class="ment-faq-item">
+          <button class="ment-faq-btn" onclick="toggleMentFaq(this)">
+            <span class="ment-faq-question">¿Cuánto tiempo dura un programa?</span>
+            <div class="ment-faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="ment-faq-answer"><div class="ment-faq-answer-inner">Normalmente seis semanas, con una sesión por semana. Si necesitas ir más rápido o más lento, lo ajustamos.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA FINAL -->
+  <div class="ment-cta">
+    <div class="ment-cta-inner">
+      <div class="section-tag" style="color:var(--cyan);margin-bottom:20px;display:block;text-align:center;">Siguiente paso</div>
+      <h2>Empecemos con una llamada de 20 minutos.</h2>
+      <p>Sin costo y sin compromiso. Nos cuentas qué quieres lograr y en unos días recibes tu propuesta personalizada.</p>
+      <a href="https://wa.me/525579606335?text=Hola%20Enrique,%20me%20interesa%20una%20mentor%C3%ADa%201:1%20y%20quiero%20agendar%20la%20llamada%20de%20diagn%C3%B3stico" target="_blank" rel="noopener" class="btn-primary">
+        Agendar por WhatsApp →
+      </a>
+      <div class="ment-cta-note">enrique@kreativostudio.com</div>
+      <div class="ment-sig">
+        <q>El buen contenido se siente. El buen marketing se demuestra.</q>
+        <div class="ment-sig-who">Enrique Girón · Fundador y Director, Kreativo Studio</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleMentFaq(btn) {
+  const item = btn.closest('.ment-faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.ment-faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+</Base>
