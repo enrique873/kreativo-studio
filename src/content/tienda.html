@@ -360,5 +360,16 @@ function filterProducts(cat, btn) {
 </script>
 <style>
   .tienda-page .product-card{scroll-margin-top:96px}
-  .tienda-page .product-card:target{outline:2px solid #00C8CA;outline-offset:4px}
+  .tienda-page .product-card:target,
+  .tienda-page .product-card.is-target{outline:2px solid #00C8CA;outline-offset:4px}
 </style>
+<script>
+(function(){
+  var slug = new URLSearchParams(location.search).get('utm_content');
+  if (!slug || location.hash) { return; }
+  var card = document.getElementById(slug.replace(/[^a-z0-9-]/gi, ''));
+  if (!card || !card.classList.contains('product-card')) { return; }
+  card.classList.add('is-target');
+  window.addEventListener('load', function(){ card.scrollIntoView({block: 'start'}); });
+})();
+</script>
