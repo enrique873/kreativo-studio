@@ -1,5 +1,16 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "headers": [
+    {
+      "source": "/propuestas/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
 }
