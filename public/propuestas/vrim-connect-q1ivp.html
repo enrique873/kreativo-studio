@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="https://www.kreativostudio.com/favicon.svg">
 <title>Propuesta VRIM Connect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,7 +104,7 @@ h3 { font-size: 21px; line-height: 1.25; color: var(--darker); }
 .ch .tag { justify-self: start; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px 3px; border-radius: 100px; background: var(--off-white); color: var(--dark); }
 .ch.new .tag { background: var(--cyan-light); color: var(--cyan-ink); border: 1px solid var(--cyan-line); }
 
-.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; background: var(--light-gray); border-radius: var(--radius); overflow: hidden; }
+.steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2px; background: var(--light-gray); border-radius: var(--radius); overflow: hidden; }
 .step { background: var(--white); padding: 28px; display: grid; gap: 8px; align-content: start; }
 .step .n { font-family: var(--font-heading); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: var(--cyan-ink); }
 .step h3 { font-size: 18px; }
@@ -213,6 +214,64 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
   .sources ol { columns: 1; }
   footer { padding-inline: 20px; }
 }
+
+.nav-toggle { display: none; width: 40px; height: 40px; border: 0; background: transparent; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; border-radius: var(--radius-sm); }
+.nav-toggle span { display: block; width: 20px; height: 2px; background: var(--dark); border-radius: 2px; transition: transform 0.2s, opacity 0.2s; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+@media (max-width: 1023px) {
+  .nav-toggle { display: flex; }
+  .nav-links { position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--light-gray); padding: 8px 20px 20px; display: none; }
+  .nav-links.open { display: flex; }
+  .nav-links li, .nav-links li:not(:last-child) { display: block; }
+  .nav-links a { display: block; padding: 14px 0; border-bottom: 1px solid var(--light-gray); font-size: 16px; }
+  .nav-links a.nav-cta { margin-top: 14px; text-align: center; border-bottom: 0; padding: 14px 22px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+}
+
+.pay-note { font-size: 14.5px; background: var(--cyan-light); border: 1px solid var(--cyan-line); border-radius: var(--radius-sm); padding: 14px 16px; }
+.pay-note b { font-weight: 500; color: var(--darker); }
+.addon-price { margin-top: 20px; border-bottom: 0; padding-bottom: 0; }
+.addon-scope { display: grid; gap: 14px; }
+.btn-pdf-dark { display: inline-flex; margin-top: 36px; background: var(--white); color: var(--darker); font-size: 15px; font-weight: 500; padding: 14px 28px; border-radius: 100px; text-decoration: none; transition: opacity 0.2s; }
+.btn-pdf-dark:hover { opacity: 0.85; }
+@media print {
+  @page { margin: 36px 0; }
+  html { scroll-behavior: auto; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  nav, .hero-actions, .pdf-btn, .nav-toggle { display: none !important; }
+  .hero { padding-block: 32px 24px; }
+  .hero-stats { margin-top: 32px; }
+  .band { padding-block: 40px; }
+  .section-sub { margin-bottom: 28px; }
+  .opt, .card, .phase, .step, .comp, .ch, .fact, .addon, .ltv-fixed > *, .funnel-notes > div, .asks li { break-inside: avoid; }
+  h2, h3 { break-after: avoid; break-inside: avoid; }
+  #terminos { break-before: page; }
+  #siguiente { break-inside: avoid; }
+  .section-tag, .cta-eyebrow { display: table; break-after: avoid; }
+  .cta-eyebrow { margin-inline: auto; }
+  section { break-inside: auto; }
+  .steps { grid-template-columns: repeat(5, minmax(0,1fr)); }
+}
+
+.ltv-steps { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; margin-top: 4px; }
+.ltv-steps td { padding: 10px 0; border-bottom: 1px solid var(--light-gray); font-size: 15px; }
+.ltv-steps td:last-child { text-align: right; font-weight: 500; color: var(--darker); }
+.ltv-cmp td { vertical-align: top; }
+.ltv-cmp td:last-child { white-space: nowrap; padding-left: 16px; }
+.ltv-cmp td .mini { font-family: var(--font-body); font-weight: 400; font-size: 12.5px; }
+.ltv-steps tr.tot td { border-bottom: 0; font-family: var(--font-heading); font-size: 19px; font-weight: 700; color: var(--darker); padding-top: 14px; }
+
+.hero-valid { font-size: 13px; color: var(--mid-gray); margin: -24px 0 28px; }
+.terms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.terms > * { min-width: 0; }
+.term-group { background: var(--white); border: 1px solid var(--light-gray); border-radius: var(--radius); padding: 28px; display: grid; gap: 12px; align-content: start; break-inside: avoid; }
+.term-group h3 { font-size: 18px; }
+.term-group ol { margin: 0; padding-left: 22px; display: grid; gap: 10px; }
+.term-group li { font-size: 14.5px; color: var(--dark); padding-left: 4px; }
+.term-group li::marker { color: var(--cyan-ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+@media (max-width: 768px) { .terms { grid-template-columns: 1fr; } .term-group { padding: 22px; } }
 </style>
 </head>
 <body>
@@ -221,28 +280,32 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
     <div class="nav-logo-mark"><span>KS</span></div>
     <span class="nav-wordmark">Kreativo Studio</span>
   </a>
-  <ul class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#canales">Canales</a></li>
     <li><a href="#flujo">Flujo</a></li>
     <li><a href="#propuesta">Propuesta</a></li>
     <li><a href="#valor">Valor del cliente</a></li>
+    <li><a href="#terminos">Términos</a></li>
     <li><a class="nav-cta" href="#siguiente">Siguiente paso</a></li>
   </ul>
 </nav>
 
 <header class="hero" id="inicio">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Propuesta para Salud Interactiva · Octubre 2026</div>
-    <h1>Dos canales nuevos para VRIM Connect, <em>sin competir con su pauta</em></h1>
-    <p class="hero-sub">Sumamos programática y redes de afiliados, cada uno con su propia landing, para impulsar la suscripción anual y complementar lo que su equipo ya hace en Meta.</p>
+    <div class="hero-eyebrow">Propuesta para Salud Interactiva · Noviembre 2026</div>
+    <h1>Canales nuevos para VRIM Connect, <em>sin competir con su pauta</em></h1>
+    <p class="hero-sub">Sumamos un ecosistema de medios alternativos y una red de afiliados, cada uno con su propia landing, para impulsar la suscripción anual y complementar lo que su equipo ya hace en Meta y Google.</p>
+    <p class="hero-valid">Vigente hasta el 20 de diciembre de 2026</p>
     <div class="hero-actions">
       <a class="btn-primary" href="#propuesta">Ver la propuesta</a>
       <a class="btn-secondary" href="#canales">Cómo encaja con su pauta →</a>
+      <a class="btn-secondary pdf-btn" href="vrim-connect-q1ivp.pdf" download="Propuesta VRIM Connect - Kreativo Studio.pdf">Descargar PDF ↓</a>
     </div>
     <div class="hero-stats">
-      <div><span class="hero-stat-number">2</span><span class="hero-stat-label">canales nuevos, fuera de su pauta actual</span></div>
+      <div><span class="hero-stat-number">3</span><span class="hero-stat-label">fuentes de tráfico nuevas, fuera de Meta y Google</span></div>
       <div><span class="hero-stat-number">2</span><span class="hero-stat-label">landings dedicadas a la suscripción anual</span></div>
-      <div><span class="hero-stat-number">4</span><span class="hero-stat-label">pasos del flujo medidos de punta a punta</span></div>
+      <div><span class="hero-stat-number">5</span><span class="hero-stat-label">pasos del anuncio a la app, medidos de punta a punta</span></div>
       <div><span class="hero-stat-number">18 M</span><span class="hero-stat-label">personas con perfil para comprarla en línea</span></div>
     </div>
   </div>
@@ -256,10 +319,10 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
     <div class="split">
       <dl class="facts">
         <div class="fact"><dt>Objetivo</dt><dd>Generar suscripciones anuales pagadas de VRIM Connect desde canales que hoy no se están trabajando.</dd></div>
-        <div class="fact"><dt>Pauta actual</dt><dd>Su equipo gestiona Meta de forma interna, con campañas por familia de beneficios. Hoy el foco está en salud emocional.</dd></div>
+        <div class="fact"><dt>Pauta actual</dt><dd>Su equipo gestiona Meta y Google de forma interna, con campañas por familia de beneficios. Hoy el foco está en salud emocional.</dd></div>
         <div class="fact"><dt>Coordinación</dt><dd>Acordamos alinear esfuerzos para no traslapar audiencias ni mensajes, y no encarecer la puja de ninguna de las dos partes.</dd></div>
-        <div class="fact"><dt>Pasarela</dt><dd>El cobro migra a un esquema anualizado en Stripe u OpenPay. Las landings se conectan a la pasarela que quede activa.</dd></div>
-        <div class="fact"><dt>Operación</dt><dd>Kreativo desarrolla las landings, genera e implementa el píxel, y gestiona y optimiza cada canal.</dd></div>
+        <div class="fact"><dt>Checkout</dt><dd>Su equipo construye el checkout del plan anual de $600 MXN. Nuestras landings llevan al usuario directo a ese checkout, y ustedes hacen la conexión.</dd></div>
+        <div class="fact"><dt>Operación</dt><dd>Kreativo desarrolla las landings, implementa la medición, y gestiona y optimiza cada fuente de tráfico.</dd></div>
       </dl>
       <div class="panel">
         <h3>Lo que aprendimos de su equipo</h3>
@@ -282,42 +345,43 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
     <div class="channels-map">
       <div class="ch">
         <span class="who">Salud Interactiva</span>
-        <h3>Meta</h3>
+        <h3>Meta y Google</h3>
         <p>Su pauta actual, operada por su equipo. Plan mensual y salud emocional.</p>
         <span class="tag">Se mantiene igual</span>
       </div>
       <div class="ch new">
         <span class="who">Kreativo · Landing 1</span>
-        <h3>Programática</h3>
-        <p>Alcance en sitios, apps y video fuera de redes sociales, con audiencias que hoy no ven su publicidad.</p>
+        <h3>Ecosistema de medios</h3>
+        <p>Programática en sitios, apps y video, creadores de contenido y otros medios fuera de Meta y Google, gestionados como un solo presupuesto.</p>
         <span class="tag">Canal nuevo</span>
       </div>
       <div class="ch new">
         <span class="who">Kreativo · Landing 2</span>
         <h3>Redes de afiliados</h3>
-        <p>Medios, comparadores y creadores que recomiendan VRIM Connect a audiencias que ya buscan el beneficio.</p>
+        <p>Medios, comparadores y sitios de ofertas que recomiendan VRIM Connect a audiencias que ya buscan el beneficio.</p>
         <span class="tag">Canal nuevo</span>
       </div>
     </div>
-    <p class="mini" style="margin-top:20px;max-width:820px">Nuestras landings se enfocan en nutrición y medicina general para no competir con su mensaje de salud emocional. Si más adelante quieren trabajar otras familias, lo definimos en conjunto.</p>
+    <p class="mini" style="margin-top:20px;max-width:820px">Nuestras landings y nuestros creadores se enfocan en nutrición y medicina general para no competir con su mensaje de salud emocional. Si más adelante quieren trabajar otras familias, lo definimos en conjunto.</p>
   </div>
 </section>
 
 <section class="band alt" id="flujo">
   <div class="wrap">
     <span class="section-tag">Flujo de compra</span>
-    <h2>Cuatro pasos, todos medidos</h2>
-    <p class="section-sub">Entre más pasos tiene un flujo, más importa medir cada uno. Diseñamos las landings para que el usuario sepa desde el inicio qué sigue, y medimos dónde se queda para optimizar.</p>
+    <h2>Cinco pasos del anuncio a la app</h2>
+    <p class="section-sub">Nosotros llevamos al usuario hasta su checkout; ustedes cobran, registran y activan. Para optimizar necesitamos ver qué pasa en cada paso, también en los que viven en su sitio.</p>
     <div class="steps">
-      <div class="step"><span class="n">PASO 1</span><h3>Datos y pago</h3><p>Nombre, correo, teléfono y tarjeta en la landing.</p><span class="owner">Landing de <b>Kreativo</b></span></div>
-      <div class="step"><span class="n">PASO 2</span><h3>Generar membresía</h3><p>Fecha de nacimiento y CURP para crear el número de membresía.</p><span class="owner">Sitio de <b>Salud Interactiva</b></span></div>
-      <div class="step"><span class="n">PASO 3</span><h3>Descargar la app</h3><p>Invitación a descargar VRIM Connect.</p><span class="owner"><b>Salud Interactiva</b></span></div>
-      <div class="step"><span class="n">PASO 4</span><h3>Activar</h3><p>Registro con teléfono y contraseña. El plan aparece activo.</p><span class="owner">App <b>VRIM Connect</b></span></div>
+      <div class="step"><span class="n">PASO 1</span><h3>Anuncio</h3><p>Medios alternativos o red de afiliados.</p><span class="owner"><b>Kreativo</b></span></div>
+      <div class="step"><span class="n">PASO 2</span><h3>Landing</h3><p>Landing del plan anual por familia de beneficios, conectada a su checkout.</p><span class="owner"><b>Kreativo</b></span></div>
+      <div class="step"><span class="n">PASO 3</span><h3>Checkout</h3><p>Nombre, teléfono, correo y pago con tarjeta, Google Pay o Apple Pay.</p><span class="owner"><b>Salud Interactiva</b></span></div>
+      <div class="step"><span class="n">PASO 4</span><h3>Registro</h3><p>Correo, nombre, apellidos, teléfono y contraseña para generar la membresía.</p><span class="owner"><b>Salud Interactiva</b></span></div>
+      <div class="step"><span class="n">PASO 5</span><h3>App</h3><p>Descarga de VRIM Connect e inicio de sesión con teléfono y contraseña.</p><span class="owner"><b>Salud Interactiva</b></span></div>
     </div>
     <div class="funnel-notes">
-      <div><h3>Expectativa clara</h3><p>La landing muestra los cuatro pasos antes de pagar. En nuestra experiencia, avisar al usuario cómo funciona el proceso mejora la conversión.</p></div>
-      <div><h3>Medición por paso</h3><p>Medimos visita, pago, membresía generada y activación. Para los pasos 2 a 4 pedimos que se dispare nuestro píxel o un aviso de conversión desde su sitio.</p></div>
-      <div><h3>Transición sin fricción</h3><p>Validamos con su equipo de desarrollo si el paso del pago a la membresía es una redirección o requiere integración, para que el usuario no se pierda en ese cambio.</p></div>
+      <div><h3>Expectativa clara</h3><p>La landing anticipa los pasos que siguen después del pago, en línea con lo que ya muestra su checkout. Avisar al usuario cómo funciona el proceso mejora la conversión.</p></div>
+      <div><h3>Medición de punta a punta</h3><p>Pedimos que su checkout conserve nuestros parámetros de seguimiento y nos envíe un aviso con cada pago confirmado, por píxel o de servidor a servidor. Así validamos cada suscripción y optimizamos cada fuente.</p></div>
+      <div><h3>Pago sin fricción</h3><p>Google Pay y Apple Pay reducen el abandono en celular, que es de donde llegará la mayoría del tráfico. Proponemos mantenerlos en el checkout anual y destacarlos en nuestras landings.</p></div>
     </div>
   </div>
 </section>
@@ -325,34 +389,38 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
 <section class="band" id="propuesta">
   <div class="wrap">
     <span class="section-tag">Nuestra propuesta</span>
-    <h2>Dos landings, dos canales, una sola estrategia</h2>
-    <p class="section-sub">Pueden activar uno o ambos canales. En los dos, Kreativo desarrolla la landing, implementa la medición y optimiza de forma continua. La suscripción se cuenta cuando el pago queda confirmado en su pasarela. Precios en MXN más IVA.</p>
+    <h2>Dos landings, una sola estrategia</h2>
+    <p class="section-sub">Pueden activar una o ambas. En las dos, Kreativo desarrolla la landing, implementa la medición y optimiza de forma continua. La suscripción se cuenta cuando el pago queda confirmado en su checkout. Precios en MXN más IVA.</p>
     <div class="options">
       <article class="opt">
-        <div class="opt-head"><span class="opt-letter">LANDING 1</span><span class="opt-badge">Programática</span></div>
-        <h3>Alcance programático gestionado por Kreativo</h3>
-        <p>Salud Interactiva invierte en medios programáticos y Kreativo los planea, compra, gestiona y optimiza, junto con la landing que los recibe.</p>
-        <div class="price"><b>$100</b><span>MXN + IVA por suscripción pagada, más la inversión en medios</span></div>
+        <div class="opt-head"><span class="opt-letter">LANDING 1</span><span class="opt-badge">Ecosistema de medios</span></div>
+        <h3>Medios alternativos gestionados por Kreativo</h3>
+        <p>Salud Interactiva define y pone la inversión mensual en medios. Kreativo la reparte entre programática, creadores de contenido y otros medios fuera de Meta y Google, y la mueve hacia lo que convierte.</p>
+        <div class="price"><b>$140</b><span>MXN + IVA por suscripción pagada</span></div>
+        <p class="pay-note"><b>La inversión en medios la pone Salud Interactiva.</b> Nuestro cobro por suscripción es aparte y cubre la gestión, la landing y la optimización.</p>
         <span class="opt-label">Incluye</span>
         <ul class="check-list">
           <li>Landing dedicada, con pruebas A/B de mensaje y diseño.</li>
-          <li>Planeación, compra y optimización de inventario programático.</li>
-          <li>Creatividades para display y video por familia de beneficios.</li>
-          <li>Ustedes controlan el presupuesto y lo ajustan cada mes.</li>
+          <li>Planeación, compra y optimización de programática en sitios, apps y video.</li>
+          <li>Selección y gestión de creadores de contenido, con liga de seguimiento por creador.</li>
+          <li>Optimización por conversión: lo que no genera suscripciones se quita y la inversión pasa a lo que sí.</li>
+          <li>Ustedes definen el presupuesto y lo ajustan cada mes.</li>
         </ul>
-        <p class="fit"><b>Ideal para</b> ganar alcance incremental con control total de la inversión.</p>
+        <p class="mini">Las campañas con creadores se contratan por mes, a partir de aproximadamente $70,000 MXN. Las sumamos cuando la inversión mensual lo permita.</p>
+        <p class="fit"><b>Ideal para</b> ganar alcance y conversión incrementales con control total de la inversión.</p>
       </article>
       <article class="opt">
         <div class="opt-head"><span class="opt-letter">LANDING 2</span><span class="opt-badge">Redes de afiliados</span></div>
         <h3>Suscripciones desde redes de afiliados</h3>
-        <p>Kreativo activa y administra una o varias redes de afiliados que llevan tráfico calificado a una landing dedicada. Salud Interactiva no invierte en medios.</p>
-        <div class="price"><b>$400</b><span>MXN + IVA por suscripción pagada, sin inversión en medios</span></div>
+        <p>Kreativo activa y administra una o varias redes de afiliados que llevan tráfico calificado a una landing dedicada. Es un modelo de pago por resultado (CPA).</p>
+        <div class="price"><b>$400</b><span>MXN + IVA por suscripción pagada</span></div>
+        <p class="pay-note"><b>Solo pagan cuando hay conversión.</b> El tráfico que llega a esta landing no les cuesta: la inversión para generarlo corre por cuenta de Kreativo, y ustedes pagan únicamente las suscripciones confirmadas.</p>
         <span class="opt-label">Incluye</span>
         <ul class="check-list">
           <li>Landing dedicada, con pruebas A/B de mensaje y diseño.</li>
           <li>Selección, alta y gestión de las redes y sus afiliados.</li>
-          <li>Control de calidad: sin tráfico incentivado ni pujas por la marca VRIM.</li>
-          <li>Costo por suscripción fijo y conocido desde el primer día.</li>
+          <li>Control de calidad: sin tráfico incentivado ni pujas por la marca VRIM, y pago al afiliado solo por suscripción confirmada.</li>
+          <li>Costo por suscripción fijo y conocido desde el primer día, sin inversión en medios.</li>
         </ul>
         <p class="fit"><b>Ideal para</b> sumar suscripciones sin comprometer presupuesto de medios.</p>
       </article>
@@ -361,15 +429,20 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
       <div>
         <span class="opt-label">Opcional</span>
         <h3>Coordinación de estrategia digital</h3>
-        <p>Una sola estrategia de marketing digital entre su equipo y Kreativo, para que los tres canales sumen en lugar de competir. Su equipo sigue operando Meta; nosotros aportamos la visión de conjunto.</p>
+        <p>Una sola estrategia de marketing digital entre su equipo y Kreativo, para que todos los canales sumen en lugar de competir. Su equipo sigue operando Meta y Google; nosotros aportamos la visión de conjunto y la reportería de todo.</p>
+        <div class="price addon-price"><b>$30,000</b><span>MXN + IVA al mes</span></div>
       </div>
-      <ul class="arrow-list">
-        <li>Comité mensual de estrategia y calendario de medios compartido.</li>
-        <li>Reglas de coordinación de audiencias, mensajes y palabras clave.</li>
-        <li>Reporte unificado de los tres canales.</li>
-        <li>Recomendaciones de optimización para su pauta.</li>
-        <li class="plain mini">Fee mensual, cotizado según alcance.</li>
-      </ul>
+      <div class="addon-scope">
+        <span class="opt-label">Incluye</span>
+        <ul class="check-list">
+          <li>Comité mensual de estrategia de 90 minutos con su equipo.</li>
+          <li>Calendario de medios compartido y reglas de coordinación de audiencias, mensajes y palabras clave.</li>
+          <li>Tablero de reporte unificado con todos los canales, suyos y nuestros, actualizado cada semana.</li>
+          <li>Reporte mensual ejecutivo con resultados, hallazgos y siguientes pasos.</li>
+          <li>Revisión mensual de su pauta en Meta y Google con recomendaciones de optimización.</li>
+        </ul>
+        <p class="mini">No incluye la operación ni cambios en sus cuentas de Meta y Google, ni producción de creatividades. Requiere acceso de lectura a sus cuentas para integrar el reporte. Las herramientas de terceros para el tablero, como los conectores de datos, se facturan aparte. Contratación mínima de 3 meses.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -378,55 +451,32 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
   <div class="wrap">
     <span class="section-tag">Valor del cliente</span>
     <h2>Por qué una suscripción anual justifica la inversión</h2>
-    <p class="section-sub">El costo de conseguir un suscriptor se paga una sola vez. Lo que ese cliente deja se acumula cada año que renueva. Por eso evaluamos el canal con el valor de vida del cliente (LTV) y no solo con la primera compra.</p>
+    <p class="section-sub">El costo de conseguir un suscriptor se paga una sola vez. Lo que ese cliente deja se acumula cada año que renueva. Por eso evaluamos cada canal con el valor de vida del cliente (LTV) y no solo con la primera compra.</p>
     <div class="ltv-intro">
       <div class="card">
-        <h3>Cómo se calcula el LTV</h3>
-        <div class="formula">LTV = precio anual ($600) × años promedio como cliente</div>
+        <h3>Cómo se calcula</h3>
+        <div class="formula">LTV = precio anual sin IVA × años promedio como cliente</div>
         <div class="formula">Años promedio = 1 ÷ (1 − tasa de renovación anual)</div>
-        <p class="mini">Con 50% de renovación, la mitad renueva el segundo año, una cuarta parte el tercero, y así sucesivamente. En promedio cada cliente paga dos años.</p>
+        <table class="ltv-steps">
+          <tr><td>Precio del plan anual sin IVA</td><td>$600</td></tr>
+          <tr><td>Tasa de renovación anual</td><td>80%</td></tr>
+          <tr><td>Años promedio como cliente</td><td>1 ÷ 0.2 = 5</td></tr>
+          <tr class="tot"><td>Valor de vida por suscriptor</td><td>$3,000</td></tr>
+        </table>
+        <p class="mini">Usamos la tasa de renovación cercana a 80% que nos compartió su equipo, en línea con el 83% que reporta RevenueCat (2026) para planes anuales de apps de suscripción.</p>
       </div>
       <div class="card">
-        <h3>Su dato manda</h3>
-        <p style="font-size:15px">Como la renovación es manual y cada canal tiene su propio porcentaje, la calculadora parte de un supuesto conservador. Con su tasa real por canal afinamos el número juntos.</p>
-        <p class="mini">Como referencia, en apps de suscripción los planes anuales renuevan en promedio 83% de las veces, según RevenueCat (2026).</p>
+        <h3>Lo que representa nuestro cobro</h3>
+        <div class="ltv-big"><b>$3,000</b><span>valor de vida de un suscriptor anual, sin IVA</span></div>
+        <table class="ltv-steps ltv-cmp">
+          <tr><td>Landing 1 · Ecosistema de medios<br><span class="mini">más la inversión en medios que ustedes definen</span></td><td>$140<br><span class="mini">4.7% del LTV</span></td></tr>
+          <tr><td>Landing 2 · Redes de afiliados<br><span class="mini">sin inversión en medios</span></td><td>$400<br><span class="mini">13.3% del LTV</span></td></tr>
+          <tr class="tot"><td>Cobro promedio con ambas landings<br><span class="mini">si 60% de las suscripciones llega por la Landing 1 y 40% por la Landing 2</span></td><td>$244<br><span class="mini">8.1% del LTV</span></td></tr>
+        </table>
+        <p class="takeaway">Nuestro cobro se paga una sola vez por suscriptor y representa menos del 10% de lo que ese cliente deja durante su vida. Cada renovación es ingreso sin costo de adquisición.</p>
+        <p class="mini">Montos en MXN sin IVA. El LTV considera ingreso y no descuenta el costo del servicio.</p>
       </div>
     </div>
-    <form class="calc" id="calc" onsubmit="return false">
-      <div>
-        <div class="field">
-          <label for="renew">Tasa de renovación anual <output id="renewOut"></output></label>
-          <input type="range" id="renew" min="20" max="80" step="5" value="50">
-          <small>Qué porcentaje de suscriptores vuelve a pagar cada año.</small>
-        </div>
-        <div class="field">
-          <label for="vol">Suscripciones al mes desde afiliados <output id="volOut"></output></label>
-          <input type="range" id="vol" min="50" max="1000" step="50" value="300">
-          <small>Para proyectar el valor de un año de adquisición.</small>
-        </div>
-        <p class="mini">Montos en MXN con IVA. El LTV considera ingreso y no descuenta el costo del servicio.</p>
-      </div>
-      <div class="calc-res">
-        <div class="ltv-big"><b id="ltv">$0</b><span>valor de vida por suscriptor</span></div>
-        <div class="stack">
-          <span class="mini">Cómo se reparte el valor de cada suscriptor de la Landing 2</span>
-          <div class="stack-bar" role="img" aria-label="Reparto del valor del suscriptor entre adquisición e ingreso">
-            <div id="barCost" style="background:var(--mid-gray)"></div>
-            <div id="barNet" style="background:var(--dark)"></div>
-          </div>
-          <div class="stack-legend">
-            <span><i style="background:var(--mid-gray)"></i>Adquisición, una sola vez <b id="lCost"></b></span>
-            <span><i style="background:var(--dark)"></i>Ingreso para Salud Interactiva <b id="lNet"></b></span>
-          </div>
-        </div>
-        <div class="res-grid">
-          <div class="res"><span class="t">Años promedio</span><span class="v" id="years">0</span></div>
-          <div class="res"><span class="t">Suscriptores al año</span><span class="v" id="subs">0</span></div>
-          <div class="res"><span class="t">Valor generado</span><span class="v" id="total">$0</span></div>
-        </div>
-        <p class="takeaway" id="takeaway"></p>
-      </div>
-    </form>
   </div>
 </section>
 
@@ -436,9 +486,9 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
     <h2>Sumar sin pisarnos</h2>
     <p class="section-sub">El valor de un aliado está en crecer el total, no en repartir lo que ya tienen. Estas son las reglas con las que operaríamos.</p>
     <div class="comp-grid">
-      <div class="comp"><span class="k">Medios</span><h3>Inventario distinto</h3><p>Programática y afiliados no compiten con su pauta en Meta por las mismas subastas, así que no encarecemos su puja.</p></div>
-      <div class="comp"><span class="k">Mensaje</span><h3>Familias distintas</h3><p>Nuestras landings trabajan nutrición y medicina general. Su campaña de salud emocional sigue siendo suya.</p></div>
-      <div class="comp"><span class="k">Medición</span><h3>Un solo número</h3><p>Cada suscripción se valida con el pago confirmado en su pasarela. Lo que reportamos es lo mismo que ustedes ven.</p></div>
+      <div class="comp"><span class="k">Medios</span><h3>Inventario distinto</h3><p>Ninguno de nuestros canales compite con su pauta en Meta y Google por las mismas subastas. Las publicaciones de creadores son orgánicas, así que tampoco encarecen su puja.</p></div>
+      <div class="comp"><span class="k">Mensaje</span><h3>Familias distintas</h3><p>Nuestras landings y creadores trabajan nutrición y medicina general. Su campaña de salud emocional sigue siendo suya.</p></div>
+      <div class="comp"><span class="k">Medición</span><h3>Un solo número</h3><p>Cada suscripción se valida con el pago confirmado en su checkout. Lo que reportamos es lo mismo que ustedes ven.</p></div>
     </div>
   </div>
 </section>
@@ -447,11 +497,67 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
   <div class="wrap">
     <span class="section-tag">Cómo arrancamos</span>
     <h2>De la aprobación a las primeras suscripciones</h2>
-    <p class="section-sub">Una prueba de concepto de seis semanas con métricas acordadas desde el inicio.</p>
+    <p class="section-sub">Avanzamos el montaje mientras su equipo termina el checkout anual, para arrancar el día que esté activo.</p>
     <div class="phases">
-      <div class="phase"><span class="when">Semanas 1 y 2</span><h3>Montaje</h3><p>Desarrollo de las landings conectadas a su pasarela, implementación del píxel y medición de los cuatro pasos. Alta de redes de afiliados y configuración de la programática.</p></div>
-      <div class="phase"><span class="when">Semanas 3 a 6</span><h3>Prueba de concepto</h3><p>Pruebas A/B de landing y mensajes, optimización semanal y reporte de suscripciones pagadas por canal y por paso del flujo.</p></div>
-      <div class="phase"><span class="when">Semana 7 en adelante</span><h3>Escala</h3><p>Con los números validados, subimos volumen en el canal que mejor retorna y evaluamos sumar otras familias de beneficios.</p></div>
+      <div class="phase"><span class="when">Mientras se construye el checkout</span><h3>Montaje</h3><p>Desarrollo de las landings, medición, alta de redes de afiliados, configuración de la programática y selección de creadores, que toma varias semanas en activarse.</p></div>
+      <div class="phase"><span class="when">Primeras 4 semanas activas</span><h3>Prueba de concepto</h3><p>Pruebas A/B de landing y mensajes, optimización semanal y reporte de suscripciones pagadas por fuente de tráfico y por paso del flujo.</p></div>
+      <div class="phase"><span class="when">Después</span><h3>Escala</h3><p>Con los números validados, movemos la inversión a las fuentes que mejor convierten y evaluamos sumar otras familias de beneficios.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="terminos">
+  <div class="wrap">
+    <span class="section-tag">Vigencia y términos</span>
+    <h2>Condiciones de la propuesta</h2>
+    <p class="section-sub">Esta propuesta tiene una vigencia de 30 días naturales a partir de su envío, el 20 de noviembre de 2026, y es válida hasta el 20 de diciembre de 2026.</p>
+    <div class="terms">
+      <div class="term-group">
+        <h3>Precios y facturación</h3>
+        <ol start="1">
+          <li>Precios en MXN más IVA.</li>
+          <li>Facturación mensual de las suscripciones validadas en el mes, con pago a 30 días de emitida la factura.</li>
+          <li>Si Salud Interactiva cambia el precio del plan anual, los cobros por suscripción se revisan de común acuerdo.</li>
+        </ol>
+      </div>
+      <div class="term-group">
+        <h3>Qué cuenta como suscripción</h3>
+        <ol start="4">
+          <li>Una suscripción anual pagada y confirmada en el checkout de Salud Interactiva, atribuible a nuestras landings mediante nuestros parámetros de seguimiento.</li>
+          <li>Las suscripciones canceladas, reembolsadas o con contracargo dentro de los primeros 30 días no se cobran; si ya se habían facturado, se descuentan de la factura siguiente.</li>
+          <li>Salud Interactiva comparte cada mes el reporte de pagos confirmados para conciliar contra nuestro registro.</li>
+        </ol>
+      </div>
+      <div class="term-group">
+        <h3>Inversión en medios de la Landing 1</h3>
+        <ol start="7">
+          <li>La inversión en medios la paga Salud Interactiva directamente o se le factura aparte sin margen, y es adicional a nuestro cobro por suscripción.</li>
+          <li>El monto mensual lo aprueba Salud Interactiva por adelantado, y Kreativo Studio no lo excede sin autorización.</li>
+        </ol>
+      </div>
+      <div class="term-group">
+        <h3>Arranque y aprobaciones</h3>
+        <ol start="9">
+          <li>La prueba de concepto arranca cuando el checkout del plan anual esté activo y envíe el aviso de pago con nuestros parámetros. Los tiempos corren a partir de ese momento.</li>
+          <li>Salud Interactiva aprueba mensajes, landings y creatividades antes de su publicación, incluido lo relacionado con regulación sanitaria.</li>
+        </ol>
+      </div>
+      <div class="term-group">
+        <h3>Coordinación de estrategia digital</h3>
+        <ol start="11">
+          <li>Contratación mínima de 3 meses, con cancelación posterior mediante aviso de 30 días.</li>
+          <li>Las herramientas de terceros para el tablero, como los conectores de datos, se facturan aparte.</li>
+        </ol>
+      </div>
+      <div class="term-group">
+        <h3>Relación</h3>
+        <ol start="13">
+          <li>Cualquiera de las partes puede terminar el servicio con 30 días de aviso por escrito. Se facturan las suscripciones generadas hasta esa fecha.</li>
+          <li>Las landings y creatividades desarrolladas para el proyecto son de Salud Interactiva una vez pagadas. La metodología y las herramientas de Kreativo Studio siguen siendo de Kreativo Studio.</li>
+          <li>Ambas partes mantienen la confidencialidad de la información compartida. Solo se manejan métricas agregadas de campañas, sin datos personales de usuarios.</li>
+          <li>Kreativo Studio es la única agencia operando redes de afiliados para VRIM Connect mientras dure el servicio.</li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
@@ -463,14 +569,17 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
     <p class="cta-sub">Para empezar necesitamos cerrar estos puntos con su equipo.</p>
     <ul class="asks">
       <li>Landing 1, Landing 2 o ambas.</li>
+      <li>Inversión mensual para el ecosistema de medios.</li>
       <li>Si suman la coordinación de estrategia digital.</li>
-      <li>Pantallas del flujo de compra y registro.</li>
-      <li>Si el paso a la membresía es redirección o integración.</li>
-      <li>Fecha de la migración al cobro anual en Stripe u OpenPay.</li>
+      <li>Fecha en que estará activo el checkout del plan anual.</li>
+      <li>Que el checkout conserve nuestros parámetros y nos avise cada pago confirmado.</li>
+      <li>Cómo se atribuye la venta si el usuario ya tenía cuenta y contrata en la app.</li>
+      <li>Exclusividad del canal de afiliados para Kreativo.</li>
       <li>Tasa de renovación por canal para afinar el LTV.</li>
-      <li>Disparo de nuestro píxel al generar la membresía.</li>
+      <li>Evaluar un incentivo para el plan anual, como dos meses de regalo.</li>
       <li>Aprobación de mensajes por familia de beneficios.</li>
     </ul>
+    <a class="btn-pdf-dark pdf-btn" href="vrim-connect-q1ivp.pdf" download="Propuesta VRIM Connect - Kreativo Studio.pdf">Descargar propuesta en PDF ↓</a>
     <div class="contact"><span><b>Enrique Girón</b> · Kreativo Studio</span><span>enrique@kreativostudio.com</span></div>
   </div>
 </section>
@@ -489,32 +598,16 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
 
 <footer>
   <span>Kreativo Studio · Performance marketing</span>
-  <span>Propuesta para Salud Interactiva · Octubre 2026</span>
+  <span>Propuesta para Salud Interactiva · Noviembre 2026</span>
 </footer>
 
 <script>
+
 (function () {
-  var PRICE = 600, CAC = 400 * 1.16;
-  var $ = function (id) { return document.getElementById(id); };
-  var mxn = function (n) { return '$' + Math.round(n).toLocaleString('es-MX'); };
-  function update() {
-    var r = +$('renew').value / 100, vol = +$('vol').value;
-    var years = 1 / (1 - r), ltv = PRICE * years, net = ltv - CAC, subs = vol * 12;
-    var pc = Math.min(CAC / ltv, 1) * 100;
-    $('renewOut').textContent = Math.round(r * 100) + '%';
-    $('volOut').textContent = vol.toLocaleString('es-MX');
-    $('ltv').textContent = mxn(ltv);
-    $('barCost').style.width = pc + '%';
-    $('barNet').style.width = (100 - pc) + '%';
-    $('lCost').textContent = mxn(CAC);
-    $('lNet').textContent = mxn(Math.max(net, 0));
-    $('years').textContent = years.toFixed(1);
-    $('subs').textContent = subs.toLocaleString('es-MX');
-    $('total').textContent = mxn(subs * ltv);
-    $('takeaway').textContent = 'Con ' + Math.round(r * 100) + '% de renovación, la adquisición representa ' + Math.round(pc) + '% del valor del cliente y se paga una sola vez. Cada renovación después del primer año es ingreso sin costo de adquisición.';
-  }
-  ['renew', 'vol'].forEach(function (id) { $(id).addEventListener('input', update); });
-  update();
+  var t = document.getElementById('navToggle'), m = document.getElementById('navLinks');
+  if (!t || !m) return;
+  t.addEventListener('click', function () { var o = m.classList.toggle('open'); t.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  m.addEventListener('click', function (e) { if (e.target.tagName === 'A') { m.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); } });
 })();
 </script>
 </body>
