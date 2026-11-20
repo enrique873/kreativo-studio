@@ -247,7 +247,7 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
   .section-sub { margin-bottom: 28px; }
   .opt, .card, .phase, .step, .comp, .ch, .fact, .addon, .ltv-fixed > *, .funnel-notes > div, .asks li { break-inside: avoid; }
   h2, h3 { break-after: avoid; break-inside: avoid; }
-  #terminos { break-before: page; }
+  #terminos, #valor { break-before: page; }
   #siguiente { break-inside: avoid; }
   .section-tag, .cta-eyebrow { display: table; break-after: avoid; }
   .cta-eyebrow { margin-inline: auto; }
@@ -272,6 +272,20 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
 .term-group li { font-size: 14.5px; color: var(--dark); padding-left: 4px; }
 .term-group li::marker { color: var(--cyan-ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 @media (max-width: 768px) { .terms { grid-template-columns: 1fr; } .term-group { padding: 22px; } }
+
+.opt-extra { border: 1px solid var(--light-gray); border-radius: var(--radius-sm); padding: 16px 18px; display: grid; gap: 6px; }
+.opt-extra h4 { margin: 0; font-family: var(--font-heading); font-size: 17px; font-weight: 700; color: var(--darker); }
+.opt-extra p { font-size: 14.5px; }
+.opt-extra b { font-weight: 500; color: var(--darker); }
+.cost-note { margin-top: 24px; background: var(--off-white); border-radius: var(--radius); padding: 28px 32px; display: grid; gap: 8px; }
+.cost-note h3 { font-size: 19px; }
+.cost-note p { font-size: 15px; max-width: 860px; }
+.ltv-sc th { font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid-gray); text-align: right; padding: 0 0 10px 12px; vertical-align: bottom; border-bottom: 1px solid var(--light-gray); }
+.ltv-sc td:not(:first-child) { text-align: right; white-space: nowrap; padding-left: 12px; font-weight: 500; color: var(--darker); }
+.ltv-sc tr.tot td { font-size: 18px; }
+.ltv-warn { font-size: 14px; color: var(--dark); border-left: 3px solid var(--cyan); padding: 4px 0 4px 12px; }
+.ltv-warn b { font-weight: 500; }
+.term-group li b { font-weight: 500; color: var(--darker); }
 </style>
 </head>
 <body>
@@ -306,7 +320,7 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
       <div><span class="hero-stat-number">3</span><span class="hero-stat-label">fuentes de tráfico nuevas, fuera de Meta y Google</span></div>
       <div><span class="hero-stat-number">2</span><span class="hero-stat-label">landings dedicadas a la suscripción anual</span></div>
       <div><span class="hero-stat-number">5</span><span class="hero-stat-label">pasos del anuncio a la app, medidos de punta a punta</span></div>
-      <div><span class="hero-stat-number">18 M</span><span class="hero-stat-label">personas con perfil para comprarla en línea</span></div>
+      <div><span class="hero-stat-number">18 M</span><span class="hero-stat-label">personas con perfil para comprarla en línea, estimación con datos de INEGI y AMVO</span></div>
     </div>
   </div>
 </header>
@@ -406,7 +420,11 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
           <li>Optimización por conversión: lo que no genera suscripciones se quita y la inversión pasa a lo que sí.</li>
           <li>Ustedes definen el presupuesto y lo ajustan cada mes.</li>
         </ul>
-        <p class="mini">Las campañas con creadores se contratan por mes, a partir de aproximadamente $70,000 MXN. Las sumamos cuando la inversión mensual lo permita.</p>
+        <div class="opt-extra">
+          <span class="opt-label">Opcional dentro del ecosistema</span>
+          <h4>Creadores de contenido</h4>
+          <p>Las campañas con creadores se contratan por mes, a partir de <b>$70,000 MXN</b> de inversión en medios. Las sumamos cuando la inversión mensual lo permita y solo si convierten.</p>
+        </div>
         <p class="fit"><b>Ideal para</b> ganar alcance y conversión incrementales con control total de la inversión.</p>
       </article>
       <article class="opt">
@@ -424,6 +442,10 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
         </ul>
         <p class="fit"><b>Ideal para</b> sumar suscripciones sin comprometer presupuesto de medios.</p>
       </article>
+    </div>
+    <div class="cost-note">
+      <h3>¿Cuánto cuesta en total una suscripción por la Landing 1?</h3>
+      <p>Depende del costo de medios por suscripción, que se conoce con datos reales al terminar las primeras cuatro semanas de la prueba de concepto. Por eso recomendamos arrancar con ambas landings: la Landing 2 da un costo fijo desde el primer día y la Landing 1 nos da el dato para decidir hacia dónde mover la inversión.</p>
     </div>
     <div class="addon">
       <div>
@@ -463,18 +485,21 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
           <tr><td>Años promedio como cliente</td><td>1 ÷ 0.2 = 5</td></tr>
           <tr class="tot"><td>Valor de vida por suscriptor</td><td>$3,000</td></tr>
         </table>
-        <p class="mini">Usamos la tasa de renovación cercana a 80% que nos compartió su equipo, en línea con el 83% que reporta RevenueCat (2026) para planes anuales de apps de suscripción.</p>
+        <p class="mini">Usamos la tasa de renovación cercana a 80% que nos compartió su equipo, en línea con el 83% que reporta RevenueCat (2026) para planes anuales de apps de suscripción. Como las renovaciones suelen bajar en años posteriores, también mostramos un escenario conservador de 60%: 2.5 años y $1,500 de valor de vida.</p>
       </div>
       <div class="card">
         <h3>Lo que representa nuestro cobro</h3>
-        <div class="ltv-big"><b>$3,000</b><span>valor de vida de un suscriptor anual, sin IVA</span></div>
-        <table class="ltv-steps ltv-cmp">
-          <tr><td>Landing 1 · Ecosistema de medios<br><span class="mini">más la inversión en medios que ustedes definen</span></td><td>$140<br><span class="mini">4.7% del LTV</span></td></tr>
-          <tr><td>Landing 2 · Redes de afiliados<br><span class="mini">sin inversión en medios</span></td><td>$400<br><span class="mini">13.3% del LTV</span></td></tr>
-          <tr class="tot"><td>Cobro promedio con ambas landings<br><span class="mini">si 60% de las suscripciones llega por la Landing 1 y 40% por la Landing 2</span></td><td>$244<br><span class="mini">8.1% del LTV</span></td></tr>
+        <table class="ltv-steps ltv-sc">
+          <thead><tr><th></th><th>Con su renovación<br>de 80%</th><th>Escenario<br>conservador, 60%</th></tr></thead>
+          <tbody>
+            <tr class="tot"><td>Valor de vida por suscriptor</td><td>$3,000</td><td>$1,500</td></tr>
+            <tr><td>Landing 1 · $140<br><span class="mini">más la inversión en medios que ustedes definen</span></td><td>4.7%</td><td>9.3%</td></tr>
+            <tr><td>Landing 2 · $400<br><span class="mini">sin inversión en medios</span></td><td>13.3%</td><td>26.7%</td></tr>
+            <tr><td>Promedio · $244<br><span class="mini">si 60% llega por la Landing 1 y 40% por la Landing 2</span></td><td>8.1%</td><td>16.3%</td></tr>
+          </tbody>
         </table>
-        <p class="takeaway">Nuestro cobro se paga una sola vez por suscriptor y representa menos del 10% de lo que ese cliente deja durante su vida. Cada renovación es ingreso sin costo de adquisición.</p>
-        <p class="mini">Montos en MXN sin IVA. El LTV considera ingreso y no descuenta el costo del servicio.</p>
+        <p class="takeaway">Aun con una renovación de 60%, nuestro cobro promedio representa menos del 17% de lo que el suscriptor deja durante su vida, y se paga una sola vez.</p>
+        <p class="ltv-warn"><b>Importante:</b> el LTV considera el ingreso por suscripciones y no descuenta el costo de los servicios que reciben los suscriptores. Montos en MXN sin IVA.</p>
       </div>
     </div>
   </div>
@@ -516,46 +541,51 @@ footer { padding: 28px 48px 40px; border-top: 1px solid var(--light-gray); font-
         <h3>Precios y facturación</h3>
         <ol start="1">
           <li>Precios en MXN más IVA.</li>
-          <li>Facturación mensual de las suscripciones validadas en el mes, con pago a 30 días de emitida la factura.</li>
+          <li>Facturación mensual. La Landing 1 y la coordinación se pagan a 30 días de emitida la factura.</li>
+          <li>La Landing 2 se paga a 15 días de emitida la factura, porque en ese modelo Kreativo Studio financia la inversión en tráfico.</li>
           <li>Si Salud Interactiva cambia el precio del plan anual, los cobros por suscripción se revisan de común acuerdo.</li>
         </ol>
       </div>
       <div class="term-group">
         <h3>Qué cuenta como suscripción</h3>
-        <ol start="4">
+        <ol start="5">
           <li>Una suscripción anual pagada y confirmada en el checkout de Salud Interactiva, atribuible a nuestras landings mediante nuestros parámetros de seguimiento.</li>
+          <li><b>Atribución.</b> Es atribuible a Kreativo Studio toda suscripción anual pagada dentro de los 30 días naturales posteriores al primer clic registrado con nuestros parámetros, sin importar el dispositivo ni si la compra se completa en el sitio o dentro de la app, siempre que el usuario no tuviera una suscripción anual vigente. Para las compras dentro de la app, Salud Interactiva comparte los datos necesarios para atribuirlas.</li>
           <li>Las suscripciones canceladas, reembolsadas o con contracargo dentro de los primeros 30 días no se cobran; si ya se habían facturado, se descuentan de la factura siguiente.</li>
           <li>Salud Interactiva comparte cada mes el reporte de pagos confirmados para conciliar contra nuestro registro.</li>
+          <li><b>Desempeño del flujo.</b> Checkout, registro y activación de la app son responsabilidad de Salud Interactiva. En las primeras cuatro semanas activas se fija de común acuerdo una referencia de conversión de esos pasos. Si después cae de forma sostenida por debajo de esa referencia por causas ajenas a Kreativo Studio, se revisa el cobro por suscripción de la Landing 2.</li>
         </ol>
       </div>
       <div class="term-group">
         <h3>Inversión en medios de la Landing 1</h3>
-        <ol start="7">
+        <ol start="10">
           <li>La inversión en medios la paga Salud Interactiva directamente o se le factura aparte sin margen, y es adicional a nuestro cobro por suscripción.</li>
           <li>El monto mensual lo aprueba Salud Interactiva por adelantado, y Kreativo Studio no lo excede sin autorización.</li>
         </ol>
       </div>
       <div class="term-group">
         <h3>Arranque y aprobaciones</h3>
-        <ol start="9">
+        <ol start="12">
           <li>La prueba de concepto arranca cuando el checkout del plan anual esté activo y envíe el aviso de pago con nuestros parámetros. Los tiempos corren a partir de ese momento.</li>
-          <li>Salud Interactiva aprueba mensajes, landings y creatividades antes de su publicación, incluido lo relacionado con regulación sanitaria.</li>
+          <li><b>Ventana de arranque.</b> Si esa fecha se recorre más de 60 días naturales a partir de la aceptación de esta propuesta, cualquiera de las partes puede revisar los términos comerciales, incluidos los cobros por suscripción.</li>
+          <li>Salud Interactiva aprueba por escrito mensajes, landings y creatividades antes de su publicación, incluido lo relacionado con regulación sanitaria.</li>
         </ol>
       </div>
       <div class="term-group">
         <h3>Coordinación de estrategia digital</h3>
-        <ol start="11">
+        <ol start="15">
           <li>Contratación mínima de 3 meses, con cancelación posterior mediante aviso de 30 días.</li>
           <li>Las herramientas de terceros para el tablero, como los conectores de datos, se facturan aparte.</li>
         </ol>
       </div>
       <div class="term-group">
         <h3>Relación</h3>
-        <ol start="13">
+        <ol start="17">
           <li>Cualquiera de las partes puede terminar el servicio con 30 días de aviso por escrito. Se facturan las suscripciones generadas hasta esa fecha.</li>
           <li>Las landings y creatividades desarrolladas para el proyecto son de Salud Interactiva una vez pagadas. La metodología y las herramientas de Kreativo Studio siguen siendo de Kreativo Studio.</li>
           <li>Ambas partes mantienen la confidencialidad de la información compartida. Solo se manejan métricas agregadas de campañas, sin datos personales de usuarios.</li>
-          <li>Kreativo Studio es la única agencia operando redes de afiliados para VRIM Connect mientras dure el servicio.</li>
+          <li><b>Exclusividad.</b> Kreativo Studio es la única agencia operando redes de afiliados para VRIM Connect mientras el canal esté activo. Si Salud Interactiva suspende la Landing 2 por más de 60 días naturales, la exclusividad queda sin efecto para ambas partes.</li>
+          <li><b>Cumplimiento regulatorio.</b> Kreativo Studio transmite a las redes y afiliados los lineamientos aprobados por Salud Interactiva y retira en un máximo de 48 horas, a partir de la notificación, cualquier pieza que no los cumpla. Su responsabilidad por afirmaciones no aprobadas publicadas por terceros se limita a ese retiro y a la suspensión del afiliado.</li>
         </ol>
       </div>
     </div>
